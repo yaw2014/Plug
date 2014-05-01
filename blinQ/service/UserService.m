@@ -9,7 +9,7 @@
 #import "UserService.h"
 
 @implementation UserService
-
+@synthesize delegate, theRequest;
 + (void) storeUserName:(NSString *)name {
     [[NSUserDefaults standardUserDefaults] setObject:name forKey:USER_NAME_KEY];
 }
@@ -73,6 +73,7 @@
 + (NSString*) signedInAvatar {
     return [[NSUserDefaults standardUserDefaults] objectForKey:USER_AVATAR_KEY];
 }
+
 
 
 @end

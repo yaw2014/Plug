@@ -46,6 +46,11 @@
 		A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168851910DC3200639990 /* SBJsonWriter.m */; };
 		A62168A21910DC3200639990 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168881910DC3200639990 /* Utils.m */; };
 		A697C00919125C1600391A07 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00819125C1600391A07 /* Group.m */; };
+		A697C00C1912709300391A07 /* QuestionService.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00B1912709300391A07 /* QuestionService.m */; };
+		A697C010191297C600391A07 /* UserGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00E191297C600391A07 /* UserGroupViewController.m */; };
+		A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C00F191297C600391A07 /* UserGroupViewController.xib */; };
+		A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0121912ABA100391A07 /* UILoadingImageView.m */; };
+		A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0141912ABA100391A07 /* UILineFooterView.m */; };
 		A6A35D911911BB6A00E52A56 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D901911BB6A00E52A56 /* User.m */; };
 		A6A35D941911BBF800E52A56 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D931911BBF800E52A56 /* UserService.m */; };
 		A6BC98321911740E00E3C4F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98311911740E00E3C4F2 /* CFNetwork.framework */; };
@@ -141,6 +146,15 @@
 		A62BC7DF19124F97005E91EC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A697C00719125C1600391A07 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		A697C00819125C1600391A07 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		A697C00A1912709300391A07 /* QuestionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionService.h; sourceTree = "<group>"; };
+		A697C00B1912709300391A07 /* QuestionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionService.m; sourceTree = "<group>"; };
+		A697C00D191297C600391A07 /* UserGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGroupViewController.h; sourceTree = "<group>"; };
+		A697C00E191297C600391A07 /* UserGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGroupViewController.m; sourceTree = "<group>"; };
+		A697C00F191297C600391A07 /* UserGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGroupViewController.xib; sourceTree = "<group>"; };
+		A697C0121912ABA100391A07 /* UILoadingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoadingImageView.m; sourceTree = "<group>"; };
+		A697C0131912ABA100391A07 /* UILoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoadingImageView.h; sourceTree = "<group>"; };
+		A697C0141912ABA100391A07 /* UILineFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILineFooterView.m; sourceTree = "<group>"; };
+		A697C0151912ABA100391A07 /* UILineFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILineFooterView.h; sourceTree = "<group>"; };
 		A6A35D8F1911BB6A00E52A56 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A6A35D901911BB6A00E52A56 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A6A35D921911BBF800E52A56 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
@@ -266,6 +280,9 @@
 				A62168491910DC3200639990 /* RegisterViewController.h */,
 				A621684A1910DC3200639990 /* RegisterViewController.m */,
 				A621684B1910DC3200639990 /* RegisterViewController.xib */,
+				A697C00D191297C600391A07 /* UserGroupViewController.h */,
+				A697C00E191297C600391A07 /* UserGroupViewController.m */,
+				A697C00F191297C600391A07 /* UserGroupViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -275,6 +292,8 @@
 			children = (
 				A6A35D921911BBF800E52A56 /* UserService.h */,
 				A6A35D931911BBF800E52A56 /* UserService.m */,
+				A697C00A1912709300391A07 /* QuestionService.h */,
+				A697C00B1912709300391A07 /* QuestionService.m */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -384,6 +403,10 @@
 		A62168861910DC3200639990 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A697C0121912ABA100391A07 /* UILoadingImageView.m */,
+				A697C0131912ABA100391A07 /* UILoadingImageView.h */,
+				A697C0141912ABA100391A07 /* UILineFooterView.m */,
+				A697C0151912ABA100391A07 /* UILineFooterView.h */,
 				A62168871910DC3200639990 /* Utils.h */,
 				A62168881910DC3200639990 /* Utils.m */,
 			);
@@ -476,6 +499,7 @@
 				A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
+				A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */,
 				A621688A1910DC3200639990 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,14 +541,18 @@
 				A621689B1910DC3200639990 /* SBJsonStreamParserState.m in Sources */,
 				A62168921910DC3200639990 /* ASINetworkQueue.m in Sources */,
 				A621688D1910DC3200639990 /* ASIDataDecompressor.m in Sources */,
+				A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */,
 				A62168931910DC3200639990 /* Reachability.m in Sources */,
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
+				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,
+				A697C00C1912709300391A07 /* QuestionService.m in Sources */,
 				A62168961910DC3200639990 /* NSObject+SBJson.m in Sources */,
 				A62168951910DC3200639990 /* MBProgressHUD.m in Sources */,
 				A6A35D941911BBF800E52A56 /* UserService.m in Sources */,
 				A697C00919125C1600391A07 /* Group.m in Sources */,
 				A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */,
 				A621689F1910DC3200639990 /* SBJsonTokeniser.m in Sources */,
+				A697C010191297C600391A07 /* UserGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

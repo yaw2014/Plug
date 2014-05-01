@@ -9,6 +9,8 @@
 #import "RegisterViewController.h"
 #import "Constants.h"
 #import "Utils.h"
+#import "User.h"
+#import "UserGroupViewController.h"
 
 @interface RegisterViewController ()
 
@@ -152,6 +154,22 @@
         warningLbl.text = EMAIL_INVALID_MSG;
     } else {
         //go to select group screeen
+        User *user = [[User alloc] init];
+        user.name = name;
+        user.email = email;
+        user.section = section;
+        user.year = year;
+        user.city = city;
+        user.state = state;
+        user.country = country;
+        user.password = password;
+        if (avatarImgView.image != nil) {
+            user.avatarImg = avatarImgView.image;
+        }
+        
+        UserGroupViewController *viewVC = [[UserGroupViewController alloc] initWithNibName:@"UserGroupViewController" bundle:nil];
+        viewVC.user = user;
+        [self.navigationController pushViewController:viewVC animated:YES];
     }
 }
 
@@ -161,6 +179,7 @@
 
 - (IBAction)doneSectionView:(id)sender {
     [self closeSectionSelectView];
+    [yearTxt becomeFirstResponder];
 }
 
 #pragma mark - UIPickerViewDataSource
@@ -182,8 +201,53 @@
 }
 
 #pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void) takePicture {
+    if (!([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])) {
+		UIAlertView * myAlert = [[UIAlertView alloc] initWithTitle:@"" message:@"This device does not support the camera" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+		[myAlert show];
+	} else {
+		UIImagePickerController * pickCont = [[UIImagePickerController alloc] init];
+		pickCont.delegate = self;
+		pickCont.allowsEditing = YES;
+		pickCont.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:pickCont animated:YES completion:^{
+            
+        }];
+	}
     
+}
+
+- (void) selectPicture {
+    UIImagePickerController * pickCont = [[UIImagePickerController alloc] init];
+	pickCont.delegate = self;
+	pickCont.allowsEditing = YES;
+	pickCont.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:pickCont animated:YES completion:^{
+        
+    }];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self takePicture];
+    } else if (buttonIndex == 1) {
+        [self selectPicture];
+    }
+    [actionSheet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	avatarImgView.image = (UIImage*) [info objectForKey:UIImagePickerControllerEditedImage];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -191,6 +255,7 @@
     if (textField == nameTxt) {
         [emailTxt becomeFirstResponder];
     } else if (textField == emailTxt) {
+        [textField resignFirstResponder];
         [self sectionBtnTapped:nil];
     } else if (textField == yearTxt) {
         [cityTxt becomeFirstResponder];
@@ -203,6 +268,7 @@
     } else if (textField == passwordTxt) {
         [confirmPasswordTxt becomeFirstResponder];
     } else if (textField == confirmPasswordTxt) {
+        [textField resignFirstResponder];
         [self nextBtnTapped:nil];
     }
     return YES;

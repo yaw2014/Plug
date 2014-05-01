@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASIFormDataRequest.h"
 
-@interface UserService : NSObject
+@interface UserService : NSObject {
+    
+}
+
+@property (nonatomic, assign) id delegate;
+@property (nonatomic, retain) ASIFormDataRequest *theRequest;
 
 
 + (void) storeUserName: (NSString*) name;

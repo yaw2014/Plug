@@ -8,15 +8,18 @@
             <connections>
                 <outlet property="avatarImgView" destination="6e5-zK-lMl" id="to3-Kl-vxJ"/>
                 <outlet property="cityTxt" destination="qXL-09-05P" id="WhZ-Ou-2F9"/>
+                <outlet property="confirmPasswordTxt" destination="edN-Ph-c7K" id="1WX-ZU-TMq"/>
                 <outlet property="countryTxt" destination="M6t-ko-Vvo" id="MKR-M7-s8B"/>
                 <outlet property="emailTxt" destination="a2Y-no-Gdd" id="nzN-s4-lbE"/>
                 <outlet property="myScrollView" destination="MHq-pE-6Ve" id="oCZ-TP-k0o"/>
                 <outlet property="nameTxt" destination="Qtu-G6-x0F" id="CwI-kw-4fm"/>
+                <outlet property="passwordTxt" destination="CXg-yq-gc7" id="V5c-Sg-3Hh"/>
                 <outlet property="sectionBtn" destination="BbN-dG-AIZ" id="NwM-mG-4Ca"/>
                 <outlet property="sectionPicker" destination="wqo-EO-7FB" id="cEb-SM-HYH"/>
                 <outlet property="sectionSelectView" destination="Lel-q4-ajw" id="CJw-dt-Rs9"/>
                 <outlet property="stateTxt" destination="rlX-1K-jd6" id="5w3-DA-M6d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="warningLbl" destination="Ebu-yD-7k8" id="SXY-de-FhW"/>
                 <outlet property="yearTxt" destination="JYj-XC-ZvC" id="lYD-rq-W3g"/>
             </connections>
         </placeholder>
@@ -122,7 +125,7 @@
                             <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-8F-91Y">
-                            <rect key="frame" x="20" y="501" width="280" height="30"/>
+                            <rect key="frame" x="20" y="528" width="280" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="Next">
@@ -133,6 +136,13 @@
                                 <action selector="nextBtnTapped:" destination="-1" eventType="touchUpInside" id="Moh-RC-8vt"/>
                             </connections>
                         </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebu-yD-7k8">
+                            <rect key="frame" x="20" y="494" width="280" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.89019607840000003" green="0.1137254902" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                 </scrollView>
             </subviews>

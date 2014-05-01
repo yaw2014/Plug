@@ -7,13 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "RegisterViewController.h"
 
 @implementation AppDelegate
-
+@synthesize navController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    RegisterViewController *viewVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:viewVC];
+    [navController setNavigationBarHidden:YES];
+    
+    self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

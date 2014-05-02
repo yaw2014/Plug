@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 @synthesize navController;
@@ -18,7 +19,7 @@
     LoginViewController *viewVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewVC];
     [navController setNavigationBarHidden:YES];
-    
+    [self showMainScreen];
     self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -30,11 +31,13 @@
 }
 
 - (void) showMainScreen {
-    
+    MainViewController *viewVC = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    [self.navController popToRootViewControllerAnimated:NO];
+    [self.navController pushViewController:viewVC animated:YES];
 }
 
 - (void) showFirstLogInScreen {
-    
+    [self.navController popToRootViewControllerAnimated:YES];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

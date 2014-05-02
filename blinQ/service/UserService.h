@@ -28,6 +28,13 @@
 
 - (void) didForgotPasswordWithEmailSuccess: (UserService*) service;
 - (void) didForgotPasswordWithEmailFail: (UserService*) service withMessage: (NSString*) message;
+
+- (void) didRetrieveUserInfoByUserIdSuccess: (UserService*) service;
+- (void) didRetrieveUserInfoByUserIdFail: (UserService*) service withMessage: (NSString*) message;
+
+- (void) didUpdateUserInfoByUserIdSuccess: (UserService*) service;
+- (void) didUpdateUserInfoByUserIdFail: (UserService*) service withMessage: (NSString*) message;
+
 @end
 
 @interface UserService : NSObject {
@@ -69,4 +76,15 @@
 - (void) submitAvatarForUser: (NSString*) userId withFileName: (NSString*) fileName andData: (NSData*) data;
 - (void) loginWithEmail: (NSString*) email andPassword: (NSString*) password;
 - (void) forgotPasswordWithEmail: (NSString*) email;
+- (void) retrieveUserInfoByUserId: (NSString*) userId;
+- (void) updateUserInfoWithUserId: (NSString*) userId
+                         withName: (NSString*) name
+                    withSection: (NSString*) section
+                       withYear: (NSString*) year
+                       withCity: (NSString*) city
+                      withState: (NSString*) state
+                    withCountry: (NSString*) country
+                withOldPassword: (NSString*) oldPassword
+                withNewPassword: (NSString*) newPassword
+                   withGroupIds: (NSString*) groupIds;
 @end

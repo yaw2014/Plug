@@ -20,6 +20,26 @@
 - (void) didRetrieveGroupsSuccess: (QuestionService*) service;
 - (void) didRetrieveGroupsFail: (QuestionService *)service withMessage: (NSString*) message;
 
+- (void) didAskAQuestionSuccess: (QuestionService*) service;
+- (void) didAskAQuestionFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didGetMyQuestionsSuccess: (QuestionService*) service;
+- (void) didGetMyQuestionsFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didGetQuestionsForMeSuccess: (QuestionService*) service;
+- (void) didGetQuestionsForMeFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didGetTopQuestionsSuccess: (QuestionService*) service;
+- (void) didGetTopQuestionsFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didSubmitAnswerSuccess: (QuestionService*) service;
+- (void) didSubmitAnswerFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didRetrieveAnswersForQuestionSuccess: (QuestionService*) service;
+- (void) didRetrieveAnswersForQuestionFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didSearchQuestionsSuccess: (QuestionService*) service;
+- (void) didSearchQuestionsFail: (QuestionService *)service withMessage: (NSString*) message;
 @end
 
 @interface QuestionService : NSObject {
@@ -32,4 +52,13 @@
 @property (nonatomic, retain) NSMutableArray *groups;
 
 - (void) retrieveGroups;
+- (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate;
+
+- (void) getMyQuestionsWithUserId: (NSString*) userId withIgnoreIds: (NSString*) ignoreIds;
+- (void) getQuestionsForMeWithGroupIds: (NSString*) groupIds withIgnoreIds: (NSString*) ignoreIds;
+- (void) getTopQuestionsWithIgnoreIds: (NSString*) ignoreIds;
+- (void) submitAnswerFromUserId: (NSString*) userId forQuestionId: (NSString*) questionId withAnswer: (NSString*) answer;
+- (void) retrieveAnswersForQuestion: (NSString*) questionId;
+- (void) searchQuestionByKeyword: (NSString*) keyword;
+
 @end

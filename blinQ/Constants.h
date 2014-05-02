@@ -10,10 +10,21 @@
 #define blinQ_Constants_h
 //url
 #define GROUPS_RETRIEVE_URL                     @""
+#define ASK_QUESTION_URL                        @""
+#define GET_MY_QUESTIONS_URL                    @""
+#define GET_QUESTIONS_FOR_ME_URL                @""
+#define GET_TOP_QUESTIONS_URL                   @""
+#define SUBMIT_ANSWER_URL                       @""
+#define GET_ANSWER_FOR_QUESTION_URL             @""
+#define SEARCH_ON_QUESTIONS_URL                 @""
+
+
 #define REGISTER_USER_URL                       @""
 #define SUBMIT_AVATAR_URL                       @""
 #define LOGIN_URL                               @""
 #define FORGOT_PASSWORD_URL                     @""
+#define RETRIEVE_USER_INFO_URL                  @""
+#define UPDATE_USER_INFO_URL                    @""
 
 //key
 #define USER_NAME_KEY                           @"userNameKey"

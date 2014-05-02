@@ -276,5 +276,114 @@
     [theRequest startAsynchronous];
 }
 
+- (void) retrieveUserInfoByUserId: (NSString*) userId {
+    NSURL *url = [NSURL URLWithString:RETRIEVE_USER_INFO_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
+
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Get user info: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                GDataXMLElement *ele = [Utils getSingleChildFrom:element withElementName:@"user"];
+                self.user = [[User alloc] initWithElement:ele];
+                if (delegate && [delegate respondsToSelector:@selector(didRetrieveUserInfoByUserIdSuccess:)]) {
+                    [delegate didRetrieveUserInfoByUserIdSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didRetrieveUserInfoByUserIdFail:withMessage:)]) {
+                    [delegate didRetrieveUserInfoByUserIdFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didRetrieveUserInfoByUserIdFail:withMessage:)]) {
+                [delegate didRetrieveUserInfoByUserIdFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didRetrieveUserInfoByUserIdFail:withMessage:)]) {
+            [delegate didRetrieveUserInfoByUserIdFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+}
+
+- (void)updateUserInfoWithUserId: (NSString*) userId
+                        withName:(NSString *)name
+                   withSection:(NSString *)section
+                      withYear:(NSString *)year
+                      withCity:(NSString *)city
+                     withState:(NSString *)state
+                   withCountry:(NSString *)country
+               withOldPassword:(NSString *)oldPassword
+               withNewPassword:(NSString *)newPassword
+                  withGroupIds:(NSString *)groupIds {
+    NSURL *url = [NSURL URLWithString:UPDATE_USER_INFO_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
+    [theRequest setPostValue:name forKey:@"name"];
+    [theRequest setPostValue:section forKey:@"section"];
+    [theRequest setPostValue:year forKey:@"year"];
+    [theRequest setPostValue:city forKey:@"city"];
+    [theRequest setPostValue:state forKey:@"state"];
+    [theRequest setPostValue:country forKey:@"country"];
+    [theRequest setPostValue:oldPassword forKey:@"oldPassword"];
+    [theRequest setPostValue:newPassword forKey:@"newPassword"];
+    [theRequest setPostValue:groupIds forKey:@"groupIds"];
+    
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Update info: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                GDataXMLElement *ele = [Utils getSingleChildFrom:element withElementName:@"user"];
+                self.user = [[User alloc] initWithElement:ele];
+                if (delegate && [delegate respondsToSelector:@selector(didUpdateUserInfoByUserIdSuccess:)]) {
+                    [delegate didUpdateUserInfoByUserIdSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didUpdateUserInfoByUserIdFail:withMessage:)]) {
+                    [delegate didUpdateUserInfoByUserIdFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didUpdateUserInfoByUserIdFail:withMessage:)]) {
+                [delegate didUpdateUserInfoByUserIdFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didUpdateUserInfoByUserIdFail:withMessage:)]) {
+            [delegate didUpdateUserInfoByUserIdFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+}
 
 @end

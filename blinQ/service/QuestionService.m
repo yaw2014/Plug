@@ -60,4 +60,312 @@
     [theRequest startAsynchronous];
 }
 
+- (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate {
+    NSURL *url = [NSURL URLWithString:ASK_QUESTION_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
+    [theRequest setPostValue:subject forKey:@"subject"];
+    [theRequest setPostValue:question forKey:@"question"];
+    [theRequest setPostValue:groupIds forKey:@"groupIds"];
+    [theRequest setPostValue:expireDate forKey:@"expireDate"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Ask question: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didAskAQuestionSuccess:)]) {
+                    [delegate didAskAQuestionSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didAskAQuestionFail:withMessage:)]) {
+                    [delegate didAskAQuestionFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didAskAQuestionFail:withMessage:)]) {
+                [delegate didAskAQuestionFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didAskAQuestionFail:withMessage:)]) {
+            [delegate didAskAQuestionFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+
+}
+
+- (void) getMyQuestionsWithUserId: (NSString*) userId withIgnoreIds: (NSString*) ignoreIds {
+    NSURL *url = [NSURL URLWithString:GET_MY_QUESTIONS_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
+    [theRequest setPostValue:ignoreIds forKey:@"ignoreIds"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Get my questions: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
+                    [delegate didGetMyQuestionsSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsFail:withMessage:)]) {
+                    [delegate didGetMyQuestionsFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsFail:withMessage:)]) {
+                [delegate didGetMyQuestionsFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsFail:withMessage:)]) {
+            [delegate didGetMyQuestionsFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+}
+- (void) getQuestionsForMeWithGroupIds: (NSString*) groupIds withIgnoreIds: (NSString*) ignoreIds {
+    NSURL *url = [NSURL URLWithString:GET_QUESTIONS_FOR_ME_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:groupIds forKey:@"groupIds"];
+    [theRequest setPostValue:ignoreIds forKey:@"ignoreIds"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Questions for me: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
+                    [delegate didGetQuestionsForMeSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeFail:withMessage:)]) {
+                    [delegate didGetQuestionsForMeFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeFail:withMessage:)]) {
+                [delegate didGetQuestionsForMeFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeFail:withMessage:)]) {
+            [delegate didGetQuestionsForMeFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+}
+- (void) getTopQuestionsWithIgnoreIds: (NSString*) ignoreIds {
+    NSURL *url = [NSURL URLWithString:GET_TOP_QUESTIONS_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:ignoreIds forKey:@"ignoreIds"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Top questions: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsSuccess:)]) {
+                    [delegate didGetTopQuestionsSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsFail:withMessage:)]) {
+                    [delegate didGetTopQuestionsFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsFail:withMessage:)]) {
+                [delegate didGetTopQuestionsFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsFail:withMessage:)]) {
+            [delegate didGetTopQuestionsFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+}
+- (void) submitAnswerFromUserId: (NSString*) userId forQuestionId: (NSString*) questionId withAnswer: (NSString*) answer {
+    NSURL *url = [NSURL URLWithString:SUBMIT_ANSWER_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
+    [theRequest setPostValue:questionId forKey:@"questionId"];
+    [theRequest setPostValue:answer forKey:@"answer"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Submit answer: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didSubmitAnswerSuccess:)]) {
+                    [delegate didSubmitAnswerSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didSubmitAnswerFail:withMessage:)]) {
+                    [delegate didSubmitAnswerFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didSubmitAnswerFail:withMessage:)]) {
+                [delegate didSubmitAnswerFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didSubmitAnswerFail:withMessage:)]) {
+            [delegate didSubmitAnswerFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+
+}
+- (void) retrieveAnswersForQuestion: (NSString*) questionId {
+    NSURL *url = [NSURL URLWithString:GET_ANSWER_FOR_QUESTION_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:questionId forKey:@"questionId"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Retrieve answers: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersForQuestionSuccess:)]) {
+                    [delegate didRetrieveAnswersForQuestionSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersForQuestionFail:withMessage:)]) {
+                    [delegate didRetrieveAnswersForQuestionFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersForQuestionFail:withMessage:)]) {
+                [delegate didRetrieveAnswersForQuestionFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersForQuestionFail:withMessage:)]) {
+            [delegate didRetrieveAnswersForQuestionFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+
+}
+- (void) searchQuestionByKeyword: (NSString*) keyword {
+    NSURL *url = [NSURL URLWithString:SEARCH_ON_QUESTIONS_URL];
+    self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:keyword forKey:@"keyword"];
+    
+    __weak ASIFormDataRequest *request = theRequest;
+    
+    [request setCompletionBlock:^{
+        NSString * responseString = [request responseString];
+        NSLog(@"Search question: %@", responseString);
+        
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
+        GDataXMLElement *element = [doc rootElement];
+        if ([element.name isEqual:@"data"]) {
+            GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
+            if ([success.stringValue isEqual:@"true"]) {
+                if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsSuccess:)]) {
+                    [delegate didSearchQuestionsSuccess:self];
+                }
+            } else {
+                GDataXMLElement *errMess = [Utils getSingleChildFrom:element withElementName:@"error_message"];
+                if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsFail:withMessage:)]) {
+                    [delegate didSearchQuestionsFail:self withMessage:errMess.stringValue];
+                }
+            }
+        } else {
+            if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsFail:withMessage:)]) {
+                [delegate didSearchQuestionsFail:self withMessage:@"Error when access web service"];
+            }
+        }
+    }];
+    
+    [request setFailedBlock:^{
+        NSError * error = [request error];
+        NSLog(@"Error: %@", [error localizedDescription]);
+        if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsFail:withMessage:)]) {
+            [delegate didSearchQuestionsFail:self withMessage:[error localizedDescription]];
+        }
+    }];
+    
+    [theRequest startAsynchronous];
+
+}
+
 @end

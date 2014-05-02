@@ -20,4 +20,5 @@
 @property (nonatomic, assign) CGFloat changeAmount;
 
 - (IBAction)submitBtnTapped:(id)sender;
+- (IBAction)backBtnTapped:(id)sender;
 @end

@@ -90,6 +90,10 @@
 }
 
 #pragma mark - IBAction on view
+- (IBAction)backBtnTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)submitBtnTapped:(id)sender {
     NSString *email = emailTxt.text;
     if ([email isEqual:@""]) {

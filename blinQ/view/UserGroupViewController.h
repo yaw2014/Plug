@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "QuestionService.h"
+#import "UserService.h"
 #import "UILineFooterView.h"
+#import "Constants.h"
 #import "User.h"
-@interface UserGroupViewController : UIViewController {
+
+@interface UserGroupViewController : UIViewController<UserServiceDelegate, QuestionServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) QuestionService *questionService;
+@property (nonatomic, retain) UserService *userService;
 @property (nonatomic, retain) NSMutableArray *groups;
 @property (nonatomic, retain) NSMutableArray *selectedGroups;
 @property (nonatomic, retain) User *user;

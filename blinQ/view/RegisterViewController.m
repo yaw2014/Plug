@@ -113,6 +113,9 @@
 }
 
 #pragma mark - IBAction on view
+- (IBAction)backBtnTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (IBAction)sectionBtnTapped:(id)sender {
     [UIView animateWithDuration:0.2 animations:^{
         sectionSelectView.frame = CGRectMake(0, self.view.frame.size.height - sectionSelectView.frame.size.height, sectionSelectView.frame.size.width, sectionSelectView.frame.size.height);
@@ -150,7 +153,7 @@
         warningLbl.text = EMPTY_REGISTER_FIELD_MSG;
     } else if (![password isEqual:confirm]) {
         warningLbl.text = PASSWORD_REGISTER_NOT_MATCH_MSG;
-    } else if ([Utils validEmail:email]) {
+    } else if (![Utils validEmail:email]) {
         warningLbl.text = EMAIL_INVALID_MSG;
     } else {
         //go to select group screeen

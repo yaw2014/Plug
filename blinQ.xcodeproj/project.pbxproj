@@ -49,8 +49,12 @@
 		A697C00C1912709300391A07 /* QuestionService.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00B1912709300391A07 /* QuestionService.m */; };
 		A697C010191297C600391A07 /* UserGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00E191297C600391A07 /* UserGroupViewController.m */; };
 		A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C00F191297C600391A07 /* UserGroupViewController.xib */; };
-		A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0121912ABA100391A07 /* UILoadingImageView.m */; };
+		A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0121912ABA100391A07 /* UILoadingImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0141912ABA100391A07 /* UILineFooterView.m */; };
+		A697C01B19134D5D00391A07 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C01919134D5D00391A07 /* LoginViewController.m */; };
+		A697C01C19134D5D00391A07 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C01A19134D5D00391A07 /* LoginViewController.xib */; };
+		A697C02019135CC900391A07 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */; };
+		A697C02119135CC900391A07 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */; };
 		A6A35D911911BB6A00E52A56 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D901911BB6A00E52A56 /* User.m */; };
 		A6A35D941911BBF800E52A56 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D931911BBF800E52A56 /* UserService.m */; };
 		A6BC98321911740E00E3C4F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98311911740E00E3C4F2 /* CFNetwork.framework */; };
@@ -155,6 +159,12 @@
 		A697C0131912ABA100391A07 /* UILoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoadingImageView.h; sourceTree = "<group>"; };
 		A697C0141912ABA100391A07 /* UILineFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILineFooterView.m; sourceTree = "<group>"; };
 		A697C0151912ABA100391A07 /* UILineFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILineFooterView.h; sourceTree = "<group>"; };
+		A697C01819134D5D00391A07 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A697C01919134D5D00391A07 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A697C01A19134D5D00391A07 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A697C01D19135CC900391A07 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		A6A35D8F1911BB6A00E52A56 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		A6A35D901911BB6A00E52A56 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A6A35D921911BBF800E52A56 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
@@ -283,6 +293,12 @@
 				A697C00D191297C600391A07 /* UserGroupViewController.h */,
 				A697C00E191297C600391A07 /* UserGroupViewController.m */,
 				A697C00F191297C600391A07 /* UserGroupViewController.xib */,
+				A697C01819134D5D00391A07 /* LoginViewController.h */,
+				A697C01919134D5D00391A07 /* LoginViewController.m */,
+				A697C01A19134D5D00391A07 /* LoginViewController.xib */,
+				A697C01D19135CC900391A07 /* ForgotPasswordViewController.h */,
+				A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */,
+				A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -498,6 +514,8 @@
 			files = (
 				A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
+				A697C02119135CC900391A07 /* ForgotPasswordViewController.xib in Resources */,
+				A697C01C19134D5D00391A07 /* LoginViewController.xib in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */,
 				A621688A1910DC3200639990 /* RegisterViewController.xib in Resources */,
@@ -523,6 +541,7 @@
 				A621688C1910DC3200639990 /* ASIDataCompressor.m in Sources */,
 				A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */,
 				A62168251910D41300639990 /* AppDelegate.m in Sources */,
+				A697C01B19134D5D00391A07 /* LoginViewController.m in Sources */,
 				A62168991910DC3200639990 /* SBJsonStreamParserAccumulator.m in Sources */,
 				A62168901910DC3200639990 /* ASIHTTPRequest.m in Sources */,
 				A621689C1910DC3200639990 /* SBJsonStreamWriter.m in Sources */,
@@ -542,6 +561,7 @@
 				A62168921910DC3200639990 /* ASINetworkQueue.m in Sources */,
 				A621688D1910DC3200639990 /* ASIDataDecompressor.m in Sources */,
 				A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */,
+				A697C02019135CC900391A07 /* ForgotPasswordViewController.m in Sources */,
 				A62168931910DC3200639990 /* Reachability.m in Sources */,
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
 				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,

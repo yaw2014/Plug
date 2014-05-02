@@ -33,7 +33,7 @@
 @property (nonatomic, retain) IBOutlet UIScrollView *myScrollView;
 @property (nonatomic, assign) CGFloat changeAmount;
 
-
+- (IBAction)backBtnTapped:(id)sender;
 - (IBAction)sectionBtnTapped:(id)sender;
 - (IBAction)avatarBtnTapped:(id)sender;
 - (IBAction)nextBtnTapped:(id)sender;

@@ -10,10 +10,13 @@
 #import "Group.h"
 
 @implementation User
-@synthesize name, email, section, year, state, city, country, avatar;
+@synthesize userId, name, email, section, year, state, city, country, avatar;
 @synthesize groups;
+@synthesize avatarImg;
+
 - (id) initWithElement:(GDataXMLElement *)element {
     if (self = [super init]) {
+        self.userId = [[Utils getSingleChildFrom:element withElementName:@"id"] stringValue];
         self.name = [[Utils getSingleChildFrom:element withElementName:@"name"] stringValue];
         self.email = [[Utils getSingleChildFrom:element withElementName:@"email"] stringValue];
         self.section = [[Utils getSingleChildFrom:element withElementName:@"section"] stringValue];

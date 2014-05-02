@@ -7,6 +7,7 @@
 //
 
 #import "UserGroupViewController.h"
+#import "AppDelegate.h"
 
 @interface UserGroupViewController ()
 
@@ -15,6 +16,8 @@
 @implementation UserGroupViewController
 @synthesize myTableView, questionService, groups, selectedGroups;
 @synthesize user;
+@synthesize userService;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +34,9 @@
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
     [questionService retrieveGroups];
+    
+    self.userService = [[UserService alloc] init];
+    userService.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,13 +54,72 @@
     
 }
 
+#pragma mark - UserServiceDelegate
+- (void) goToMainScreen {
+    [[AppDelegate sharedInstance] showMainScreen];
+}
+- (void) didRegisterSuccess: (UserService*) service {
+    //submit avatar
+    self.user.userId = service.user.userId;
+    
+    if (user.avatarImg) {
+        NSMutableString *imageName = [[NSMutableString alloc] initWithCapacity:0];
+        CFUUIDRef theUUID = CFUUIDCreate(kCFAllocatorDefault);
+        if (theUUID) {
+            [imageName appendString:CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, theUUID))];
+            CFRelease(theUUID);
+        }
+        [imageName appendString:@".png"];
+        
+        NSString *filename = imageName;
+        NSString *extension = [filename pathExtension];
+        NSData *data = nil;
+        if ([extension isEqual:@"png"]) {
+            data = UIImagePNGRepresentation(user.avatarImg);
+        } else if ([extension isEqual:@"jpg"] || [extension isEqual:@"jpeg"]) {
+            data = UIImageJPEGRepresentation(user.avatarImg, 1);
+        }
+        if (data != nil) {
+            [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
+        }
+    } else {
+        [self goToMainScreen];
+    }
+}
+
+- (void) didRegisterFail: (UserService*) service withMessage: (NSString*) message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void)didSubmitAvatarForUserSuccess:(UserService *)service {
+    self.user.avatar = service.user.avatar;
+    [self goToMainScreen];
+}
+
+- (void) didSubmitAvatarForUserFail:(UserService *)service withMessage:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
 #pragma mark - IBAction on view
 - (IBAction)backBtnTapped:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)doneBtnTapped:(id)sender {
-    
+    if ([selectedGroups count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:EMPTY_GROUP_MSG delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        NSMutableString *groupIds = [[NSMutableString alloc] initWithString:@""];
+        for (Group *g in selectedGroups) {
+            [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupId]];
+        }
+        NSString *final = [groupIds substringToIndex:[groupIds length] - 1];
+        user.groups = selectedGroups;
+        [userService registerWithName:user.name withEmail:user.email withSection:user.section withYear:user.year withCity:user.city withState:user.state withCountry:user.country withPassword:user.password withGroupIds:final];
+    }
 }
 
 #pragma mark - Table view data source

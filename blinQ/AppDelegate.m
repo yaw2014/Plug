@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RegisterViewController.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 @synthesize navController;
@@ -15,7 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    RegisterViewController *viewVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    LoginViewController *viewVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewVC];
     [navController setNavigationBarHidden:YES];
     
@@ -23,6 +23,18 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
++ (AppDelegate *)sharedInstance {
+    return (AppDelegate*) [UIApplication sharedApplication].delegate;
+}
+
+- (void) showMainScreen {
+    
+}
+
+- (void) showFirstLogInScreen {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Question.h"
 
-@interface DefineTimeViewController : UIViewController
+@interface DefineTimeViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource> {
+    
+}
+
+@property (nonatomic, retain) NSMutableArray *days;
+@property (nonatomic, retain) NSMutableArray *hours;
+
+@property (nonatomic, retain) Question *question;
+@property (nonatomic, retain) NSDate *expireDate;
+@property (nonatomic, retain) IBOutlet UIPickerView *myPickerView;
+@property (nonatomic, retain) IBOutlet UILabel *expireDateLbl;
+
+- (IBAction)backBtnTapped:(id)sender;
+- (IBAction)nextBtnTapped:(id)sender;
+
 
 @end

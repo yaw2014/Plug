@@ -45,6 +45,7 @@
 @property (nonatomic, retain) ASIFormDataRequest *theRequest;
 @property (nonatomic, retain) User *user;
 
++ (void) storeUserId: (NSString*) userId;
 + (void) storeUserName: (NSString*) name;
 + (void) storeEmail: (NSString*) email;
 + (void) storeSection: (NSString*) section;
@@ -54,6 +55,7 @@
 + (void) storeCountry: (NSString*) country;
 + (void) storeAvatar: (NSString*) avatar;
 
++ (NSString*) signedInUserId;
 + (NSString*) signedInUserName;
 + (NSString*) signedInEmail;
 + (NSString*) signedInSection;

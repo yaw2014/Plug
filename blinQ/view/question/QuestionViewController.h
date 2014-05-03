@@ -17,6 +17,7 @@
 @property (nonatomic, retain) QuestionService *questionService;
 @property (nonatomic, retain) NSMutableArray *groups;
 @property (nonatomic, retain) NSMutableArray *selectedGroups;
+@property (nonatomic, retain) IBOutlet UILabel *warningLbl;
 
 - (IBAction) nextBtnTapped:(id)sender;
 

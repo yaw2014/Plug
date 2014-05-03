@@ -13,6 +13,7 @@
 @synthesize questionId, subject, question, expireDate, createdDate;
 @synthesize user;
 @synthesize answers;
+@synthesize groups;
 
 - (id)initWithElement:(GDataXMLElement *)element {
     if (self = [super init]) {

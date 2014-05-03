@@ -24,5 +24,7 @@
 
 @property (nonatomic, retain) NSMutableArray *answers;
 
+@property (nonatomic, retain) NSMutableArray *groups;
+
 - (id) initWithElement: (GDataXMLElement*) element;
 @end

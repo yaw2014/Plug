@@ -27,6 +27,7 @@
 #define UPDATE_USER_INFO_URL                    @""
 
 //key
+#define USER_ID_KEY                             @"userId"
 #define USER_NAME_KEY                           @"userNameKey"
 #define USER_EMAIL_KEY                          @"userEmailKey"
 #define USER_SECTION_KEY                        @"userSectionKey"
@@ -45,6 +46,7 @@
 #define EMPTY_GROUP_MSG                         @"You should select at least one group"
 #define EMAIL_EMPTY_MSG                         @"Please input your email"
 #define EMAIL_SENT_SUCCESS_MSG                  @"An email has been sent to your address"
+#define QUESTION_SUBJECT_EMPTY_MSG              @"Please fill the subject"
 
 
 #endif

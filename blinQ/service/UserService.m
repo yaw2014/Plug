@@ -10,6 +10,10 @@
 
 @implementation UserService
 @synthesize delegate, theRequest;
++ (void) storeUserId:(NSString *)userId {
+    [[NSUserDefaults standardUserDefaults] setObject:userId forKey:USER_ID_KEY];
+}
+
 + (void) storeUserName:(NSString *)name {
     [[NSUserDefaults standardUserDefaults] setObject:name forKey:USER_NAME_KEY];
 }
@@ -40,6 +44,10 @@
 
 + (void) storeAvatar:(NSString *)avatar {
     [[NSUserDefaults standardUserDefaults] setObject:avatar forKey:USER_AVATAR_KEY];
+}
+
++ (NSString*) signedInUserId {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
 }
 
 + (NSString*) signedInUserName {

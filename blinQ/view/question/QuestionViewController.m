@@ -8,6 +8,8 @@
 
 #import "QuestionViewController.h"
 #import "UILineFooterView.h"
+#import "Question.h"
+#import "FillAQuestionViewController.h"
 
 @interface QuestionViewController ()
 
@@ -15,6 +17,7 @@
 
 @implementation QuestionViewController
 @synthesize myTableView, questionService, groups, selectedGroups;
+@synthesize warningLbl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +55,15 @@
 
 #pragma mark - IBAction on view
 - (IBAction)nextBtnTapped:(id)sender {
-    
+    if ([selectedGroups count] == 0) {
+        warningLbl.text = EMPTY_GROUP_MSG;
+    } else {
+        FillAQuestionViewController *viewVC = [[FillAQuestionViewController alloc] initWithNibName:@"FillAQuestionViewController" bundle:nil];
+        Question *question = [[Question alloc] init];
+        question.groups = selectedGroups;
+        viewVC.question = question;
+        [self.navigationController pushViewController:viewVC animated:YES];
+    }
 }
 
 #pragma mark - Table view data source

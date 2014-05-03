@@ -19,8 +19,6 @@
 		A62168301910D41300639990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168181910D41300639990 /* UIKit.framework */; };
 		A62168381910D41300639990 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A62168361910D41300639990 /* InfoPlist.strings */; };
 		A621683A1910D41300639990 /* blinQTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168391910D41300639990 /* blinQTests.m */; };
-		A62168891910DC3200639990 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A621684A1910DC3200639990 /* RegisterViewController.m */; };
-		A621688A1910DC3200639990 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A621684B1910DC3200639990 /* RegisterViewController.xib */; };
 		A621688B1910DC3200639990 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168511910DC3200639990 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A621688C1910DC3200639990 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168541910DC3200639990 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A621688D1910DC3200639990 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168561910DC3200639990 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -47,24 +45,10 @@
 		A62168A21910DC3200639990 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168881910DC3200639990 /* Utils.m */; };
 		A697C00919125C1600391A07 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00819125C1600391A07 /* Group.m */; };
 		A697C00C1912709300391A07 /* QuestionService.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00B1912709300391A07 /* QuestionService.m */; };
-		A697C010191297C600391A07 /* UserGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00E191297C600391A07 /* UserGroupViewController.m */; };
-		A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C00F191297C600391A07 /* UserGroupViewController.xib */; };
 		A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0121912ABA100391A07 /* UILoadingImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0141912ABA100391A07 /* UILineFooterView.m */; };
-		A697C01B19134D5D00391A07 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C01919134D5D00391A07 /* LoginViewController.m */; };
-		A697C01C19134D5D00391A07 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C01A19134D5D00391A07 /* LoginViewController.xib */; };
-		A697C02019135CC900391A07 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */; };
-		A697C02119135CC900391A07 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */; };
 		A697C0251913708500391A07 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0231913708500391A07 /* MainViewController.m */; };
 		A697C0261913708500391A07 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C0241913708500391A07 /* MainViewController.xib */; };
-		A697C02A1913D80400391A07 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0281913D80400391A07 /* SearchViewController.m */; };
-		A697C02B1913D80400391A07 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C0291913D80400391A07 /* SearchViewController.xib */; };
-		A697C02F1913D80F00391A07 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C02D1913D80F00391A07 /* FeedViewController.m */; };
-		A697C0301913D80F00391A07 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C02E1913D80F00391A07 /* FeedViewController.xib */; };
-		A697C0341913D86F00391A07 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0321913D86F00391A07 /* QuestionViewController.m */; };
-		A697C0351913D86F00391A07 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C0331913D86F00391A07 /* QuestionViewController.xib */; };
-		A697C0391913D87900391A07 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0371913D87900391A07 /* ProfileViewController.m */; };
-		A697C03A1913D87900391A07 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A697C0381913D87900391A07 /* ProfileViewController.xib */; };
 		A697C03F1913DC9E00391A07 /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A697C03B1913DC9E00391A07 /* add@2x.png */; };
 		A697C0401913DC9E00391A07 /* feed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A697C03C1913DC9E00391A07 /* feed@2x.png */; };
 		A697C0411913DC9E00391A07 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A697C03D1913DC9E00391A07 /* search@2x.png */; };
@@ -78,6 +62,22 @@
 		A6BC98381911743200E3C4F2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98371911743200E3C4F2 /* libz.dylib */; };
 		A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC983A191181CC00E3C4F2 /* avatar.png */; };
 		A6D36F2C1914BF4600CF9B16 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F2B1914BF4600CF9B16 /* Answer.m */; };
+		A6D36F4A1914CCE800CF9B16 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F2F1914CCE800CF9B16 /* FeedViewController.m */; };
+		A6D36F4B1914CCE800CF9B16 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F301914CCE800CF9B16 /* FeedViewController.xib */; };
+		A6D36F4C1914CCE800CF9B16 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F331914CCE800CF9B16 /* ProfileViewController.m */; };
+		A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F341914CCE800CF9B16 /* ProfileViewController.xib */; };
+		A6D36F4E1914CCE800CF9B16 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F371914CCE800CF9B16 /* QuestionViewController.m */; };
+		A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F381914CCE800CF9B16 /* QuestionViewController.xib */; };
+		A6D36F501914CCE800CF9B16 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F3B1914CCE800CF9B16 /* ForgotPasswordViewController.m */; };
+		A6D36F511914CCE800CF9B16 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F3C1914CCE800CF9B16 /* ForgotPasswordViewController.xib */; };
+		A6D36F521914CCE800CF9B16 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F3E1914CCE800CF9B16 /* LoginViewController.m */; };
+		A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F3F1914CCE800CF9B16 /* LoginViewController.xib */; };
+		A6D36F541914CCE800CF9B16 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F411914CCE800CF9B16 /* RegisterViewController.m */; };
+		A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F421914CCE800CF9B16 /* RegisterViewController.xib */; };
+		A6D36F561914CCE800CF9B16 /* UserGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F441914CCE800CF9B16 /* UserGroupViewController.m */; };
+		A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F451914CCE800CF9B16 /* UserGroupViewController.xib */; };
+		A6D36F581914CCE800CF9B16 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F481914CCE800CF9B16 /* SearchViewController.m */; };
+		A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F491914CCE800CF9B16 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,9 +107,6 @@
 		A62168351910D41300639990 /* blinQTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "blinQTests-Info.plist"; sourceTree = "<group>"; };
 		A62168371910D41300639990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A62168391910D41300639990 /* blinQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blinQTests.m; sourceTree = "<group>"; };
-		A62168491910DC3200639990 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		A621684A1910DC3200639990 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		A621684B1910DC3200639990 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		A62168501910DC3200639990 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		A62168511910DC3200639990 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		A62168521910DC3200639990 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -168,34 +165,13 @@
 		A697C00819125C1600391A07 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		A697C00A1912709300391A07 /* QuestionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionService.h; sourceTree = "<group>"; };
 		A697C00B1912709300391A07 /* QuestionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionService.m; sourceTree = "<group>"; };
-		A697C00D191297C600391A07 /* UserGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGroupViewController.h; sourceTree = "<group>"; };
-		A697C00E191297C600391A07 /* UserGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGroupViewController.m; sourceTree = "<group>"; };
-		A697C00F191297C600391A07 /* UserGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGroupViewController.xib; sourceTree = "<group>"; };
 		A697C0121912ABA100391A07 /* UILoadingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoadingImageView.m; sourceTree = "<group>"; };
 		A697C0131912ABA100391A07 /* UILoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoadingImageView.h; sourceTree = "<group>"; };
 		A697C0141912ABA100391A07 /* UILineFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILineFooterView.m; sourceTree = "<group>"; };
 		A697C0151912ABA100391A07 /* UILineFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILineFooterView.h; sourceTree = "<group>"; };
-		A697C01819134D5D00391A07 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A697C01919134D5D00391A07 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		A697C01A19134D5D00391A07 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		A697C01D19135CC900391A07 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
-		A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
-		A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		A697C0221913708500391A07 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A697C0231913708500391A07 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A697C0241913708500391A07 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		A697C0271913D80400391A07 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		A697C0281913D80400391A07 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		A697C0291913D80400391A07 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		A697C02C1913D80F00391A07 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
-		A697C02D1913D80F00391A07 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
-		A697C02E1913D80F00391A07 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
-		A697C0311913D86F00391A07 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
-		A697C0321913D86F00391A07 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
-		A697C0331913D86F00391A07 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
-		A697C0361913D87900391A07 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		A697C0371913D87900391A07 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		A697C0381913D87900391A07 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		A697C03B1913DC9E00391A07 /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add@2x.png"; sourceTree = "<group>"; };
 		A697C03C1913DC9E00391A07 /* feed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feed@2x.png"; sourceTree = "<group>"; };
 		A697C03D1913DC9E00391A07 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
@@ -213,6 +189,30 @@
 		A6BC983A191181CC00E3C4F2 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		A6D36F2A1914BF4600CF9B16 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
 		A6D36F2B1914BF4600CF9B16 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		A6D36F2E1914CCE800CF9B16 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		A6D36F2F1914CCE800CF9B16 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		A6D36F301914CCE800CF9B16 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		A6D36F321914CCE800CF9B16 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A6D36F331914CCE800CF9B16 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A6D36F341914CCE800CF9B16 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		A6D36F361914CCE800CF9B16 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		A6D36F371914CCE800CF9B16 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		A6D36F381914CCE800CF9B16 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		A6D36F3A1914CCE800CF9B16 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		A6D36F3B1914CCE800CF9B16 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		A6D36F3C1914CCE800CF9B16 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		A6D36F3D1914CCE800CF9B16 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A6D36F3E1914CCE800CF9B16 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A6D36F3F1914CCE800CF9B16 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		A6D36F401914CCE800CF9B16 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		A6D36F411914CCE800CF9B16 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		A6D36F421914CCE800CF9B16 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		A6D36F431914CCE800CF9B16 /* UserGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGroupViewController.h; sourceTree = "<group>"; };
+		A6D36F441914CCE800CF9B16 /* UserGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGroupViewController.m; sourceTree = "<group>"; };
+		A6D36F451914CCE800CF9B16 /* UserGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserGroupViewController.xib; sourceTree = "<group>"; };
+		A6D36F471914CCE800CF9B16 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		A6D36F481914CCE800CF9B16 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		A6D36F491914CCE800CF9B16 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,33 +326,14 @@
 		A62168481910DC3200639990 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A62168491910DC3200639990 /* RegisterViewController.h */,
-				A621684A1910DC3200639990 /* RegisterViewController.m */,
-				A621684B1910DC3200639990 /* RegisterViewController.xib */,
-				A697C00D191297C600391A07 /* UserGroupViewController.h */,
-				A697C00E191297C600391A07 /* UserGroupViewController.m */,
-				A697C00F191297C600391A07 /* UserGroupViewController.xib */,
-				A697C01819134D5D00391A07 /* LoginViewController.h */,
-				A697C01919134D5D00391A07 /* LoginViewController.m */,
-				A697C01A19134D5D00391A07 /* LoginViewController.xib */,
-				A697C01D19135CC900391A07 /* ForgotPasswordViewController.h */,
-				A697C01E19135CC900391A07 /* ForgotPasswordViewController.m */,
-				A697C01F19135CC900391A07 /* ForgotPasswordViewController.xib */,
+				A6D36F2D1914CCE800CF9B16 /* feed */,
+				A6D36F311914CCE800CF9B16 /* profile */,
+				A6D36F351914CCE800CF9B16 /* question */,
+				A6D36F391914CCE800CF9B16 /* user */,
+				A6D36F461914CCE800CF9B16 /* search */,
 				A697C0221913708500391A07 /* MainViewController.h */,
 				A697C0231913708500391A07 /* MainViewController.m */,
 				A697C0241913708500391A07 /* MainViewController.xib */,
-				A697C0271913D80400391A07 /* SearchViewController.h */,
-				A697C0281913D80400391A07 /* SearchViewController.m */,
-				A697C0291913D80400391A07 /* SearchViewController.xib */,
-				A697C02C1913D80F00391A07 /* FeedViewController.h */,
-				A697C02D1913D80F00391A07 /* FeedViewController.m */,
-				A697C02E1913D80F00391A07 /* FeedViewController.xib */,
-				A697C0311913D86F00391A07 /* QuestionViewController.h */,
-				A697C0321913D86F00391A07 /* QuestionViewController.m */,
-				A697C0331913D86F00391A07 /* QuestionViewController.xib */,
-				A697C0361913D87900391A07 /* ProfileViewController.h */,
-				A697C0371913D87900391A07 /* ProfileViewController.m */,
-				A697C0381913D87900391A07 /* ProfileViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -499,6 +480,65 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		A6D36F2D1914CCE800CF9B16 /* feed */ = {
+			isa = PBXGroup;
+			children = (
+				A6D36F2E1914CCE800CF9B16 /* FeedViewController.h */,
+				A6D36F2F1914CCE800CF9B16 /* FeedViewController.m */,
+				A6D36F301914CCE800CF9B16 /* FeedViewController.xib */,
+			);
+			path = feed;
+			sourceTree = "<group>";
+		};
+		A6D36F311914CCE800CF9B16 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				A6D36F321914CCE800CF9B16 /* ProfileViewController.h */,
+				A6D36F331914CCE800CF9B16 /* ProfileViewController.m */,
+				A6D36F341914CCE800CF9B16 /* ProfileViewController.xib */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		A6D36F351914CCE800CF9B16 /* question */ = {
+			isa = PBXGroup;
+			children = (
+				A6D36F361914CCE800CF9B16 /* QuestionViewController.h */,
+				A6D36F371914CCE800CF9B16 /* QuestionViewController.m */,
+				A6D36F381914CCE800CF9B16 /* QuestionViewController.xib */,
+			);
+			path = question;
+			sourceTree = "<group>";
+		};
+		A6D36F391914CCE800CF9B16 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				A6D36F3A1914CCE800CF9B16 /* ForgotPasswordViewController.h */,
+				A6D36F3B1914CCE800CF9B16 /* ForgotPasswordViewController.m */,
+				A6D36F3C1914CCE800CF9B16 /* ForgotPasswordViewController.xib */,
+				A6D36F3D1914CCE800CF9B16 /* LoginViewController.h */,
+				A6D36F3E1914CCE800CF9B16 /* LoginViewController.m */,
+				A6D36F3F1914CCE800CF9B16 /* LoginViewController.xib */,
+				A6D36F401914CCE800CF9B16 /* RegisterViewController.h */,
+				A6D36F411914CCE800CF9B16 /* RegisterViewController.m */,
+				A6D36F421914CCE800CF9B16 /* RegisterViewController.xib */,
+				A6D36F431914CCE800CF9B16 /* UserGroupViewController.h */,
+				A6D36F441914CCE800CF9B16 /* UserGroupViewController.m */,
+				A6D36F451914CCE800CF9B16 /* UserGroupViewController.xib */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		A6D36F461914CCE800CF9B16 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				A6D36F471914CCE800CF9B16 /* SearchViewController.h */,
+				A6D36F481914CCE800CF9B16 /* SearchViewController.m */,
+				A6D36F491914CCE800CF9B16 /* SearchViewController.xib */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -574,21 +614,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D36F511914CCE800CF9B16 /* ForgotPasswordViewController.xib in Resources */,
 				A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */,
 				A697C0401913DC9E00391A07 /* feed@2x.png in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
-				A697C02119135CC900391A07 /* ForgotPasswordViewController.xib in Resources */,
 				A697C0261913708500391A07 /* MainViewController.xib in Resources */,
-				A697C01C19134D5D00391A07 /* LoginViewController.xib in Resources */,
-				A697C02B1913D80400391A07 /* SearchViewController.xib in Resources */,
-				A697C03A1913D87900391A07 /* ProfileViewController.xib in Resources */,
-				A697C0301913D80F00391A07 /* FeedViewController.xib in Resources */,
+				A6D36F4B1914CCE800CF9B16 /* FeedViewController.xib in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
-				A697C011191297C600391A07 /* UserGroupViewController.xib in Resources */,
-				A697C0351913D86F00391A07 /* QuestionViewController.xib in Resources */,
-				A621688A1910DC3200639990 /* RegisterViewController.xib in Resources */,
+				A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */,
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
+				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
+				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
+				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
+				A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */,
+				A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */,
 				A697C0421913DC9E00391A07 /* profile@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,11 +653,9 @@
 				A621688C1910DC3200639990 /* ASIDataCompressor.m in Sources */,
 				A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */,
 				A62168251910D41300639990 /* AppDelegate.m in Sources */,
-				A697C01B19134D5D00391A07 /* LoginViewController.m in Sources */,
-				A697C0391913D87900391A07 /* ProfileViewController.m in Sources */,
-				A697C02A1913D80400391A07 /* SearchViewController.m in Sources */,
 				A62168991910DC3200639990 /* SBJsonStreamParserAccumulator.m in Sources */,
 				A62168901910DC3200639990 /* ASIHTTPRequest.m in Sources */,
+				A6D36F4C1914CCE800CF9B16 /* ProfileViewController.m in Sources */,
 				A621689C1910DC3200639990 /* SBJsonStreamWriter.m in Sources */,
 				A621688B1910DC3200639990 /* ASIAuthenticationDialog.m in Sources */,
 				A6A35D911911BB6A00E52A56 /* User.m in Sources */,
@@ -625,21 +663,22 @@
 				A62168941910DC3200639990 /* GDataXMLNode.m in Sources */,
 				A621689D1910DC3200639990 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				A62168971910DC3200639990 /* SBJsonParser.m in Sources */,
+				A6D36F561914CCE800CF9B16 /* UserGroupViewController.m in Sources */,
 				A621688F1910DC3200639990 /* ASIFormDataRequest.m in Sources */,
 				A621689E1910DC3200639990 /* SBJsonStreamWriterState.m in Sources */,
-				A62168891910DC3200639990 /* RegisterViewController.m in Sources */,
 				A62168981910DC3200639990 /* SBJsonStreamParser.m in Sources */,
 				A62168911910DC3200639990 /* ASIInputStream.m in Sources */,
 				A6D36F2C1914BF4600CF9B16 /* Answer.m in Sources */,
+				A6D36F4E1914CCE800CF9B16 /* QuestionViewController.m in Sources */,
 				A62168211910D41300639990 /* main.m in Sources */,
 				A621689B1910DC3200639990 /* SBJsonStreamParserState.m in Sources */,
+				A6D36F541914CCE800CF9B16 /* RegisterViewController.m in Sources */,
 				A62168921910DC3200639990 /* ASINetworkQueue.m in Sources */,
+				A6D36F521914CCE800CF9B16 /* LoginViewController.m in Sources */,
 				A621688D1910DC3200639990 /* ASIDataDecompressor.m in Sources */,
 				A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */,
-				A697C0341913D86F00391A07 /* QuestionViewController.m in Sources */,
-				A697C02019135CC900391A07 /* ForgotPasswordViewController.m in Sources */,
+				A6D36F581914CCE800CF9B16 /* SearchViewController.m in Sources */,
 				A62168931910DC3200639990 /* Reachability.m in Sources */,
-				A697C02F1913D80F00391A07 /* FeedViewController.m in Sources */,
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
 				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,
 				A697C00C1912709300391A07 /* QuestionService.m in Sources */,
@@ -649,8 +688,9 @@
 				A697C00919125C1600391A07 /* Group.m in Sources */,
 				A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */,
 				A697C045191422B200391A07 /* Question.m in Sources */,
+				A6D36F501914CCE800CF9B16 /* ForgotPasswordViewController.m in Sources */,
+				A6D36F4A1914CCE800CF9B16 /* FeedViewController.m in Sources */,
 				A621689F1910DC3200639990 /* SBJsonTokeniser.m in Sources */,
-				A697C010191297C600391A07 /* UserGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

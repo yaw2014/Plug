@@ -78,6 +78,12 @@
 		A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F451914CCE800CF9B16 /* UserGroupViewController.xib */; };
 		A6D36F581914CCE800CF9B16 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F481914CCE800CF9B16 /* SearchViewController.m */; };
 		A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F491914CCE800CF9B16 /* SearchViewController.xib */; };
+		A6D36F5D1914D09700CF9B16 /* FillAQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F5B1914D09700CF9B16 /* FillAQuestionViewController.m */; };
+		A6D36F5E1914D09700CF9B16 /* FillAQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F5C1914D09700CF9B16 /* FillAQuestionViewController.xib */; };
+		A6D36F621914D2C200CF9B16 /* DefineTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F601914D2C200CF9B16 /* DefineTimeViewController.m */; };
+		A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F611914D2C200CF9B16 /* DefineTimeViewController.xib */; };
+		A6D36F671914D54000CF9B16 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F651914D54000CF9B16 /* ReviewViewController.m */; };
+		A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F661914D54000CF9B16 /* ReviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +219,15 @@
 		A6D36F471914CCE800CF9B16 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		A6D36F481914CCE800CF9B16 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		A6D36F491914CCE800CF9B16 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A6D36F5A1914D09700CF9B16 /* FillAQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FillAQuestionViewController.h; sourceTree = "<group>"; };
+		A6D36F5B1914D09700CF9B16 /* FillAQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FillAQuestionViewController.m; sourceTree = "<group>"; };
+		A6D36F5C1914D09700CF9B16 /* FillAQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FillAQuestionViewController.xib; sourceTree = "<group>"; };
+		A6D36F5F1914D2C200CF9B16 /* DefineTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineTimeViewController.h; sourceTree = "<group>"; };
+		A6D36F601914D2C200CF9B16 /* DefineTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefineTimeViewController.m; sourceTree = "<group>"; };
+		A6D36F611914D2C200CF9B16 /* DefineTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefineTimeViewController.xib; sourceTree = "<group>"; };
+		A6D36F641914D54000CF9B16 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		A6D36F651914D54000CF9B16 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
+		A6D36F661914D54000CF9B16 /* ReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,11 +341,11 @@
 		A62168481910DC3200639990 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A6D36F2D1914CCE800CF9B16 /* feed */,
-				A6D36F311914CCE800CF9B16 /* profile */,
-				A6D36F351914CCE800CF9B16 /* question */,
-				A6D36F391914CCE800CF9B16 /* user */,
 				A6D36F461914CCE800CF9B16 /* search */,
+				A6D36F2D1914CCE800CF9B16 /* feed */,
+				A6D36F351914CCE800CF9B16 /* question */,
+				A6D36F311914CCE800CF9B16 /* profile */,
+				A6D36F391914CCE800CF9B16 /* user */,
 				A697C0221913708500391A07 /* MainViewController.h */,
 				A697C0231913708500391A07 /* MainViewController.m */,
 				A697C0241913708500391A07 /* MainViewController.xib */,
@@ -506,6 +521,15 @@
 				A6D36F361914CCE800CF9B16 /* QuestionViewController.h */,
 				A6D36F371914CCE800CF9B16 /* QuestionViewController.m */,
 				A6D36F381914CCE800CF9B16 /* QuestionViewController.xib */,
+				A6D36F5A1914D09700CF9B16 /* FillAQuestionViewController.h */,
+				A6D36F5B1914D09700CF9B16 /* FillAQuestionViewController.m */,
+				A6D36F5C1914D09700CF9B16 /* FillAQuestionViewController.xib */,
+				A6D36F5F1914D2C200CF9B16 /* DefineTimeViewController.h */,
+				A6D36F601914D2C200CF9B16 /* DefineTimeViewController.m */,
+				A6D36F611914D2C200CF9B16 /* DefineTimeViewController.xib */,
+				A6D36F641914D54000CF9B16 /* ReviewViewController.h */,
+				A6D36F651914D54000CF9B16 /* ReviewViewController.m */,
+				A6D36F661914D54000CF9B16 /* ReviewViewController.xib */,
 			);
 			path = question;
 			sourceTree = "<group>";
@@ -615,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D36F511914CCE800CF9B16 /* ForgotPasswordViewController.xib in Resources */,
+				A6D36F5E1914D09700CF9B16 /* FillAQuestionViewController.xib in Resources */,
 				A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */,
 				A697C0401913DC9E00391A07 /* feed@2x.png in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
@@ -627,6 +652,8 @@
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
 				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
 				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
+				A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */,
+				A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */,
 				A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */,
 				A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */,
 				A697C0421913DC9E00391A07 /* profile@2x.png in Resources */,
@@ -682,7 +709,10 @@
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
 				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,
 				A697C00C1912709300391A07 /* QuestionService.m in Sources */,
+				A6D36F671914D54000CF9B16 /* ReviewViewController.m in Sources */,
 				A62168961910DC3200639990 /* NSObject+SBJson.m in Sources */,
+				A6D36F621914D2C200CF9B16 /* DefineTimeViewController.m in Sources */,
+				A6D36F5D1914D09700CF9B16 /* FillAQuestionViewController.m in Sources */,
 				A62168951910DC3200639990 /* MBProgressHUD.m in Sources */,
 				A6A35D941911BBF800E52A56 /* UserService.m in Sources */,
 				A697C00919125C1600391A07 /* Group.m in Sources */,

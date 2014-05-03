@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionService.h"
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController<QuestionServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
+    
+}
+
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
+@property (nonatomic, retain) QuestionService *questionService;
+@property (nonatomic, retain) NSMutableArray *groups;
+@property (nonatomic, retain) NSMutableArray *selectedGroups;
+
+- (IBAction) nextBtnTapped:(id)sender;
+
 
 @end

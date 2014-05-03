@@ -7,7 +7,8 @@
 //
 
 #import "QuestionService.h"
-
+#import "Question.h"
+#import "Answer.h"
 
 @implementation QuestionService
 @synthesize delegate, theRequest;
@@ -80,6 +81,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"question"];
+                self.questions = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Question *question = [[Question alloc] initWithElement:ele];
+                    [self.questions addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didAskAQuestionSuccess:)]) {
                     [delegate didAskAQuestionSuccess:self];
                 }
@@ -125,6 +132,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"question"];
+                self.questions = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Question *question = [[Question alloc] initWithElement:ele];
+                    [self.questions addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
                     [delegate didGetMyQuestionsSuccess:self];
                 }
@@ -168,6 +181,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"question"];
+                self.questions = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Question *question = [[Question alloc] initWithElement:ele];
+                    [self.questions addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
                     [delegate didGetQuestionsForMeSuccess:self];
                 }
@@ -210,6 +229,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"question"];
+                self.questions = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Question *question = [[Question alloc] initWithElement:ele];
+                    [self.questions addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsSuccess:)]) {
                     [delegate didGetTopQuestionsSuccess:self];
                 }
@@ -254,6 +279,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"answer"];
+                self.answers = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Answer *question = [[Answer alloc] initWithElement:ele];
+                    [self.answers addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didSubmitAnswerSuccess:)]) {
                     [delegate didSubmitAnswerSuccess:self];
                 }
@@ -297,6 +328,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"answer"];
+                self.answers = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Answer *question = [[Answer alloc] initWithElement:ele];
+                    [self.answers addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersForQuestionSuccess:)]) {
                     [delegate didRetrieveAnswersForQuestionSuccess:self];
                 }
@@ -340,6 +377,12 @@
         if ([element.name isEqual:@"data"]) {
             GDataXMLElement *success = [Utils getSingleChildFrom:element withElementName:@"success"];
             if ([success.stringValue isEqual:@"true"]) {
+                NSArray *arr = [element elementsForName:@"question"];
+                self.questions = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+                for (GDataXMLElement *ele in arr) {
+                    Question *question = [[Question alloc] initWithElement:ele];
+                    [self.questions addObject:question];
+                }
                 if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsSuccess:)]) {
                     [delegate didSearchQuestionsSuccess:self];
                 }

@@ -50,6 +50,8 @@
 @property (nonatomic, retain) ASIFormDataRequest *theRequest;
 
 @property (nonatomic, retain) NSMutableArray *groups;
+@property (nonatomic, retain) NSMutableArray *questions;
+@property (nonatomic, retain) NSMutableArray *answers;
 
 - (void) retrieveGroups;
 - (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate;

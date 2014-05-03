@@ -1,19 +1,20 @@
 //
-//  UserGroupViewController.m
+//  EditUserGroupViewController.m
 //  blinQ
 //
-//  Created by Le Thanh Hai on 5/1/14.
+//  Created by Le Thanh Hai on 5/3/14.
 //  Copyright (c) 2014 templum. All rights reserved.
 //
 
-#import "UserGroupViewController.h"
+#import "EditUserGroupViewController.h"
 #import "AppDelegate.h"
+#import "ProfileViewController.h"
 
-@interface UserGroupViewController ()
+@interface EditUserGroupViewController ()
 
 @end
 
-@implementation UserGroupViewController
+@implementation EditUserGroupViewController
 @synthesize myTableView, questionService, groups, selectedGroups;
 @synthesize user;
 @synthesize userService;
@@ -37,6 +38,7 @@
     
     self.userService = [[UserService alloc] init];
     userService.delegate = self;
+    self.selectedGroups = user.groups;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,51 +58,13 @@
 }
 
 #pragma mark - UserServiceDelegate
-- (void) goToMainScreen {
-    [[AppDelegate sharedInstance] showMainScreen];
+- (void)didUpdateUserInfoByUserIdSuccess:(UserService *)service {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:EDIT_USER_SUCCESS_MSG delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
-- (void) didRegisterSuccess: (UserService*) service {
-    //submit avatar
-    self.user.userId = service.user.userId;
+
+- (void)didUpdateUserInfoByUserIdFail:(UserService *)service withMessage:(NSString *)message {
     
-    if (user.avatarImg) {
-        NSMutableString *imageName = [[NSMutableString alloc] initWithCapacity:0];
-        CFUUIDRef theUUID = CFUUIDCreate(kCFAllocatorDefault);
-        if (theUUID) {
-            [imageName appendString:CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, theUUID))];
-            CFRelease(theUUID);
-        }
-        [imageName appendString:@".png"];
-        
-        NSString *filename = imageName;
-        NSString *extension = [filename pathExtension];
-        NSData *data = nil;
-        if ([extension isEqual:@"png"]) {
-            data = UIImagePNGRepresentation(user.avatarImg);
-        } else if ([extension isEqual:@"jpg"] || [extension isEqual:@"jpeg"]) {
-            data = UIImageJPEGRepresentation(user.avatarImg, 1);
-        }
-        if (data != nil) {
-            [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
-        }
-    } else {
-        [self goToMainScreen];
-    }
-}
-
-- (void) didRegisterFail: (UserService*) service withMessage: (NSString*) message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void)didSubmitAvatarForUserSuccess:(UserService *)service {
-    self.user.avatar = service.user.avatar;
-    [self goToMainScreen];
-}
-
-- (void) didSubmitAvatarForUserFail:(UserService *)service withMessage:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
 }
 
 #pragma mark - IBAction on view
@@ -119,8 +83,15 @@
         }
         NSString *final = [groupIds substringToIndex:[groupIds length] - 1];
         user.groups = selectedGroups;
-        [userService registerWithName:user.name withEmail:user.email withSection:user.section withYear:user.year withCity:user.city withState:user.state withCountry:user.country withPassword:user.password withGroupIds:final];
+        [userService updateUserInfoWithUserId:user.userId withName:user.name withSection:user.section withYear:user.year withCity:user.city withState:user.state withCountry:user.country withOldPassword:user.oldPassword withNewPassword:user.password withGroupIds:final];
     }
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ProfileViewController *viewVC = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    NSArray *arr = [NSArray arrayWithObject:viewVC];
+    [self.navigationController setViewControllers:arr animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -186,6 +157,5 @@
         [selectedGroups addObject:g];
     }
 }
-
 
 @end

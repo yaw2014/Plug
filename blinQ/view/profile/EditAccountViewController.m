@@ -1,27 +1,29 @@
 //
-//  RegisterViewController.m
+//  EditAccountViewController.m
 //  blinQ
 //
-//  Created by Le Thanh Hai on 4/30/14.
+//  Created by Le Thanh Hai on 5/3/14.
 //  Copyright (c) 2014 templum. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "EditAccountViewController.h"
 #import "Constants.h"
 #import "Utils.h"
 #import "User.h"
-#import "UserGroupViewController.h"
+#import "EditUserGroupViewController.h"
 
-@interface RegisterViewController ()
+@interface EditAccountViewController ()
 
 @end
 
-@implementation RegisterViewController
-@synthesize nameTxt, emailTxt, sectionBtn, avatarImgView, yearTxt, cityTxt, stateTxt, countryTxt, passwordTxt, confirmPasswordTxt;
+@implementation EditAccountViewController
+@synthesize nameTxt, emailLbl, sectionBtn, avatarImgView, yearTxt, cityTxt, stateTxt, countryTxt, passwordTxt, confirmPasswordTxt, oldPasswordTxt;
 @synthesize myScrollView, changeAmount;
 @synthesize sectionPicker, sectionSelectView, sections;
 @synthesize warningLbl;
 @synthesize nextBtn;
+@synthesize user, userService;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,7 +40,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
-
+    
     //init sections array
     self.sections = [[NSMutableArray alloc] init];
     [sections addObject:@""];
@@ -48,19 +50,32 @@
     [sections addObject:@"D"];
     [sections addObject:@"E"];
     [sections addObject:@"F"];
-
+    
     sectionSelectView.frame = CGRectMake(0, self.view.frame.size.height, sectionSelectView.frame.size.width, sectionSelectView.frame.size.height);
     [self.view addSubview:sectionSelectView];
     
     //config textfield delegate
     nameTxt.delegate = self;
-    emailTxt.delegate = self;
     yearTxt.delegate = self;
     cityTxt.delegate = self;
     stateTxt.delegate = self;
     countryTxt.delegate = self;
+    oldPasswordTxt.delegate = self;
     passwordTxt.delegate = self;
     confirmPasswordTxt.delegate = self;
+    
+    //set values for data
+    nameTxt.text = user.name;
+    emailLbl.text = user.email;
+    [sectionBtn setTitle:user.section forState:UIControlStateNormal];
+    yearTxt.text = user.year;
+    avatarImgView.imgUrl = user.avatar;
+    cityTxt.text = user.city;
+    stateTxt.text = user.state;
+    countryTxt.text = user.country;
+    
+    self.userService = [[UserService alloc] init];
+    userService.delegate = self;
     
     myScrollView.contentSize = CGSizeMake(myScrollView.frame.size.width, nextBtn.frame.origin.y + nextBtn.frame.size.height + 10);
 }
@@ -141,38 +156,37 @@
 
 - (IBAction)nextBtnTapped:(id)sender {
     NSString *name = nameTxt.text;
-    NSString *email = emailTxt.text;
     NSString *section = sectionBtn.titleLabel.text;
     NSString *year = yearTxt.text;
     NSString *city = cityTxt.text;
     NSString *state = stateTxt.text;
     NSString *country = countryTxt.text;
+    NSString *oldPassword = oldPasswordTxt.text;
     NSString *password = passwordTxt.text;
     NSString *confirm = confirmPasswordTxt.text;
     
-    if ([name isEqual:@""] || [email isEqual:@""] || [section isEqual:@""] || [year isEqual:@""] || [city isEqual:@""]
+    if ([name isEqual:@""] || [section isEqual:@""] || [year isEqual:@""] || [city isEqual:@""]
         || [state isEqual:@""] || [country isEqual:@""]) {
         warningLbl.text = EMPTY_REGISTER_FIELD_MSG;
-    } else if (![password isEqual:confirm]) {
+    } else if (![oldPassword isEqual:@""] && ([password isEqual:@""] || [confirm isEqual:@""])) {
+        warningLbl.text = NEW_PASSWORD_DEFINE_MSG;
+    } else if (![oldPassword isEqual:@""] && ![password isEqual:confirm]) {
         warningLbl.text = PASSWORD_REGISTER_NOT_MATCH_MSG;
-    } else if (![Utils validEmail:email]) {
-        warningLbl.text = EMAIL_INVALID_MSG;
     } else {
         //go to select group screeen
-        User *user = [[User alloc] init];
         user.name = name;
-        user.email = email;
         user.section = section;
         user.year = year;
         user.city = city;
         user.state = state;
         user.country = country;
+        user.oldPassword = oldPasswordTxt.text;
         user.password = password;
         if (avatarImgView.image != nil) {
             user.avatarImg = avatarImgView.image;
         }
         
-        UserGroupViewController *viewVC = [[UserGroupViewController alloc] initWithNibName:@"UserGroupViewController" bundle:nil];
+        EditUserGroupViewController *viewVC = [[EditUserGroupViewController alloc] initWithNibName:@"UserGroupViewController" bundle:nil];
         viewVC.user = user;
         [self.navigationController pushViewController:viewVC animated:YES];
     }
@@ -251,15 +265,31 @@
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	avatarImgView.image = (UIImage*) [info objectForKey:UIImagePickerControllerEditedImage];
     [self dismissViewControllerAnimated:YES completion:^{
+        NSMutableString *imageName = [[NSMutableString alloc] initWithCapacity:0];
+        CFUUIDRef theUUID = CFUUIDCreate(kCFAllocatorDefault);
+        if (theUUID) {
+            [imageName appendString:CFBridgingRelease(CFUUIDCreateString(kCFAllocatorDefault, theUUID))];
+            CFRelease(theUUID);
+        }
+        [imageName appendString:@".png"];
         
+        NSString *filename = imageName;
+        NSString *extension = [filename pathExtension];
+        NSData *data = nil;
+        if ([extension isEqual:@"png"]) {
+            data = UIImagePNGRepresentation(avatarImgView.image);
+        } else if ([extension isEqual:@"jpg"] || [extension isEqual:@"jpeg"]) {
+            data = UIImageJPEGRepresentation(avatarImgView.image, 1);
+        }
+        if (data != nil) {
+            [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
+        }
     }];
 }
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == nameTxt) {
-        [emailTxt becomeFirstResponder];
-    } else if (textField == emailTxt) {
         [textField resignFirstResponder];
         [self sectionBtnTapped:nil];
     } else if (textField == yearTxt) {
@@ -269,6 +299,8 @@
     } else if (textField == stateTxt) {
         [countryTxt becomeFirstResponder];
     } else if (textField == countryTxt) {
+        [oldPasswordTxt becomeFirstResponder];
+    } else if (textField == oldPasswordTxt) {
         [passwordTxt becomeFirstResponder];
     } else if (textField == passwordTxt) {
         [confirmPasswordTxt becomeFirstResponder];
@@ -285,5 +317,15 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - UserServiceDelegate
+- (void)didSubmitAvatarForUserSuccess:(UserService *)service {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:CHANGE_AVATAR_SUCCESS_MSG delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) didSubmitAvatarForUserFail:(UserService *)service withMessage:(NSString *)message {
+    
 }
 @end

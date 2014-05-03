@@ -13,7 +13,7 @@
 @synthesize userId, name, email, section, year, state, city, country, avatar;
 @synthesize groups;
 @synthesize avatarImg;
-
+@synthesize oldPassword;
 - (id) initWithElement:(GDataXMLElement *)element {
     if (self = [super init]) {
         self.userId = [[Utils getSingleChildFrom:element withElementName:@"id"] stringValue];

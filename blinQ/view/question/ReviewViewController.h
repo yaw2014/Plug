@@ -11,7 +11,7 @@
 #import "QuestionService.h"
 #import "UserService.h"
 
-@interface ReviewViewController : UIViewController<QuestionServiceDelegate> {
+@interface ReviewViewController : UIViewController<QuestionServiceDelegate, UIAlertViewDelegate> {
     
 }
 

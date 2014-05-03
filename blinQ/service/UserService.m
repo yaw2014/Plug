@@ -46,6 +46,10 @@
     [[NSUserDefaults standardUserDefaults] setObject:avatar forKey:USER_AVATAR_KEY];
 }
 
++ (void)storeCreatedDate:(NSDate *)date {
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:USER_CREATED_DATE_KEY];
+}
+
 + (NSString*) signedInUserId {
     return [[NSUserDefaults standardUserDefaults] objectForKey:USER_ID_KEY];
 }
@@ -80,6 +84,10 @@
 
 + (NSString*) signedInAvatar {
     return [[NSUserDefaults standardUserDefaults] objectForKey:USER_AVATAR_KEY];
+}
+
++ (NSDate*) signedInCreatedDate {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:USER_CREATED_DATE_KEY];
 }
 
 - (void)registerWithName:(NSString *)name

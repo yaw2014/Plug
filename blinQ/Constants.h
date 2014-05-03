@@ -36,17 +36,21 @@
 #define USER_STATE_KEY                          @"userStateKey"
 #define USER_COUNTRY_KEY                        @"userCountryKey"
 #define USER_AVATAR_KEY                         @"userAvatarKey"
+#define USER_CREATED_DATE_KEY                   @"userCreatedDateKey"
 
 
 //message
 #define EMPTY_REGISTER_FIELD_MSG                @"Please input data"
 #define EMPTY_LOGIN_FIELD_MSG                   @"Please input data"
 #define PASSWORD_REGISTER_NOT_MATCH_MSG         @"Password not match"
+#define NEW_PASSWORD_DEFINE_MSG                 @"Please define new password"
 #define EMAIL_INVALID_MSG                       @"Invalid email format"
 #define EMPTY_GROUP_MSG                         @"You should select at least one group"
 #define EMAIL_EMPTY_MSG                         @"Please input your email"
 #define EMAIL_SENT_SUCCESS_MSG                  @"An email has been sent to your address"
 #define QUESTION_SUBJECT_EMPTY_MSG              @"Please fill the subject"
-
+#define ASK_QUESTION_SUCCESS_MSG                @"Your question has been submitted"
+#define CHANGE_AVATAR_SUCCESS_MSG               @"Change avatar successfully"
+#define EDIT_USER_SUCCESS_MSG                   @"Update user successfully"
 
 #endif

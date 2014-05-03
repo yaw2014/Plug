@@ -13,6 +13,7 @@
                 <outlet property="emailTxt" destination="a2Y-no-Gdd" id="nzN-s4-lbE"/>
                 <outlet property="myScrollView" destination="MHq-pE-6Ve" id="oCZ-TP-k0o"/>
                 <outlet property="nameTxt" destination="Qtu-G6-x0F" id="CwI-kw-4fm"/>
+                <outlet property="nextBtn" destination="Q3f-8F-91Y" id="MET-4A-hhu"/>
                 <outlet property="passwordTxt" destination="CXg-yq-gc7" id="V5c-Sg-3Hh"/>
                 <outlet property="sectionBtn" destination="BbN-dG-AIZ" id="NwM-mG-4Ca"/>
                 <outlet property="sectionPicker" destination="wqo-EO-7FB" id="cEb-SM-HYH"/>
@@ -89,7 +90,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbN-dG-AIZ">
                             <rect key="frame" x="20" y="266" width="280" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="section">
                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

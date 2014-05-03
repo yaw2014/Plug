@@ -54,7 +54,7 @@
 + (void) storeState: (NSString*) state;
 + (void) storeCountry: (NSString*) country;
 + (void) storeAvatar: (NSString*) avatar;
-
++ (void) storeCreatedDate: (NSDate*) date;
 + (NSString*) signedInUserId;
 + (NSString*) signedInUserName;
 + (NSString*) signedInEmail;
@@ -64,6 +64,7 @@
 + (NSString*) signedInState;
 + (NSString*) signedInCountry;
 + (NSString*) signedInAvatar;
++ (NSDate*) signedInCreatedDate;
 
 - (void) registerWithName: (NSString*) name
               withEmail: (NSString*) email

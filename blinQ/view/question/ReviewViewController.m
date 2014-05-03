@@ -8,6 +8,7 @@
 
 #import "ReviewViewController.h"
 #import "Group.h"
+#import "QuestionViewController.h"
 
 @interface ReviewViewController ()
 
@@ -67,6 +68,8 @@
     frame.size.height = [expireDateLbl.text sizeWithFont:expireDateLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
     expireDateLbl.frame = frame;
     
+    myScrollView.contentSize = CGSizeMake(myScrollView.frame.size.width, frame.origin.y + frame.size.height + heightDistance);
+    
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
 }
@@ -95,11 +98,19 @@
 
 #pragma mark - QuestionServiceDelegate
 - (void)didAskAQuestionSuccess:(QuestionService *)service {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:ASK_QUESTION_SUCCESS_MSG delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didAskAQuestionFail:(QuestionService *)service withMessage:(NSString *)message {
     
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    QuestionViewController *viewVC = [[QuestionViewController alloc] initWithNibName:@"QuestionViewController" bundle:nil];
+    NSArray *arr = [NSArray arrayWithObject:viewVC];
+    [self.navigationController setViewControllers:arr animated:YES];
 }
 
 @end

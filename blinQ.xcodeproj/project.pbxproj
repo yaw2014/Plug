@@ -84,6 +84,10 @@
 		A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F611914D2C200CF9B16 /* DefineTimeViewController.xib */; };
 		A6D36F671914D54000CF9B16 /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F651914D54000CF9B16 /* ReviewViewController.m */; };
 		A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F661914D54000CF9B16 /* ReviewViewController.xib */; };
+		A6D36F6C19153D7600CF9B16 /* EditAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F6A19153D7600CF9B16 /* EditAccountViewController.m */; };
+		A6D36F6D19153D7600CF9B16 /* EditAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F6B19153D7600CF9B16 /* EditAccountViewController.xib */; };
+		A6D36F711915400100CF9B16 /* EditUserGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D36F6F1915400100CF9B16 /* EditUserGroupViewController.m */; };
+		A6D36F721915400100CF9B16 /* EditUserGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D36F701915400100CF9B16 /* EditUserGroupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +232,12 @@
 		A6D36F641914D54000CF9B16 /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
 		A6D36F651914D54000CF9B16 /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
 		A6D36F661914D54000CF9B16 /* ReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewViewController.xib; sourceTree = "<group>"; };
+		A6D36F6919153D7600CF9B16 /* EditAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAccountViewController.h; sourceTree = "<group>"; };
+		A6D36F6A19153D7600CF9B16 /* EditAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAccountViewController.m; sourceTree = "<group>"; };
+		A6D36F6B19153D7600CF9B16 /* EditAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditAccountViewController.xib; sourceTree = "<group>"; };
+		A6D36F6E1915400100CF9B16 /* EditUserGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserGroupViewController.h; sourceTree = "<group>"; };
+		A6D36F6F1915400100CF9B16 /* EditUserGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditUserGroupViewController.m; sourceTree = "<group>"; };
+		A6D36F701915400100CF9B16 /* EditUserGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUserGroupViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +521,12 @@
 				A6D36F321914CCE800CF9B16 /* ProfileViewController.h */,
 				A6D36F331914CCE800CF9B16 /* ProfileViewController.m */,
 				A6D36F341914CCE800CF9B16 /* ProfileViewController.xib */,
+				A6D36F6919153D7600CF9B16 /* EditAccountViewController.h */,
+				A6D36F6A19153D7600CF9B16 /* EditAccountViewController.m */,
+				A6D36F6B19153D7600CF9B16 /* EditAccountViewController.xib */,
+				A6D36F6E1915400100CF9B16 /* EditUserGroupViewController.h */,
+				A6D36F6F1915400100CF9B16 /* EditUserGroupViewController.m */,
+				A6D36F701915400100CF9B16 /* EditUserGroupViewController.xib */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -644,12 +660,14 @@
 				A697C0401913DC9E00391A07 /* feed@2x.png in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
 				A697C0261913708500391A07 /* MainViewController.xib in Resources */,
+				A6D36F721915400100CF9B16 /* EditUserGroupViewController.xib in Resources */,
 				A6D36F4B1914CCE800CF9B16 /* FeedViewController.xib in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
 				A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */,
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
+				A6D36F6D19153D7600CF9B16 /* EditAccountViewController.xib in Resources */,
 				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
 				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
 				A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */,
@@ -685,6 +703,7 @@
 				A6D36F4C1914CCE800CF9B16 /* ProfileViewController.m in Sources */,
 				A621689C1910DC3200639990 /* SBJsonStreamWriter.m in Sources */,
 				A621688B1910DC3200639990 /* ASIAuthenticationDialog.m in Sources */,
+				A6D36F6C19153D7600CF9B16 /* EditAccountViewController.m in Sources */,
 				A6A35D911911BB6A00E52A56 /* User.m in Sources */,
 				A621689A1910DC3200639990 /* SBJsonStreamParserAdapter.m in Sources */,
 				A62168941910DC3200639990 /* GDataXMLNode.m in Sources */,
@@ -715,6 +734,7 @@
 				A6D36F5D1914D09700CF9B16 /* FillAQuestionViewController.m in Sources */,
 				A62168951910DC3200639990 /* MBProgressHUD.m in Sources */,
 				A6A35D941911BBF800E52A56 /* UserService.m in Sources */,
+				A6D36F711915400100CF9B16 /* EditUserGroupViewController.m in Sources */,
 				A697C00919125C1600391A07 /* Group.m in Sources */,
 				A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */,
 				A697C045191422B200391A07 /* Question.m in Sources */,

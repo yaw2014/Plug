@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString *country;
 @property (nonatomic, retain) NSString *avatar;
 @property (nonatomic, retain) UIImage *avatarImg;
+@property (nonatomic, retain) NSString *oldPassword;
 @property (nonatomic, retain) NSString *password;
 
 

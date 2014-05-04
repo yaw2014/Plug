@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController
+@interface FeedViewController : UIViewController {
+    
+}
+
+@property (nonatomic, retain) IBOutlet UISegmentedControl *mySegmentControl;
+@property (nonatomic, retain) IBOutlet UIView *contentView;
+
+@property (nonatomic, retain) UINavigationController *navController1;
+@property (nonatomic, retain) UINavigationController *navController2;
+@property (nonatomic, retain) UINavigationController *navController3;
+
+- (IBAction)segmentControlChanged:(id)sender;
 
 @end

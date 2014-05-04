@@ -19,7 +19,7 @@
     LoginViewController *viewVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewVC];
     [navController setNavigationBarHidden:YES];
-
+    [self showMainScreen];
     self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

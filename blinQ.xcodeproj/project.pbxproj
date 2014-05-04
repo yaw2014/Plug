@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A61B9B131916271300031598 /* MyQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B111916271300031598 /* MyQuestionsViewController.m */; };
+		A61B9B141916271300031598 /* MyQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B121916271300031598 /* MyQuestionsViewController.xib */; };
+		A61B9B181916272100031598 /* QuestionsForMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B161916272100031598 /* QuestionsForMeViewController.m */; };
+		A61B9B191916272100031598 /* QuestionsForMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B171916272100031598 /* QuestionsForMeViewController.xib */; };
+		A61B9B1D1916272B00031598 /* TopQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B1B1916272B00031598 /* TopQuestionsViewController.m */; };
+		A61B9B1E1916272B00031598 /* TopQuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B1C1916272B00031598 /* TopQuestionsViewController.xib */; };
+		A61B9B2119162A3900031598 /* SectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B2019162A3900031598 /* SectionInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A61B9B2419162A5A00031598 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B2319162A5A00031598 /* SectionHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A61B9B261916792D00031598 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B251916792D00031598 /* SectionHeaderView.xib */; };
 		A62168151910D41300639990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168141910D41300639990 /* Foundation.framework */; };
 		A62168171910D41300639990 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168161910D41300639990 /* CoreGraphics.framework */; };
 		A62168191910D41300639990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168181910D41300639990 /* UIKit.framework */; };
@@ -101,6 +110,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A61B9B101916271300031598 /* MyQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyQuestionsViewController.h; sourceTree = "<group>"; };
+		A61B9B111916271300031598 /* MyQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyQuestionsViewController.m; sourceTree = "<group>"; };
+		A61B9B121916271300031598 /* MyQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyQuestionsViewController.xib; sourceTree = "<group>"; };
+		A61B9B151916272100031598 /* QuestionsForMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsForMeViewController.h; sourceTree = "<group>"; };
+		A61B9B161916272100031598 /* QuestionsForMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsForMeViewController.m; sourceTree = "<group>"; };
+		A61B9B171916272100031598 /* QuestionsForMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionsForMeViewController.xib; sourceTree = "<group>"; };
+		A61B9B1A1916272B00031598 /* TopQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopQuestionsViewController.h; sourceTree = "<group>"; };
+		A61B9B1B1916272B00031598 /* TopQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopQuestionsViewController.m; sourceTree = "<group>"; };
+		A61B9B1C1916272B00031598 /* TopQuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopQuestionsViewController.xib; sourceTree = "<group>"; };
+		A61B9B1F19162A3900031598 /* SectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionInfo.h; sourceTree = "<group>"; };
+		A61B9B2019162A3900031598 /* SectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionInfo.m; sourceTree = "<group>"; };
+		A61B9B2219162A5A00031598 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		A61B9B2319162A5A00031598 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		A61B9B251916792D00031598 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
 		A62168111910D41300639990 /* blinQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blinQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62168141910D41300639990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A62168161910D41300639990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -511,6 +534,20 @@
 				A6D36F2E1914CCE800CF9B16 /* FeedViewController.h */,
 				A6D36F2F1914CCE800CF9B16 /* FeedViewController.m */,
 				A6D36F301914CCE800CF9B16 /* FeedViewController.xib */,
+				A61B9B1F19162A3900031598 /* SectionInfo.h */,
+				A61B9B2019162A3900031598 /* SectionInfo.m */,
+				A61B9B2219162A5A00031598 /* SectionHeaderView.h */,
+				A61B9B2319162A5A00031598 /* SectionHeaderView.m */,
+				A61B9B251916792D00031598 /* SectionHeaderView.xib */,
+				A61B9B101916271300031598 /* MyQuestionsViewController.h */,
+				A61B9B111916271300031598 /* MyQuestionsViewController.m */,
+				A61B9B121916271300031598 /* MyQuestionsViewController.xib */,
+				A61B9B151916272100031598 /* QuestionsForMeViewController.h */,
+				A61B9B161916272100031598 /* QuestionsForMeViewController.m */,
+				A61B9B171916272100031598 /* QuestionsForMeViewController.xib */,
+				A61B9B1A1916272B00031598 /* TopQuestionsViewController.h */,
+				A61B9B1B1916272B00031598 /* TopQuestionsViewController.m */,
+				A61B9B1C1916272B00031598 /* TopQuestionsViewController.xib */,
 			);
 			path = feed;
 			sourceTree = "<group>";
@@ -658,6 +695,7 @@
 				A6D36F5E1914D09700CF9B16 /* FillAQuestionViewController.xib in Resources */,
 				A6BC983B191181CC00E3C4F2 /* avatar.png in Resources */,
 				A697C0401913DC9E00391A07 /* feed@2x.png in Resources */,
+				A61B9B141916271300031598 /* MyQuestionsViewController.xib in Resources */,
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
 				A697C0261913708500391A07 /* MainViewController.xib in Resources */,
 				A6D36F721915400100CF9B16 /* EditUserGroupViewController.xib in Resources */,
@@ -665,14 +703,17 @@
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
 				A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */,
+				A61B9B1E1916272B00031598 /* TopQuestionsViewController.xib in Resources */,
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
+				A61B9B191916272100031598 /* QuestionsForMeViewController.xib in Resources */,
 				A6D36F6D19153D7600CF9B16 /* EditAccountViewController.xib in Resources */,
 				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
 				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
 				A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */,
 				A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */,
 				A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */,
+				A61B9B261916792D00031598 /* SectionHeaderView.xib in Resources */,
 				A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */,
 				A697C0421913DC9E00391A07 /* profile@2x.png in Resources */,
 			);
@@ -706,11 +747,13 @@
 				A6D36F6C19153D7600CF9B16 /* EditAccountViewController.m in Sources */,
 				A6A35D911911BB6A00E52A56 /* User.m in Sources */,
 				A621689A1910DC3200639990 /* SBJsonStreamParserAdapter.m in Sources */,
+				A61B9B131916271300031598 /* MyQuestionsViewController.m in Sources */,
 				A62168941910DC3200639990 /* GDataXMLNode.m in Sources */,
 				A621689D1910DC3200639990 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				A62168971910DC3200639990 /* SBJsonParser.m in Sources */,
 				A6D36F561914CCE800CF9B16 /* UserGroupViewController.m in Sources */,
 				A621688F1910DC3200639990 /* ASIFormDataRequest.m in Sources */,
+				A61B9B2419162A5A00031598 /* SectionHeaderView.m in Sources */,
 				A621689E1910DC3200639990 /* SBJsonStreamWriterState.m in Sources */,
 				A62168981910DC3200639990 /* SBJsonStreamParser.m in Sources */,
 				A62168911910DC3200639990 /* ASIInputStream.m in Sources */,
@@ -726,9 +769,11 @@
 				A6D36F581914CCE800CF9B16 /* SearchViewController.m in Sources */,
 				A62168931910DC3200639990 /* Reachability.m in Sources */,
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
+				A61B9B181916272100031598 /* QuestionsForMeViewController.m in Sources */,
 				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,
 				A697C00C1912709300391A07 /* QuestionService.m in Sources */,
 				A6D36F671914D54000CF9B16 /* ReviewViewController.m in Sources */,
+				A61B9B1D1916272B00031598 /* TopQuestionsViewController.m in Sources */,
 				A62168961910DC3200639990 /* NSObject+SBJson.m in Sources */,
 				A6D36F621914D2C200CF9B16 /* DefineTimeViewController.m in Sources */,
 				A6D36F5D1914D09700CF9B16 /* FillAQuestionViewController.m in Sources */,
@@ -739,6 +784,7 @@
 				A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */,
 				A697C045191422B200391A07 /* Question.m in Sources */,
 				A6D36F501914CCE800CF9B16 /* ForgotPasswordViewController.m in Sources */,
+				A61B9B2119162A3900031598 /* SectionInfo.m in Sources */,
 				A6D36F4A1914CCE800CF9B16 /* FeedViewController.m in Sources */,
 				A621689F1910DC3200639990 /* SBJsonTokeniser.m in Sources */,
 			);

@@ -16,6 +16,10 @@
 		A61B9B2119162A3900031598 /* SectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B2019162A3900031598 /* SectionInfo.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A61B9B2419162A5A00031598 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B2319162A5A00031598 /* SectionHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A61B9B261916792D00031598 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B251916792D00031598 /* SectionHeaderView.xib */; };
+		A61B9B2A191694C700031598 /* SubmitAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B28191694C700031598 /* SubmitAnswerTableViewCell.m */; };
+		A61B9B2B191694C700031598 /* SubmitAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B29191694C700031598 /* SubmitAnswerTableViewCell.xib */; };
+		A61B9B2F191694DA00031598 /* OtherAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A61B9B2D191694DA00031598 /* OtherAnswerTableViewCell.m */; };
+		A61B9B30191694DA00031598 /* OtherAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A61B9B2E191694DA00031598 /* OtherAnswerTableViewCell.xib */; };
 		A62168151910D41300639990 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168141910D41300639990 /* Foundation.framework */; };
 		A62168171910D41300639990 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168161910D41300639990 /* CoreGraphics.framework */; };
 		A62168191910D41300639990 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62168181910D41300639990 /* UIKit.framework */; };
@@ -124,6 +128,12 @@
 		A61B9B2219162A5A00031598 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		A61B9B2319162A5A00031598 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 		A61B9B251916792D00031598 /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		A61B9B27191694C700031598 /* SubmitAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitAnswerTableViewCell.h; sourceTree = "<group>"; };
+		A61B9B28191694C700031598 /* SubmitAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitAnswerTableViewCell.m; sourceTree = "<group>"; };
+		A61B9B29191694C700031598 /* SubmitAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubmitAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		A61B9B2C191694DA00031598 /* OtherAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherAnswerTableViewCell.h; sourceTree = "<group>"; };
+		A61B9B2D191694DA00031598 /* OtherAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherAnswerTableViewCell.m; sourceTree = "<group>"; };
+		A61B9B2E191694DA00031598 /* OtherAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherAnswerTableViewCell.xib; sourceTree = "<group>"; };
 		A62168111910D41300639990 /* blinQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blinQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62168141910D41300639990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A62168161910D41300639990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -539,6 +549,12 @@
 				A61B9B2219162A5A00031598 /* SectionHeaderView.h */,
 				A61B9B2319162A5A00031598 /* SectionHeaderView.m */,
 				A61B9B251916792D00031598 /* SectionHeaderView.xib */,
+				A61B9B27191694C700031598 /* SubmitAnswerTableViewCell.h */,
+				A61B9B28191694C700031598 /* SubmitAnswerTableViewCell.m */,
+				A61B9B29191694C700031598 /* SubmitAnswerTableViewCell.xib */,
+				A61B9B2C191694DA00031598 /* OtherAnswerTableViewCell.h */,
+				A61B9B2D191694DA00031598 /* OtherAnswerTableViewCell.m */,
+				A61B9B2E191694DA00031598 /* OtherAnswerTableViewCell.xib */,
 				A61B9B101916271300031598 /* MyQuestionsViewController.h */,
 				A61B9B111916271300031598 /* MyQuestionsViewController.m */,
 				A61B9B121916271300031598 /* MyQuestionsViewController.xib */,
@@ -702,6 +718,7 @@
 				A6D36F4B1914CCE800CF9B16 /* FeedViewController.xib in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
+				A61B9B2B191694C700031598 /* SubmitAnswerTableViewCell.xib in Resources */,
 				A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */,
 				A61B9B1E1916272B00031598 /* TopQuestionsViewController.xib in Resources */,
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
@@ -711,6 +728,7 @@
 				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
 				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
 				A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */,
+				A61B9B30191694DA00031598 /* OtherAnswerTableViewCell.xib in Resources */,
 				A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */,
 				A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */,
 				A61B9B261916792D00031598 /* SectionHeaderView.xib in Resources */,
@@ -737,6 +755,7 @@
 				A62168A21910DC3200639990 /* Utils.m in Sources */,
 				A697C0251913708500391A07 /* MainViewController.m in Sources */,
 				A621688C1910DC3200639990 /* ASIDataCompressor.m in Sources */,
+				A61B9B2A191694C700031598 /* SubmitAnswerTableViewCell.m in Sources */,
 				A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */,
 				A62168251910D41300639990 /* AppDelegate.m in Sources */,
 				A62168991910DC3200639990 /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -767,6 +786,7 @@
 				A621688D1910DC3200639990 /* ASIDataDecompressor.m in Sources */,
 				A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */,
 				A6D36F581914CCE800CF9B16 /* SearchViewController.m in Sources */,
+				A61B9B2F191694DA00031598 /* OtherAnswerTableViewCell.m in Sources */,
 				A62168931910DC3200639990 /* Reachability.m in Sources */,
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
 				A61B9B181916272100031598 /* QuestionsForMeViewController.m in Sources */,

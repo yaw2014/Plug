@@ -9,13 +9,16 @@
 #import "SectionHeaderView.h"
 #import "SectionInfo.h"
 #import "User.h"
+#import "Group.h"
 #import "Question.h"
-
+#import "QuestionService.h"
 @implementation SectionHeaderView
+@synthesize question;
+@synthesize questionService;
 @synthesize section, delegate;
 @synthesize sectionInfo;
-@synthesize avatarImgView, nameLbl, classLbl, sectionLbl, subjectLbl, questionLbl, expireDateLbl;
--(id)initWithQuestion:(Question *)question section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
+@synthesize avatarImgView, fromLbl, toLbl, subjectLbl, questionLbl, expireDateLbl;
+-(id)initWithQuestion:(Question *)ques section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
     
     self = [[[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil] objectAtIndex:0];
     
@@ -26,17 +29,30 @@
         
         delegate = aDelegate;
         self.userInteractionEnabled = YES;
+        self.questionService = [[QuestionService alloc] init];
+        questionService.delegate = self;
         
         // Create and configure the title label.
         section = sectionNumber;
         
+        self.question = ques;
         User *user = question.user;
-        nameLbl.text = user.name;
-        classLbl.text = user.year;
-        sectionLbl.text = user.section;
+        fromLbl.text = [NSString stringWithFormat:@"%@, Section %@, Class of %@", user.name, user.section, user.year];
+        
+        NSMutableString *temp = [[NSMutableString alloc] initWithString:@"To: "];
+        for (Group *group in question.groups) {
+            [temp appendString:[NSString stringWithFormat:@"%@, ", group.groupName]];
+        }
+        NSString *final = [temp substringToIndex:[temp length] - 1];
+        toLbl.text = final;
+
         
         subjectLbl.text = question.subject;
         questionLbl.text = question.question;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        expireDateLbl.text = [dateFormatter stringFromDate:question.expireDate];
         
         CGFloat heightDistance = 10;
         CGRect frame;
@@ -57,7 +73,9 @@
 
 
 -(IBAction)toggleOpen:(id)sender {
-    [self toggleOpenWithUserAction:YES];
+    if (!sectionInfo.open) {
+        [questionService retrieveAnswersForQuestion:question.questionId];
+    }
 }
 
 
@@ -73,4 +91,14 @@
         }
     }
 }
+
+#pragma mark - QuestionServiceDelegate
+- (void)didRetrieveAnswersForQuestionSuccess:(QuestionService *)service {
+    [self toggleOpenWithUserAction:YES];
+}
+
+- (void)didRetrieveAnswersForQuestionFail:(QuestionService *)service withMessage:(NSString *)message {
+    
+}
+
 @end

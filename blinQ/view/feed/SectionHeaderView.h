@@ -8,27 +8,30 @@
 
 #import <UIKit/UIKit.h>
 #import "UILoadingImageView.h"
-
+#import "QuestionService.h"
 @class Question;
 @class SectionInfo;
 @protocol SectionHeaderViewDelegate;
 
-@interface SectionHeaderView : UIView
+@interface SectionHeaderView : UIView<QuestionServiceDelegate> {
+    
+}
 
+@property (nonatomic, retain) QuestionService *questionService;
+@property (nonatomic, assign) Question *question;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, assign) SectionInfo *sectionInfo;
 @property (nonatomic, assign) id <SectionHeaderViewDelegate> delegate;
 
 @property (nonatomic, retain) IBOutlet UILoadingImageView *avatarImgView;
 @property (nonatomic, retain) IBOutlet UILabel *expireDateLbl;
-@property (nonatomic, retain) IBOutlet UILabel *nameLbl;
-@property (nonatomic, retain) IBOutlet UILabel *classLbl;
-@property (nonatomic, retain) IBOutlet UILabel *sectionLbl;
+@property (nonatomic, retain) IBOutlet UILabel *fromLbl;
+@property (nonatomic, retain) IBOutlet UILabel *toLbl;
 
 @property (nonatomic, retain) IBOutlet UILabel *subjectLbl;
 @property (nonatomic, retain) IBOutlet UILabel *questionLbl;
 
--(id)initWithQuestion:(Question*) question section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)aDelegate;
+-(id)initWithQuestion:(Question*) ques section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)aDelegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
 
 

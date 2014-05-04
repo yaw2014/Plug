@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @class SectionHeaderView;
-
-@interface SectionInfo : NSObject
+@class Question;
+@interface SectionInfo : NSObject {
+    
+}
 
 @property (assign) BOOL open;
 @property (retain) SectionHeaderView* headerView;
+@property (nonatomic, assign) Question *question;
 
 @property (nonatomic,retain,readonly) NSMutableArray *rowHeights;
 

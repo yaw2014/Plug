@@ -7,7 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SectionInfo.h"
+#import "SectionHeaderView.h"
+#import "User.h"
+#import "UserService.h"
+#import "Question.h"
+#import "QuestionService.h"
+#import "UILineFooterView.h"
+#import "SubmitAnswerTableViewCell.h"
+#import "OtherAnswerTableViewCell.h"
+#import "Answer.h"
 
-@interface MyQuestionsViewController : UIViewController
+@interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate> {
+    
+}
+
+@property (nonatomic, retain) IBOutlet UITableView *myTableView;
+@property (nonatomic, retain) NSMutableArray *sectionInfoArray;
+@property (nonatomic, retain) QuestionService *questionService;
+@property (nonatomic, assign) NSInteger openSectionIndex;
+
+@property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
+@property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
 
 @end

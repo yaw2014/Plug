@@ -38,7 +38,8 @@
     for (Group *group in question.groups) {
         [temp appendString:[NSString stringWithFormat:@"%@, ", group.groupName]];
     }
-    titleLbl.text = temp;
+    NSString *final = [temp substringToIndex:[temp length] - 1];
+    titleLbl.text = final;
     subjectLbl.text = question.subject;
     questionLbl.text = question.question;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

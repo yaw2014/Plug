@@ -11,7 +11,7 @@
 @implementation SectionInfo
 
 @synthesize open, rowHeights, headerView;
-
+@synthesize question;
 - init {
 	
 	self = [super init];

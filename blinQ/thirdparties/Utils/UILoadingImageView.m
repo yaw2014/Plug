@@ -14,6 +14,9 @@
 @synthesize connection;
 @synthesize activity;
 - (void)setImgUrl: (NSString*) url {
+    if (url == nil || [url isEqual:@""]) {
+        return;
+    }
     [imgUrl release];
     imgUrl = nil;
     imgUrl = [url retain];

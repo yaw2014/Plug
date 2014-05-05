@@ -35,7 +35,7 @@
     
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
-    [questionService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
+    
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
     tapGesture.delegate = self;
@@ -54,6 +54,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [questionService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     [super viewWillAppear:animated];
@@ -204,6 +205,7 @@
         cell.question = info.question;
         cell.nameLbl.text = [UserService signedInUserName];
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", [UserService signedInYear], [UserService signedInSection]];
+        cell.avatarImgView.imgUrl = [UserService signedInAvatar];
         return cell;
     } else {
         static NSString *CellIdentifier2 = @"OtherAnswerTableViewCell";
@@ -222,6 +224,7 @@
         cell.nameLbl.text = answer.user.name;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
+        cell.avatarImgView.imgUrl = answer.user.avatar;
         return cell;
     }
 }

@@ -246,6 +246,7 @@
         cell.question = info.question;
         cell.nameLbl.text = [UserService signedInUserName];
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", [UserService signedInYear], [UserService signedInSection]];
+        cell.avatarImgView.imgUrl = [UserService signedInAvatar];
         return cell;
     } else {
         static NSString *CellIdentifier2 = @"OtherAnswerTableViewCell";
@@ -262,6 +263,7 @@
         SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
         Answer *answer = [info.question.answers objectAtIndex:indexPath.row - 1];
         cell.nameLbl.text = answer.user.name;
+        cell.avatarImgView.imgUrl = answer.user.avatar;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
         return cell;

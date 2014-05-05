@@ -13,7 +13,7 @@
 @class SectionInfo;
 @protocol SectionHeaderViewDelegate;
 
-@interface SectionHeaderView : UIView<QuestionServiceDelegate> {
+@interface SectionHeaderView : UIView<QuestionServiceDelegate, UIGestureRecognizerDelegate> {
     
 }
 
@@ -30,10 +30,12 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *subjectLbl;
 @property (nonatomic, retain) IBOutlet UILabel *questionLbl;
+@property (nonatomic, retain) IBOutlet UIButton *hiddenBtn;
 
 -(id)initWithQuestion:(Question*) ques section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)aDelegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
 - (void) retrieveAnswers;
+- (void) formatLayout;
 
 @end
 

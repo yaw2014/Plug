@@ -37,6 +37,8 @@
     
     self.userService = [[UserService alloc] init];
     userService.delegate = self;
+    
+    self.selectedGroups = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +64,17 @@
 - (void) didRegisterSuccess: (UserService*) service {
     //submit avatar
     self.user.userId = service.user.userId;
-    
+    User *temp = service.user;
+    [UserService storeUserId:temp.userId];
+    [UserService storeUserName:temp.name];
+    [UserService storeEmail:temp.email];
+    [UserService storeYear:temp.year];
+    [UserService storeSection:temp.section];
+    [UserService storeCity:temp.city];
+    [UserService storeState:temp.state];
+    [UserService storeCountry:temp.country];
+    [UserService storeCreatedDate:temp.createdDate];
+
     if (user.avatarImg) {
         NSMutableString *imageName = [[NSMutableString alloc] initWithCapacity:0];
         CFUUIDRef theUUID = CFUUIDCreate(kCFAllocatorDefault);
@@ -95,6 +107,7 @@
 
 - (void)didSubmitAvatarForUserSuccess:(UserService *)service {
     self.user.avatar = service.user.avatar;
+    [UserService storeAvatar:user.avatar];
     [self goToMainScreen];
 }
 
@@ -185,6 +198,7 @@
     } else {
         [selectedGroups addObject:g];
     }
+    [myTableView reloadData];
 }
 
 

@@ -90,6 +90,20 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:USER_CREATED_DATE_KEY];
 }
 
++ (void) clearUserData {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_ID_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_NAME_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_EMAIL_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_YEAR_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_SECTION_KEY];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_CITY_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_STATE_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_COUNTRY_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_AVATAR_KEY];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:USER_CREATED_DATE_KEY];
+}
+
 - (void)registerWithName:(NSString *)name
              withEmail:(NSString *)email
            withSection:(NSString *)section
@@ -158,9 +172,9 @@
     [theRequest setPostValue:userId forKey:@"userId"];
     NSString *extension = [fileName pathExtension];
     if ([extension isEqual:@"png"]) {
-        [theRequest setData:data withFileName:fileName andContentType:@"image/png" forKey:@"picture"];
+        [theRequest setData:data withFileName:fileName andContentType:@"image/png" forKey:@"avatar"];
     } else {
-        [theRequest setData:data withFileName:fileName andContentType:@"image/jpeg" forKey:@"picture"];
+        [theRequest setData:data withFileName:fileName andContentType:@"image/jpeg" forKey:@"avatar"];
     }
     
     __weak ASIFormDataRequest *request = theRequest;

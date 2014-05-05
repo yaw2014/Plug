@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "Group.h"
 #import "EditAccountViewController.h"
+#import "AppDelegate.h"
 
 @interface ProfileViewController ()
 
@@ -35,7 +36,7 @@
     nameLbl.text = [UserService signedInUserName];
     yearLbl.text = [NSString stringWithFormat:@"Year of %@", [UserService signedInYear]];
     sectionLbl.text = [NSString stringWithFormat:@"Section %@", [UserService signedInSection]];
-    if ([UserService signedInAvatar]) {
+    if (![[UserService signedInAvatar] isEqual:@""]) {
         avatarImgView.imgUrl = [UserService signedInAvatar];
     }
     
@@ -62,6 +63,11 @@
     [self.navigationController pushViewController:viewVC animated:YES];
 }
 
+- (IBAction)logOutBtnTapped:(id)sender {
+    [UserService clearUserData];
+    [[AppDelegate sharedInstance] showFirstLogInScreen];
+}
+
 #pragma mark - UserServiceDelegate
 - (void)didRetrieveUserInfoByUserIdSuccess:(UserService *)service {
     self.user = service.user;
@@ -70,7 +76,7 @@
     for (Group *g in groups) {
         [groupNames appendString:[NSString stringWithFormat:@"%@, ", g.groupName]];
     }
-    NSString *final = [groupNames substringToIndex:[groupNames length] - 1];
+    NSString *final = [groupNames substringToIndex:[groupNames length] - 2];
     groupsLbl.text = final;
 }
 

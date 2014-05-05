@@ -24,7 +24,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *groupsLbl;
 
 - (IBAction)editBtnTapped:(id)sender;
-
+- (IBAction)logOutBtnTapped:(id)sender;
 
 
 @end

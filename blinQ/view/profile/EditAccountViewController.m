@@ -134,6 +134,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)sectionBtnTapped:(id)sender {
+    [self.view endEditing:YES];
     [UIView animateWithDuration:0.2 animations:^{
         sectionSelectView.frame = CGRectMake(0, self.view.frame.size.height - sectionSelectView.frame.size.height, sectionSelectView.frame.size.width, sectionSelectView.frame.size.height);
     } completion:^(BOOL finished) {

@@ -100,8 +100,15 @@
         question.subject = subject;
         question.question = ques;
         DefineTimeViewController *viewVC = [[DefineTimeViewController alloc] initWithNibName:@"DefineTimeViewController" bundle:nil];
+        viewVC.question = question;
         [self.navigationController pushViewController:viewVC animated:YES];
     }
 }
-
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIButton class]]){
+        return NO;
+    }
+    return YES;
+}
 @end

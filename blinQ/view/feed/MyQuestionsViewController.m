@@ -17,7 +17,7 @@
 @synthesize openSectionIndex;
 @synthesize submitAnswerCell, otherAnswerCell;
 @synthesize currentQuestionIndex;
-
+@synthesize changeAmount;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,12 +36,60 @@
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
     [questionService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+    tapGesture.delegate = self;
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void) dismissKeyboard: (UITapGestureRecognizer*) gesture {
+    [self.view endEditing:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    
+    [self.view endEditing:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewWillDisappear:animated];
+}
+
+
+- (void) onKeyboardShow: (NSNotification*) notification {
+    NSDictionary *dic = notification.userInfo;
+    NSValue *val = [dic objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect rect = [val CGRectValue];
+    rect = [self.view convertRect:rect fromView:nil];
+    
+    CGRect frame = myTableView.frame;
+    myTableView.contentSize = frame.size;
+    
+    CGPoint point = CGPointMake(frame.origin.x, frame.origin.y + frame.size.height);
+    if (point.y > rect.origin.y) {
+        changeAmount = point.y - rect.origin.y;
+        frame.size.height -= changeAmount;
+        myTableView.frame = frame;
+    } else {
+        changeAmount = 0;
+    }
+}
+
+- (void) onKeyboardHide: (NSNotification*) notification {
+    CGRect frame = myTableView.frame;
+    frame.size.height += changeAmount;
+    myTableView.frame = frame;
 }
 
 #pragma mark - QuestionServiceDelegate
@@ -63,6 +111,8 @@
 }
 
 - (void)didSubmitAnswerSuccess:(QuestionService *)service {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:ANSWER_SUBMIT_SUCCESS_MSG delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
     SectionInfo *info = [sectionInfoArray objectAtIndex:currentQuestionIndex];
     [info.headerView retrieveAnswers];
 }
@@ -78,6 +128,16 @@
 }
 
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    SectionInfo *info = [sectionInfoArray objectAtIndex:section];
+    if (info.headerView == nil) {
+        info.headerView = [[SectionHeaderView alloc] initWithQuestion:info.question section:section delegate:self];
+    }
+    
+    [info.headerView formatLayout];
+    return info.headerView.frame.size.height;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     SectionInfo *info = [sectionInfoArray objectAtIndex:section];
     if (info.headerView == nil) {
@@ -122,7 +182,7 @@
     // Return the number of rows in the section.
     SectionInfo *info = [sectionInfoArray objectAtIndex:section];
     NSInteger count = [info.question.answers count];
-    return info.open ? count : 0;
+    return info.open ? count + 1 : 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,6 +261,11 @@
         [indexPathsToInsert addObject:[NSIndexPath indexPathForRow:i inSection:sectionOpened]];
     }
     
+    if ([indexPathsToInsert count] == 0) {
+        [myTableView reloadData];
+        return;
+    }
+    
     /*
      Create an array containing the index paths of the rows to delete: These correspond to the rows for each quotation in the previously-open section, if there was one.
      */
@@ -258,6 +323,14 @@
         [self.myTableView deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:UITableViewRowAnimationFade];
     }
     self.openSectionIndex = NSNotFound;
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIButton class]]){
+        return NO;
+    }
+    return YES;
 }
 
 @end

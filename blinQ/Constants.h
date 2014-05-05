@@ -9,21 +9,21 @@
 #ifndef blinQ_Constants_h
 #define blinQ_Constants_h
 //url
-#define GROUPS_RETRIEVE_URL                     @""
-#define ASK_QUESTION_URL                        @""
-#define GET_MY_QUESTIONS_URL                    @""
-#define GET_QUESTIONS_FOR_ME_URL                @""
-#define GET_TOP_QUESTIONS_URL                   @""
-#define SUBMIT_ANSWER_URL                       @""
-#define GET_ANSWER_FOR_QUESTION_URL             @""
-#define SEARCH_ON_QUESTIONS_URL                 @""
+#define GROUPS_RETRIEVE_URL                     @"http://www.fourballoon.com/blinq/webservices/get_list_groups.php"
+#define ASK_QUESTION_URL                        @"http://www.fourballoon.com/blinq/webservices/ask_a_question.php"
+#define GET_MY_QUESTIONS_URL                    @"http://www.fourballoon.com/blinq/webservices/get_my_questions.php"
+#define GET_QUESTIONS_FOR_ME_URL                @"http://www.fourballoon.com/blinq/webservices/get_questions_for_me.php"
+#define GET_TOP_QUESTIONS_URL                   @"http://www.fourballoon.com/blinq/webservices/get_top_questions.php"
+#define SUBMIT_ANSWER_URL                       @"http://www.fourballoon.com/blinq/webservices/submit_answer.php"
+#define GET_ANSWER_FOR_QUESTION_URL             @"http://www.fourballoon.com/blinq/webservices/get_answer_for_question.php"
+#define SEARCH_ON_QUESTIONS_URL                 @"http://www.fourballoon.com/blinq/webservices/search_on_questions.php"
 
 
-#define REGISTER_USER_URL                       @""
-#define SUBMIT_AVATAR_URL                       @""
-#define LOGIN_URL                               @""
-#define FORGOT_PASSWORD_URL                     @""
-#define RETRIEVE_USER_INFO_URL                  @""
+#define REGISTER_USER_URL                       @"http://www.fourballoon.com/blinq/webservices/register_user.php"
+#define SUBMIT_AVATAR_URL                       @"http://www.fourballoon.com/blinq/webservices/submit_avatar.php"
+#define LOGIN_URL                               @"http://www.fourballoon.com/blinq/webservices/login.php"
+#define FORGOT_PASSWORD_URL                     @"http://www.fourballoon.com/blinq/webservices/forgot_password.php"
+#define RETRIEVE_USER_INFO_URL                  @"http://www.fourballoon.com/blinq/webservices/get_user_info.php"
 #define UPDATE_USER_INFO_URL                    @""
 
 //key
@@ -52,5 +52,6 @@
 #define ASK_QUESTION_SUCCESS_MSG                @"Your question has been submitted"
 #define CHANGE_AVATAR_SUCCESS_MSG               @"Change avatar successfully"
 #define EDIT_USER_SUCCESS_MSG                   @"Update user successfully"
+#define ANSWER_SUBMIT_SUCCESS_MSG               @"Your answer has been submitted."
 
 #endif

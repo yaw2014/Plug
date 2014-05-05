@@ -26,10 +26,6 @@
 	return [rowHeights count];
 }
 
-- (void)getRowHeights:(id *)buffer range:(NSRange)inRange {
-	[rowHeights getObjects:buffer range:inRange];
-}
-
 - (id)objectInRowHeightsAtIndex:(NSUInteger)idx {
 	return [rowHeights objectAtIndex:idx];
 }

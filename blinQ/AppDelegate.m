@@ -17,12 +17,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     LoginViewController *viewVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:viewVC];
+    self.navController = [[NonRotateNavigationController alloc] initWithRootViewController:viewVC];
     [navController setNavigationBarHidden:YES];
-    [self showMainScreen];
+
     self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    if ([UserService signedInUserId]) {
+        [self showMainScreen];
+    }
+    
     return YES;
 }
 

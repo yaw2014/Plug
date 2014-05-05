@@ -36,6 +36,9 @@
     questionService.delegate = self;
     [questionService retrieveGroups];
     
+    if (selectedGroups == nil) {
+        self.selectedGroups = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +50,7 @@
 #pragma mark - QuestionServiceDelegate
 - (void) didRetrieveGroupsSuccess: (QuestionService*) service {
     self.groups = service.groups;
+    [myTableView reloadData];
 }
 
 - (void) didRetrieveGroupsFail: (QuestionService *)service withMessage: (NSString*) message {
@@ -128,5 +132,6 @@
     } else {
         [selectedGroups addObject:g];
     }
+    [myTableView reloadData];
 }
 @end

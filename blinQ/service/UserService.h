@@ -65,6 +65,7 @@
 + (NSString*) signedInCountry;
 + (NSString*) signedInAvatar;
 + (NSDate*) signedInCreatedDate;
++ (void) clearUserData;
 
 - (void) registerWithName: (NSString*) name
               withEmail: (NSString*) email

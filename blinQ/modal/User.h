@@ -26,9 +26,8 @@
 @property (nonatomic, retain) UIImage *avatarImg;
 @property (nonatomic, retain) NSString *oldPassword;
 @property (nonatomic, retain) NSString *password;
-
-
 @property (nonatomic, retain) NSMutableArray *groups;
+@property (nonatomic, retain) NSDate *createdDate;
 
 - (id) initWithElement: (GDataXMLElement *) element;
 @end

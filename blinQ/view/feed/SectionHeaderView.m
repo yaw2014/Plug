@@ -18,6 +18,8 @@
 @synthesize section, delegate;
 @synthesize sectionInfo;
 @synthesize avatarImgView, fromLbl, toLbl, subjectLbl, questionLbl, expireDateLbl;
+@synthesize hiddenBtn;
+
 -(id)initWithQuestion:(Question *)ques section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
     
     self = [[[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil] objectAtIndex:0];
@@ -43,7 +45,7 @@
         for (Group *group in question.groups) {
             [temp appendString:[NSString stringWithFormat:@"%@, ", group.groupName]];
         }
-        NSString *final = [temp substringToIndex:[temp length] - 1];
+        NSString *final = [temp substringToIndex:[temp length] - 2];
         toLbl.text = final;
 
         
@@ -71,11 +73,25 @@
     return self;
 }
 
+- (void)formatLayout {
+    CGFloat heightDistance = 10;
+    CGRect frame;
+    
+    frame = subjectLbl.frame;
+    //frame.origin.y = heightDistance;
+    frame.size.height = [subjectLbl.text sizeWithFont:subjectLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
+    subjectLbl.frame = frame;
+    
+    frame = questionLbl.frame;
+    frame.origin.y = subjectLbl.frame.origin.y + subjectLbl.frame.size.height + heightDistance;
+    frame.size.height = [questionLbl.text sizeWithFont:questionLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
+    questionLbl.frame = frame;
+    [super layoutSubviews];
+}
+
 
 -(IBAction)toggleOpen:(id)sender {
-    if (!sectionInfo.open) {
-        [self retrieveAnswers];
-    }
+    [self retrieveAnswers];
 }
 
 - (void) retrieveAnswers {
@@ -83,7 +99,8 @@
 }
 
 -(void)toggleOpenWithUserAction:(BOOL)userAction {
-    if (sectionInfo.open) {
+    hiddenBtn.selected = !hiddenBtn.selected;
+    if (hiddenBtn.selected) {
         if ([delegate respondsToSelector:@selector(sectionHeaderView:sectionOpened:)]) {
             [delegate sectionHeaderView:self sectionOpened:section];
         }
@@ -103,6 +120,14 @@
 
 - (void)didRetrieveAnswersForQuestionFail:(QuestionService *)service withMessage:(NSString *)message {
     
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UIButton class]]){
+        return NO;
+    }
+    return YES;
 }
 
 @end

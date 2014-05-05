@@ -59,6 +59,17 @@
 
 #pragma mark - UserServiceDelegate
 - (void)didUpdateUserInfoByUserIdSuccess:(UserService *)service {
+    User *temp = service.user;
+    [UserService storeUserId:temp.userId];
+    [UserService storeUserName:temp.name];
+    [UserService storeEmail:temp.email];
+    [UserService storeYear:temp.year];
+    [UserService storeSection:temp.section];
+    [UserService storeCity:temp.city];
+    [UserService storeState:temp.state];
+    [UserService storeCountry:temp.country];
+    [UserService storeCreatedDate:temp.createdDate];
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:EDIT_USER_SUCCESS_MSG delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
@@ -130,7 +141,16 @@
     // Configure the cell...
     Group *g = [groups objectAtIndex:indexPath.row];
     cell.textLabel.text = g.groupName;
-    if ([selectedGroups containsObject:g]) {
+    
+    BOOL exist = NO;
+    for (Group *temp in selectedGroups) {
+        if ([temp.groupId isEqual:g.groupId]) {
+            exist = YES;
+            break;
+        }
+    }
+    
+    if (exist) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -151,11 +171,20 @@
      [detailViewController release];
      */
     Group *g = [groups objectAtIndex:indexPath.row];
-    if ([selectedGroups containsObject:g]) {
-        [selectedGroups removeObject:g];
-    } else {
+    
+    BOOL exist = NO;
+    for (Group *temp in selectedGroups) {
+        if ([temp.groupId isEqual:g.groupId]) {
+            exist = YES;
+            [selectedGroups removeObject:temp];
+            break;
+        }
+    }
+    
+    if (!exist) {
         [selectedGroups addObject:g];
     }
+    [myTableView reloadData];
 }
 
 @end

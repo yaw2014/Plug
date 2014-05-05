@@ -44,6 +44,8 @@
     
     self.userService = [[UserService alloc] init];
     userService.delegate = self;
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,6 +126,7 @@
     if (textField == emailTxt) {
         [passwordTxt becomeFirstResponder];
     } else if (textField == passwordTxt) {
+        [passwordTxt resignFirstResponder];
         [self loginBtnTapped:nil];
     }
     return YES;
@@ -139,6 +142,17 @@
 
 #pragma mark - UserServiceDelegate
 - (void)didLoginWithEmailSuccess:(UserService *)service {
+    User *user = service.user;
+    [UserService storeUserId:user.userId];
+    [UserService storeUserName:user.name];
+    [UserService storeEmail:user.email];
+    [UserService storeYear:user.year];
+    [UserService storeSection:user.section];
+    [UserService storeCity:user.city];
+    [UserService storeState:user.state];
+    [UserService storeCountry:user.country];
+    [UserService storeCreatedDate:user.createdDate];
+    [UserService storeAvatar:user.avatar];
     [[AppDelegate sharedInstance] showMainScreen];
 }
 

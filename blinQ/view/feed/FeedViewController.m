@@ -33,12 +33,15 @@
     // Do any additional setup after loading the view from its nib.
     MyQuestionsViewController *viewVC1 = [[MyQuestionsViewController alloc] initWithNibName:@"MyQuestionsViewController" bundle:nil];
     self.navController1 = [[UINavigationController alloc] initWithRootViewController:viewVC1];
-    
+    [navController1 setNavigationBarHidden:YES];
     QuestionsForMeViewController *viewVC2 = [[QuestionsForMeViewController alloc] initWithNibName:@"QuestionsForMeViewController" bundle:nil];
     self.navController2 = [[UINavigationController alloc] initWithRootViewController:viewVC2];
-    
+    [navController2 setNavigationBarHidden:YES];
     TopQuestionsViewController *viewVC3 = [[TopQuestionsViewController alloc] initWithNibName:@"TopQuestionsViewController" bundle:nil];
     self.navController3 = [[UINavigationController alloc] initWithRootViewController:viewVC3];
+    [navController3 setNavigationBarHidden:YES];
+    [mySegmentControl setSelectedSegmentIndex:0];
+    [self segmentControlChanged:nil];
 }
 
 - (void)didReceiveMemoryWarning

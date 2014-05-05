@@ -13,6 +13,7 @@
 @synthesize userId, name, email, section, year, state, city, country, avatar;
 @synthesize groups;
 @synthesize avatarImg;
+@synthesize createdDate;
 @synthesize oldPassword;
 - (id) initWithElement:(GDataXMLElement *)element {
     if (self = [super init]) {
@@ -25,6 +26,10 @@
         self.city = [[Utils getSingleChildFrom:element withElementName:@"city"] stringValue];
         self.country = [[Utils getSingleChildFrom:element withElementName:@"country"] stringValue];
         self.avatar = [[Utils getSingleChildFrom:element withElementName:@"avatar"] stringValue];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        self.createdDate = [dateFormatter dateFromString:[[Utils getSingleChildFrom:element withElementName:@"createdDate"] stringValue]];
         
         NSArray *arr = [element elementsForName:@"group"];
         self.groups = [[NSMutableArray alloc] initWithCapacity:[arr count]];

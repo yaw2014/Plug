@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NonRotateNavigationController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) UINavigationController *navController;
+@property (nonatomic, retain) NonRotateNavigationController *navController;
 
 + (AppDelegate*) sharedInstance;
 - (void) showMainScreen;

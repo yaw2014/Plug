@@ -38,7 +38,7 @@
     for (Group *group in question.groups) {
         [temp appendString:[NSString stringWithFormat:@"%@, ", group.groupName]];
     }
-    NSString *final = [temp substringToIndex:[temp length] - 1];
+    NSString *final = [temp substringToIndex:[temp length] - 2];
     titleLbl.text = final;
     subjectLbl.text = question.subject;
     questionLbl.text = question.question;
@@ -93,7 +93,7 @@
     }
     NSString *final = [groupIds substringToIndex:[groupIds length] - 1];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd, yyyy, HH:mm a"];
+    [dateFormatter setDateFormat:@"MMM dd, yyyy, HH:mm:ss"];
     [questionService askAQuestionFromUserId:[UserService signedInUserId] withSubject:question.subject withQuestion:question.question withGroupIds:final withExpireDate:[dateFormatter stringFromDate:question.expireDate]];
 }
 

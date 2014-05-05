@@ -19,7 +19,7 @@
 @synthesize sectionInfo;
 @synthesize avatarImgView, fromLbl, toLbl, subjectLbl, questionLbl, expireDateLbl;
 @synthesize hiddenBtn;
-
+@synthesize shouldUpdateHeader;
 -(id)initWithQuestion:(Question *)ques section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
     
     self = [[[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil] objectAtIndex:0];
@@ -73,24 +73,17 @@
     return self;
 }
 
-- (void)formatLayout {
-    CGFloat heightDistance = 10;
-    CGRect frame;
-    
-    frame = subjectLbl.frame;
-    //frame.origin.y = heightDistance;
-    frame.size.height = [subjectLbl.text sizeWithFont:subjectLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
-    subjectLbl.frame = frame;
-    
-    frame = questionLbl.frame;
-    frame.origin.y = subjectLbl.frame.origin.y + subjectLbl.frame.size.height + heightDistance;
-    frame.size.height = [questionLbl.text sizeWithFont:questionLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
-    questionLbl.frame = frame;
-    [super layoutSubviews];
+-(IBAction)toggleOpen:(id)sender {
+    shouldUpdateHeader = YES;
+    if (hiddenBtn.selected) {
+        [self toggleOpenWithUserAction:YES];
+    } else {
+        [self retrieveAnswers];
+    }
 }
 
-
--(IBAction)toggleOpen:(id)sender {
+- (void)recallAnswers {
+    shouldUpdateHeader = NO;
     [self retrieveAnswers];
 }
 
@@ -115,7 +108,14 @@
 #pragma mark - QuestionServiceDelegate
 - (void)didRetrieveAnswersForQuestionSuccess:(QuestionService *)service {
     question.answers = service.answers;
-    [self toggleOpenWithUserAction:YES];
+    if (shouldUpdateHeader) {
+        [self toggleOpenWithUserAction:YES];
+    } else {
+        if (delegate && [delegate respondsToSelector:@selector(didRetrieveAnswersSectionHeaderView:)]) {
+            [delegate didRetrieveAnswersSectionHeaderView:self];
+        }
+    }
+    
 }
 
 - (void)didRetrieveAnswersForQuestionFail:(QuestionService *)service withMessage:(NSString *)message {

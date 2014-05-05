@@ -114,7 +114,7 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:ANSWER_SUBMIT_SUCCESS_MSG delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     SectionInfo *info = [sectionInfoArray objectAtIndex:currentQuestionIndex];
-    [info.headerView retrieveAnswers];
+    [info.headerView recallAnswers];
 }
 
 - (void)didSubmitAnswerFail:(QuestionService *)service withMessage:(NSString *)message {
@@ -133,8 +133,7 @@
     if (info.headerView == nil) {
         info.headerView = [[SectionHeaderView alloc] initWithQuestion:info.question section:section delegate:self];
     }
-    
-    [info.headerView formatLayout];
+
     return info.headerView.frame.size.height;
 }
 
@@ -242,7 +241,7 @@
 }
 
 #pragma mark Section header delegate
-- (void)didRetriveAnswersSectionHeaderView:(SectionHeaderView *)headerView {
+- (void)didRetrieveAnswersSectionHeaderView:(SectionHeaderView *)headerView {
     [myTableView reloadData];
 }
 

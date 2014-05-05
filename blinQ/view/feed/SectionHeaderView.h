@@ -31,11 +31,11 @@
 @property (nonatomic, retain) IBOutlet UILabel *subjectLbl;
 @property (nonatomic, retain) IBOutlet UILabel *questionLbl;
 @property (nonatomic, retain) IBOutlet UIButton *hiddenBtn;
+@property (nonatomic, assign) BOOL shouldUpdateHeader;
 
 -(id)initWithQuestion:(Question*) ques section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)aDelegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
-- (void) retrieveAnswers;
-- (void) formatLayout;
+- (void) recallAnswers;
 
 @end
 
@@ -44,5 +44,5 @@
 @optional
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
-- (void) didRetriveAnswersSectionHeaderView:(SectionHeaderView*) headerView;
+- (void) didRetrieveAnswersSectionHeaderView:(SectionHeaderView*) headerView;
 @end

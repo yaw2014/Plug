@@ -74,10 +74,13 @@
 
 -(IBAction)toggleOpen:(id)sender {
     if (!sectionInfo.open) {
-        [questionService retrieveAnswersForQuestion:question.questionId];
+        [self retrieveAnswers];
     }
 }
 
+- (void) retrieveAnswers {
+    [questionService retrieveAnswersForQuestion:question.questionId];
+}
 
 -(void)toggleOpenWithUserAction:(BOOL)userAction {
     if (sectionInfo.open) {
@@ -94,6 +97,7 @@
 
 #pragma mark - QuestionServiceDelegate
 - (void)didRetrieveAnswersForQuestionSuccess:(QuestionService *)service {
+    question.answers = service.answers;
     [self toggleOpenWithUserAction:YES];
 }
 

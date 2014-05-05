@@ -16,6 +16,7 @@
 @synthesize myTableView, sectionInfoArray, questionService;
 @synthesize openSectionIndex;
 @synthesize submitAnswerCell, otherAnswerCell;
+@synthesize currentQuestionIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,13 +53,28 @@
         info.open = NO;
         info.question = question;
         
-        [array addObject:info];
+        [sectionInfoArray addObject:info];
     }
-    
+    [myTableView reloadData];
 }
 
 - (void)didGetMyQuestionsFail:(QuestionService *)service withMessage:(NSString *)message {
     
+}
+
+- (void)didSubmitAnswerSuccess:(QuestionService *)service {
+    SectionInfo *info = [sectionInfoArray objectAtIndex:currentQuestionIndex];
+    [info.headerView retrieveAnswers];
+}
+
+- (void)didSubmitAnswerFail:(QuestionService *)service withMessage:(NSString *)message {
+    
+}
+
+#pragma mark - SubmitAnswerTableViewCellDelegate
+- (void)submitAnswer:(NSString *)answer forQuestion:(Question *)question atSectionIndex:(NSInteger)sectionIndex{
+    self.currentQuestionIndex = sectionIndex;
+    [questionService submitAnswerFromUserId:[UserService signedInUserId] forQuestionId:question.questionId withAnswer:answer];
 }
 
 #pragma mark - Table view data source
@@ -84,8 +100,8 @@
         UIFont *font = [UIFont systemFontOfSize:14.0];
         CGSize limitSize = CGSizeMake(227, 9999);
         
-        Question *question = [sectionInfoArray objectAtIndex:indexPath.section];
-        Answer *answer = [question.answers objectAtIndex:indexPath.row];
+        SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
+        Answer *answer = [info.question.answers objectAtIndex:indexPath.row];
         CGSize size = [answer.answer sizeWithFont:font constrainedToSize:limitSize lineBreakMode:NSLineBreakByCharWrapping];
         if (size.height < 94) {
             return 125;
@@ -123,6 +139,10 @@
             self.submitAnswerCell = nil;
         }
         
+        SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
+        cell.delegate = self;
+        cell.sectionIndex = indexPath.section;
+        cell.question = info.question;
         cell.nameLbl.text = [UserService signedInUserName];
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", [UserService signedInYear], [UserService signedInSection]];
         return cell;
@@ -138,8 +158,8 @@
             self.otherAnswerCell = nil;
         }
         
-        Question *question = [sectionInfoArray objectAtIndex:indexPath.section];
-        Answer *answer = [question.answers objectAtIndex:indexPath.row];
+        SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
+        Answer *answer = [info.question.answers objectAtIndex:indexPath.row];
         cell.nameLbl.text = answer.user.name;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
@@ -162,6 +182,9 @@
 }
 
 #pragma mark Section header delegate
+- (void)didRetriveAnswersSectionHeaderView:(SectionHeaderView *)headerView {
+    [myTableView reloadData];
+}
 
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
 	

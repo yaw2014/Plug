@@ -18,7 +18,7 @@
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
 
-@interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate> {
+@interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate> {
     
 }
 
@@ -26,6 +26,7 @@
 @property (nonatomic, retain) NSMutableArray *sectionInfoArray;
 @property (nonatomic, retain) QuestionService *questionService;
 @property (nonatomic, assign) NSInteger openSectionIndex;
+@property (nonatomic, assign) NSInteger currentQuestionIndex;
 
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;

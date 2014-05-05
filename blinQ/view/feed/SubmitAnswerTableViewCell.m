@@ -10,6 +10,8 @@
 
 @implementation SubmitAnswerTableViewCell
 @synthesize avatarImgView, nameLbl, descriptionLbl, myTextView, submitBtn, delegate;
+@synthesize question;
+@synthesize sectionIndex;
 - (void)awakeFromNib
 {
     // Initialization code
@@ -24,8 +26,8 @@
 
 #pragma mark - IBAction on view
 - (IBAction)submitBtnTapped:(id)sender {
-    if (delegate && [delegate respondsToSelector:@selector(submitAnswer:)]) {
-        [delegate submitAnswer:myTextView.text];
+    if (delegate && [delegate respondsToSelector:@selector(submitAnswer:forQuestion:atSectionIndex:)]) {
+        [delegate submitAnswer:myTextView.text forQuestion:question atSectionIndex:sectionIndex];
     }
 }
 

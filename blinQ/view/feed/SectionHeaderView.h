@@ -33,7 +33,7 @@
 
 -(id)initWithQuestion:(Question*) ques section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)aDelegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
-
+- (void) retrieveAnswers;
 
 @end
 
@@ -42,5 +42,5 @@
 @optional
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
-
+- (void) didRetriveAnswersSectionHeaderView:(SectionHeaderView*) headerView;
 @end

@@ -8,17 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "UILoadingImageView.h"
+#import "Question.h"
+
 @class SubmitAnswerTableViewCell;
 @protocol SubmitAnswerTableViewCellDelegate
 
-- (void) submitAnswer: (NSString*) answer;
+- (void) submitAnswer: (NSString*) answer forQuestion: (Question*) question atSectionIndex: (NSInteger) sectionIndex;
 
 @end
 
 @interface SubmitAnswerTableViewCell : UITableViewCell {
     
 }
-
+@property (nonatomic, assign) NSInteger sectionIndex;
+@property (nonatomic, assign) Question *question;
 @property (nonatomic, retain) IBOutlet UILoadingImageView *avatarImgView;
 @property (nonatomic, retain) IBOutlet UILabel *nameLbl;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLbl;

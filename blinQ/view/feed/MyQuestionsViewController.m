@@ -161,7 +161,7 @@
         CGSize limitSize = CGSizeMake(227, 9999);
         
         SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
-        Answer *answer = [info.question.answers objectAtIndex:indexPath.row];
+        Answer *answer = [info.question.answers objectAtIndex:indexPath.row - 1];
         CGSize size = [answer.answer sizeWithFont:font constrainedToSize:limitSize lineBreakMode:NSLineBreakByCharWrapping];
         if (size.height < 94) {
             return 125;
@@ -219,7 +219,7 @@
         }
         
         SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
-        Answer *answer = [info.question.answers objectAtIndex:indexPath.row];
+        Answer *answer = [info.question.answers objectAtIndex:indexPath.row - 1];
         cell.nameLbl.text = answer.user.name;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
@@ -251,57 +251,8 @@
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:sectionOpened];
 	
 	sectionInfo.open = YES;
-    
-    /*
-     Create an array containing the index paths of the rows to insert: These correspond to the rows for each quotation in the current section.
-     */
-    NSInteger countOfRowsToInsert = [sectionInfo.question.answers count];
-    NSMutableArray *indexPathsToInsert = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < countOfRowsToInsert; i++) {
-        [indexPathsToInsert addObject:[NSIndexPath indexPathForRow:i inSection:sectionOpened]];
-    }
-    
-    if ([indexPathsToInsert count] == 0) {
-        [myTableView reloadData];
-        return;
-    }
-    
-    /*
-     Create an array containing the index paths of the rows to delete: These correspond to the rows for each quotation in the previously-open section, if there was one.
-     */
-    NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-    
-    NSInteger previousOpenSectionIndex = self.openSectionIndex;
-    if (previousOpenSectionIndex != NSNotFound) {
-		
-		SectionInfo *previousOpenSection = [self.sectionInfoArray objectAtIndex:previousOpenSectionIndex];
-        previousOpenSection.open = NO;
-        [previousOpenSection.headerView toggleOpenWithUserAction:NO];
-        NSInteger countOfRowsToDelete = [previousOpenSection.question.answers count];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
-        }
-    }
-    
-    // Style the animation so that there's a smooth flow in either direction.
-    UITableViewRowAnimation insertAnimation;
-    UITableViewRowAnimation deleteAnimation;
-    if (previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex) {
-        insertAnimation = UITableViewRowAnimationFade;
-        deleteAnimation = UITableViewRowAnimationFade;
-    }
-    else {
-        insertAnimation = UITableViewRowAnimationFade;
-        deleteAnimation = UITableViewRowAnimationFade;
-    }
-    
-    // Apply the updates.
-    [self.myTableView beginUpdates];
-    [self.myTableView insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:insertAnimation];
-    [self.myTableView deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:deleteAnimation];
-    [self.myTableView endUpdates];
     self.openSectionIndex = sectionOpened;
-    
+    [myTableView reloadData];
 }
 
 
@@ -313,16 +264,8 @@
 	SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:sectionClosed];
 	
     sectionInfo.open = NO;
-    NSInteger countOfRowsToDelete = [self.myTableView numberOfRowsInSection:sectionClosed];
-    
-    if (countOfRowsToDelete > 0) {
-        NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:sectionClosed]];
-        }
-        [self.myTableView deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:UITableViewRowAnimationFade];
-    }
     self.openSectionIndex = NSNotFound;
+    [myTableView reloadData];
 }
 
 #pragma mark - UIGestureRecognizerDelegate

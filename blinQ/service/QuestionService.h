@@ -61,7 +61,7 @@
 
 - (void) getMyQuestionsWithUserId: (NSString*) userId withIgnoreIds: (NSString*) ignoreIds;
 - (void) getQuestionsForMeWithGroupIds: (NSString*) groupIds withIgnoreIds: (NSString*) ignoreIds;
-- (void) getTopQuestionsWithIgnoreIds: (NSString*) ignoreIds;
+- (void) getTopQuestionsWithUserId: (NSString*) userId withIgnoreIds: (NSString*) ignoreIds;
 - (void) submitAnswerFromUserId: (NSString*) userId forQuestionId: (NSString*) questionId withAnswer: (NSString*) answer;
 - (void) retrieveAnswersForQuestion: (NSString*) questionId;
 - (void) searchQuestionByKeyword: (NSString*) keyword;

@@ -213,9 +213,10 @@
     
     [theRequest startAsynchronous];
 }
-- (void) getTopQuestionsWithIgnoreIds: (NSString*) ignoreIds {
+- (void) getTopQuestionsWithUserId:(NSString *)userId withIgnoreIds:(NSString *)ignoreIds {
     NSURL *url = [NSURL URLWithString:GET_TOP_QUESTIONS_URL];
     self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
     [theRequest setPostValue:ignoreIds forKey:@"ignoreIds"];
     
     __weak ASIFormDataRequest *request = theRequest;

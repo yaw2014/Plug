@@ -60,7 +60,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [questionService getTopQuestionsWithIgnoreIds:@""];
+    [questionService getTopQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];

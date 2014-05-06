@@ -20,6 +20,8 @@
 @property (nonatomic, retain) NSDate *createdDate;
 @property (nonatomic, retain) User *user;
 @property (nonatomic, assign) NSInteger value;
+@property (nonatomic, assign) NSInteger voteUp;
+@property (nonatomic, assign) NSInteger voteDown;
 - (id) initWithElement: (GDataXMLElement*) element;
 
 @end

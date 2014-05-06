@@ -26,6 +26,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *answerLbl;
 @property (nonatomic, retain) IBOutlet UIButton *upBtn;
 @property (nonatomic, retain) IBOutlet UIButton *downBtn;
+@property (nonatomic, retain) IBOutlet UILabel *voteUpLbl;
 @property (nonatomic, assign) id delegate;
 
 - (IBAction)voteUp:(id)sender;

@@ -14,6 +14,8 @@
 @synthesize nameLbl, descriptionLbl, answerLbl;
 @synthesize delegate;
 @synthesize upBtn, downBtn;
+@synthesize voteUpLbl;
+
 - (void)awakeFromNib
 {
     // Initialization code

@@ -68,6 +68,13 @@
                             <action selector="voteDown:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9Hw-CC-NaC"/>
                         </connections>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sps-cZ-2hq">
+                        <rect key="frame" x="112" y="98" width="201" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -77,6 +84,7 @@
                 <outlet property="downBtn" destination="Vbv-YV-h2F" id="LTV-r3-ylx"/>
                 <outlet property="nameLbl" destination="tPD-3Q-Npe" id="ISB-SN-mfd"/>
                 <outlet property="upBtn" destination="rU9-ai-cSC" id="557-SI-g9E"/>
+                <outlet property="voteUpLbl" destination="sps-cZ-2hq" id="XT6-Zb-aI5"/>
             </connections>
         </tableViewCell>
     </objects>

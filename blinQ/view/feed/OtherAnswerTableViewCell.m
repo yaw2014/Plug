@@ -9,7 +9,11 @@
 #import "OtherAnswerTableViewCell.h"
 
 @implementation OtherAnswerTableViewCell
-
+@synthesize answer;
+@synthesize avatarImgView;
+@synthesize nameLbl, descriptionLbl, answerLbl;
+@synthesize delegate;
+@synthesize upBtn, downBtn;
 - (void)awakeFromNib
 {
     // Initialization code
@@ -21,5 +25,37 @@
 
     // Configure the view for the selected state
 }
+
+- (IBAction)voteUp:(id)sender {
+    if (answer.value == 0) {
+        answer.value = 1;
+        upBtn.selected = YES;
+        downBtn.enabled = NO;
+    } else {
+        answer.value = 0;
+        upBtn.selected = NO;
+        downBtn.enabled = YES;
+    }
+    if (delegate && [delegate respondsToSelector:@selector(didVoteForAnswer:withValue:)]) {
+        [delegate didVoteForAnswer:answer withValue:answer.value];
+    }
+}
+
+- (IBAction)voteDown:(id)sender {
+    if (answer.value == 0) {
+        answer.value = -1;
+        downBtn.selected = YES;
+        upBtn.enabled = NO;
+    } else {
+        answer.value = 0;
+        downBtn.selected = NO;
+        upBtn.enabled = YES;
+    }
+    if (delegate && [delegate respondsToSelector:@selector(didVoteForAnswer:withValue:)]) {
+        [delegate didVoteForAnswer:answer withValue:answer.value];
+    }
+}
+
+
 
 @end

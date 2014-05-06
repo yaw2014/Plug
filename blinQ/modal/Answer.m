@@ -10,11 +10,12 @@
 
 @implementation Answer
 @synthesize answer, answerId, createdDate, user;
-
+@synthesize value;
 - (id)initWithElement:(GDataXMLElement *)element {
     if (self = [super init]) {
         self.answerId = [[Utils getSingleChildFrom:element withElementName:@"id"] stringValue];
         self.answer = [[Utils getSingleChildFrom:element withElementName:@"answer"] stringValue];
+        self.value = [[[Utils getSingleChildFrom:element withElementName:@"value"] stringValue] integerValue];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];

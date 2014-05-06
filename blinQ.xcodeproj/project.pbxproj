@@ -70,6 +70,10 @@
 		A697C045191422B200391A07 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C044191422B200391A07 /* Question.m */; };
 		A6A35D911911BB6A00E52A56 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D901911BB6A00E52A56 /* User.m */; };
 		A6A35D941911BBF800E52A56 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A35D931911BBF800E52A56 /* UserService.m */; };
+		A6A545EA1918CAAB00A7F847 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A545E61918CAAB00A7F847 /* down.png */; };
+		A6A545EB1918CAAB00A7F847 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A545E71918CAAB00A7F847 /* up.png */; };
+		A6A545EC1918CAAB00A7F847 /* vote-down.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A545E81918CAAB00A7F847 /* vote-down.png */; };
+		A6A545ED1918CAAB00A7F847 /* vote-up.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A545E91918CAAB00A7F847 /* vote-up.png */; };
 		A6BC98321911740E00E3C4F2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98311911740E00E3C4F2 /* CFNetwork.framework */; };
 		A6BC98341911742500E3C4F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98331911742500E3C4F2 /* SystemConfiguration.framework */; };
 		A6BC98361911742C00E3C4F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BC98351911742C00E3C4F2 /* MobileCoreServices.framework */; };
@@ -228,6 +232,10 @@
 		A6A35D901911BB6A00E52A56 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		A6A35D921911BBF800E52A56 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		A6A35D931911BBF800E52A56 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		A6A545E61918CAAB00A7F847 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		A6A545E71918CAAB00A7F847 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		A6A545E81918CAAB00A7F847 /* vote-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-down.png"; sourceTree = "<group>"; };
+		A6A545E91918CAAB00A7F847 /* vote-up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vote-up.png"; sourceTree = "<group>"; };
 		A6BC98311911740E00E3C4F2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A6BC98331911742500E3C4F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A6BC98351911742C00E3C4F2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -539,6 +547,10 @@
 				A697C03C1913DC9E00391A07 /* feed@2x.png */,
 				A697C03D1913DC9E00391A07 /* search@2x.png */,
 				A697C03E1913DC9E00391A07 /* profile@2x.png */,
+				A6A545E61918CAAB00A7F847 /* down.png */,
+				A6A545E71918CAAB00A7F847 /* up.png */,
+				A6A545E81918CAAB00A7F847 /* vote-down.png */,
+				A6A545E91918CAAB00A7F847 /* vote-up.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -730,12 +742,16 @@
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
 				A61B9B191916272100031598 /* QuestionsForMeViewController.xib in Resources */,
 				A6D36F6D19153D7600CF9B16 /* EditAccountViewController.xib in Resources */,
+				A6A545EB1918CAAB00A7F847 /* up.png in Resources */,
+				A6A545EC1918CAAB00A7F847 /* vote-down.png in Resources */,
 				A6D36F531914CCE800CF9B16 /* LoginViewController.xib in Resources */,
 				A6D36F4D1914CCE800CF9B16 /* ProfileViewController.xib in Resources */,
 				A6D36F631914D2C200CF9B16 /* DefineTimeViewController.xib in Resources */,
 				A61B9B30191694DA00031598 /* OtherAnswerTableViewCell.xib in Resources */,
 				A6D36F681914D54000CF9B16 /* ReviewViewController.xib in Resources */,
+				A6A545EA1918CAAB00A7F847 /* down.png in Resources */,
 				A6D36F4F1914CCE800CF9B16 /* QuestionViewController.xib in Resources */,
+				A6A545ED1918CAAB00A7F847 /* vote-up.png in Resources */,
 				A61B9B261916792D00031598 /* SectionHeaderView.xib in Resources */,
 				A6D36F591914CCE800CF9B16 /* SearchViewController.xib in Resources */,
 				A697C0421913DC9E00391A07 /* profile@2x.png in Resources */,

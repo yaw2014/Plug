@@ -20,7 +20,7 @@
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
 
-@interface SearchViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
+@interface SearchViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate,UIGestureRecognizerDelegate> {
     
 }
 @property (nonatomic, retain) IBOutlet UISearchBar *mySearchBar;

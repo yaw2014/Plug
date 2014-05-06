@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString *answer;
 @property (nonatomic, retain) NSDate *createdDate;
 @property (nonatomic, retain) User *user;
+@property (nonatomic, assign) NSInteger value;
 - (id) initWithElement: (GDataXMLElement*) element;
 
 @end

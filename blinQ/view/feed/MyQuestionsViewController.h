@@ -18,7 +18,7 @@
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
 
-@interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
+@interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
     
 }
 

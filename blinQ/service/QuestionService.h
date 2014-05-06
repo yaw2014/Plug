@@ -40,6 +40,9 @@
 
 - (void) didSearchQuestionsSuccess: (QuestionService*) service;
 - (void) didSearchQuestionsFail: (QuestionService *)service withMessage: (NSString*) message;
+
+- (void) didVoteAnswerSuccess: (QuestionService*) service;
+- (void) didVoteAnswerFail:(QuestionService *)service withMessage: (NSString*) message;
 @end
 
 @interface QuestionService : NSObject {
@@ -62,5 +65,5 @@
 - (void) submitAnswerFromUserId: (NSString*) userId forQuestionId: (NSString*) questionId withAnswer: (NSString*) answer;
 - (void) retrieveAnswersForQuestion: (NSString*) questionId;
 - (void) searchQuestionByKeyword: (NSString*) keyword;
-
+- (void) voteForAnswer: (NSString*) answerId withUserId: (NSString*) userId withValue: (NSInteger) value;
 @end

@@ -19,7 +19,7 @@
 #import "SubmitAnswerTableViewCell.h"
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
-@interface TopQuestionsViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
+@interface TopQuestionsViewController : UIViewController<OtherAnswerTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
     
 }
 @property (nonatomic, retain) QuestionService *questionService;

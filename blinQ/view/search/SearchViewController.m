@@ -131,6 +131,14 @@
     
 }
 
+- (void) didVoteAnswerSuccess:(QuestionService *)service {
+    
+}
+
+- (void)didVoteAnswerFail:(QuestionService *)service withMessage:(NSString *)message {
+    
+}
+
 #pragma mark - UISearchBarDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [sectionInfoArray removeAllObjects];
@@ -160,6 +168,12 @@
     [myTableView reloadData];
     [searchBar resignFirstResponder];
     [searchBar setText:@""];
+}
+
+
+#pragma mark - OtherAnswerTableViewCellDelegate
+- (void)didVoteForAnswer:(Answer *)answer withValue:(NSInteger)value {
+    [questionService voteForAnswer:answer.answerId withUserId:[UserService signedInUserId] withValue:value];
 }
 
 #pragma mark - SubmitAnswerTableViewCellDelegate
@@ -261,11 +275,20 @@
         }
         
         SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
+        cell.delegate = self;
         Answer *answer = [info.question.answers objectAtIndex:indexPath.row - 1];
+        cell.answer = answer;
         cell.nameLbl.text = answer.user.name;
-        cell.avatarImgView.imgUrl = answer.user.avatar;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
+        if (answer.value == 1) {
+            cell.upBtn.selected = YES;
+            cell.downBtn.enabled = NO;
+        } else if (answer.value == -1) {
+            cell.downBtn.selected = YES;
+            cell.upBtn.enabled = NO;
+        }
+        cell.avatarImgView.imgUrl = answer.user.avatar;
         return cell;
     }
 }

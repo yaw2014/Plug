@@ -46,17 +46,45 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rU9-ai-cSC">
+                        <rect key="frame" x="280" y="30" width="40" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="up.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="vote-up.png"/>
+                        <connections>
+                            <action selector="voteUp:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="D2Z-bg-QK4"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vbv-YV-h2F">
+                        <rect key="frame" x="280" y="59" width="40" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="down.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="vote-down.png"/>
+                        <connections>
+                            <action selector="voteDown:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9Hw-CC-NaC"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="answerLbl" destination="4Wn-96-Dfc" id="j6p-9j-NnB"/>
                 <outlet property="avatarImgView" destination="Tf4-S0-lPi" id="GMF-vZ-aeO"/>
                 <outlet property="descriptionLbl" destination="sU6-YD-1Dj" id="cPg-6D-d7I"/>
+                <outlet property="downBtn" destination="Vbv-YV-h2F" id="LTV-r3-ylx"/>
                 <outlet property="nameLbl" destination="tPD-3Q-Npe" id="ISB-SN-mfd"/>
+                <outlet property="upBtn" destination="rU9-ai-cSC" id="557-SI-g9E"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="avatar.png" width="530" height="530"/>
+        <image name="down.png" width="87" height="56"/>
+        <image name="up.png" width="87" height="54"/>
+        <image name="vote-down.png" width="86" height="55"/>
+        <image name="vote-up.png" width="85" height="56"/>
     </resources>
 </document>

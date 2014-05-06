@@ -20,7 +20,7 @@
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
 
-@interface QuestionsForMeViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate, UserServiceDelegate> {
+@interface QuestionsForMeViewController : UIViewController<OtherAnswerTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate, UserServiceDelegate> {
     
 }
 @property (nonatomic, retain) UserService *userService;

@@ -17,7 +17,7 @@
 #define SUBMIT_ANSWER_URL                       @"http://www.fourballoon.com/blinq/webservices/submit_answer.php"
 #define GET_ANSWER_FOR_QUESTION_URL             @"http://www.fourballoon.com/blinq/webservices/get_answer_for_question.php"
 #define SEARCH_ON_QUESTIONS_URL                 @"http://www.fourballoon.com/blinq/webservices/search_on_questions.php"
-
+#define VOTE_ANSWER_URL                         @""
 
 #define REGISTER_USER_URL                       @"http://www.fourballoon.com/blinq/webservices/register_user.php"
 #define SUBMIT_AVATAR_URL                       @"http://www.fourballoon.com/blinq/webservices/submit_avatar.php"

@@ -123,9 +123,9 @@
         </tabBarController>
     </objects>
     <resources>
-        <image name="add.png" width="35" height="35"/>
-        <image name="feed.png" width="35" height="35"/>
-        <image name="profile.png" width="35" height="35"/>
-        <image name="search.png" width="35" height="35"/>
+        <image name="add.png" width="30" height="30"/>
+        <image name="feed.png" width="30" height="30"/>
+        <image name="profile.png" width="30" height="30"/>
+        <image name="search.png" width="30" height="30"/>
     </resources>
 </document>

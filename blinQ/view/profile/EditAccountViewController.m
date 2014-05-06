@@ -187,6 +187,7 @@
             user.avatarImg = avatarImgView.image;
         }
         
+        [self.view endEditing:YES];
         EditUserGroupViewController *viewVC = [[EditUserGroupViewController alloc] initWithNibName:@"UserGroupViewController" bundle:nil];
         viewVC.user = user;
         [self.navigationController pushViewController:viewVC animated:YES];

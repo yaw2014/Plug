@@ -173,6 +173,7 @@
             user.avatarImg = avatarImgView.image;
         }
         
+        [self.view endEditing:YES];
         UserGroupViewController *viewVC = [[UserGroupViewController alloc] initWithNibName:@"UserGroupViewController" bundle:nil];
         viewVC.user = user;
         [self.navigationController pushViewController:viewVC animated:YES];
@@ -185,7 +186,6 @@
 
 - (IBAction)doneSectionView:(id)sender {
     [self closeSectionSelectView];
-    [yearTxt becomeFirstResponder];
 }
 
 #pragma mark - UIPickerViewDataSource

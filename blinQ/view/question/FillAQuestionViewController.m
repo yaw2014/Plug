@@ -99,6 +99,8 @@
     } else {
         question.subject = subject;
         question.question = ques;
+        
+        [self.view endEditing:YES];
         DefineTimeViewController *viewVC = [[DefineTimeViewController alloc] initWithNibName:@"DefineTimeViewController" bundle:nil];
         viewVC.question = question;
         [self.navigationController pushViewController:viewVC animated:YES];

@@ -34,12 +34,18 @@
     MyQuestionsViewController *viewVC1 = [[MyQuestionsViewController alloc] initWithNibName:@"MyQuestionsViewController" bundle:nil];
     self.navController1 = [[UINavigationController alloc] initWithRootViewController:viewVC1];
     [navController1 setNavigationBarHidden:YES];
+    navController1.view.frame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
+    
     QuestionsForMeViewController *viewVC2 = [[QuestionsForMeViewController alloc] initWithNibName:@"QuestionsForMeViewController" bundle:nil];
     self.navController2 = [[UINavigationController alloc] initWithRootViewController:viewVC2];
     [navController2 setNavigationBarHidden:YES];
+    navController2.view.frame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
+    
     TopQuestionsViewController *viewVC3 = [[TopQuestionsViewController alloc] initWithNibName:@"TopQuestionsViewController" bundle:nil];
     self.navController3 = [[UINavigationController alloc] initWithRootViewController:viewVC3];
     [navController3 setNavigationBarHidden:YES];
+    navController3.view.frame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
+    
     [mySegmentControl setSelectedSegmentIndex:0];
     [self segmentControlChanged:nil];
 }

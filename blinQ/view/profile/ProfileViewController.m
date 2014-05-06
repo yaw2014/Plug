@@ -78,6 +78,10 @@
     }
     NSString *final = [groupNames substringToIndex:[groupNames length] - 2];
     groupsLbl.text = final;
+    CGRect frame = groupsLbl.frame;
+    CGSize limitSize = CGSizeMake(groupsLbl.frame.size.width, 9999);
+    frame.size.height = [groupsLbl.text sizeWithFont:groupsLbl.font constrainedToSize:limitSize lineBreakMode:NSLineBreakByCharWrapping].height;
+    groupsLbl.frame = frame;
 }
 
 - (void)didRetrieveUserInfoByUserIdFail:(UserService *)service withMessage:(NSString *)message {

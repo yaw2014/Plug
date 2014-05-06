@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     [self.view addSubview:tabBarController.view];
     tabBarController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    CGFloat tabHeight = 40.0f;
+    CGFloat tabHeight = 49.0f;
     [navController1 setNavigationBarHidden:YES];
     navController1.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - tabHeight);
     [navController2 setNavigationBarHidden:YES];

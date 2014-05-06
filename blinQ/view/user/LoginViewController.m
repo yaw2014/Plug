@@ -112,11 +112,13 @@
 }
 
 - (IBAction)signUpBtnTapped:(id)sender {
+    [self.view endEditing:YES];
     RegisterViewController *viewVC = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
     [self.navigationController pushViewController:viewVC animated:YES];
 }
 
 - (IBAction)forgotPasswordBtnTapped:(id)sender {
+    [self.view endEditing:YES];
     ForgotPasswordViewController *viewVC = [[ForgotPasswordViewController alloc] initWithNibName:@"ForgotPasswordViewController" bundle:nil];
     [self.navigationController pushViewController:viewVC animated:YES];
 }

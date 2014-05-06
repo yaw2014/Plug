@@ -102,7 +102,6 @@
 #pragma mark - QuestionServiceDelegate
 - (void)didSearchQuestionsSuccess:(QuestionService *)service {
     [hud hide:YES];
-    CGRect frame = myTableView.frame;
     NSMutableArray *array = service.questions;
     self.sectionInfoArray = [[NSMutableArray alloc] initWithCapacity:[array count]];
     for (Question *question in array) {

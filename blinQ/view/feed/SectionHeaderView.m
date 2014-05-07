@@ -12,6 +12,8 @@
 #import "Group.h"
 #import "Question.h"
 #import "QuestionService.h"
+#import "UserService.h"
+
 @implementation SectionHeaderView
 @synthesize question;
 @synthesize questionService;
@@ -88,7 +90,7 @@
 }
 
 - (void) retrieveAnswers {
-    [questionService retrieveAnswersForQuestion:question.questionId];
+    [questionService retrieveAnswersForQuestion:question.questionId withUserId:[UserService signedInUserId]];
 }
 
 -(void)toggleOpenWithUserAction:(BOOL)userAction {

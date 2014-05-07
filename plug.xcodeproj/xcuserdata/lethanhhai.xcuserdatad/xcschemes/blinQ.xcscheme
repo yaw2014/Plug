@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A62168101910D41300639990"
-               BuildableName = "blinQ.app"
-               BlueprintName = "blinQ"
-               ReferencedContainer = "container:blinQ.xcodeproj">
+               BuildableName = "plug.app"
+               BlueprintName = "plug"
+               ReferencedContainer = "container:plug.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A621682B1910D41300639990"
-               BuildableName = "blinQTests.xctest"
-               BlueprintName = "blinQTests"
-               ReferencedContainer = "container:blinQ.xcodeproj">
+               BuildableName = "plugTests.xctest"
+               BlueprintName = "plugTests"
+               ReferencedContainer = "container:plug.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A62168101910D41300639990"
-            BuildableName = "blinQ.app"
-            BlueprintName = "blinQ"
-            ReferencedContainer = "container:blinQ.xcodeproj">
+            BuildableName = "plug.app"
+            BlueprintName = "plug"
+            ReferencedContainer = "container:plug.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A62168101910D41300639990"
-            BuildableName = "blinQ.app"
-            BlueprintName = "blinQ"
-            ReferencedContainer = "container:blinQ.xcodeproj">
+            BuildableName = "plug.app"
+            BlueprintName = "plug"
+            ReferencedContainer = "container:plug.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -85,9 +85,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A62168101910D41300639990"
-            BuildableName = "blinQ.app"
-            BlueprintName = "blinQ"
-            ReferencedContainer = "container:blinQ.xcodeproj">
+            BuildableName = "plug.app"
+            BlueprintName = "plug"
+            ReferencedContainer = "container:plug.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

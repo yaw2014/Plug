@@ -16,12 +16,14 @@
     if (self = [super init]) {
         self.answerId = [[Utils getSingleChildFrom:element withElementName:@"id"] stringValue];
         self.answer = [[Utils getSingleChildFrom:element withElementName:@"answer"] stringValue];
-        self.value = [[[Utils getSingleChildFrom:element withElementName:@"value"] stringValue] integerValue];
-        self.voteUp = [[[Utils getSingleChildFrom:element withElementName:@"voteup"] stringValue] integerValue];
-        self.voteDown = [[[Utils getSingleChildFrom:element withElementName:@"votedown"] stringValue] integerValue];
+        
+
+        self.value = [[[Utils getSingleChildFrom:element withElementName:@"vote"] stringValue] intValue];
+        self.voteUp = [[[Utils getSingleChildFrom:element withElementName:@"voteup"] stringValue] intValue];
+        self.voteDown = [[[Utils getSingleChildFrom:element withElementName:@"votedown"] stringValue] intValue];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         self.createdDate = [dateFormatter dateFromString:[[Utils getSingleChildFrom:element withElementName:@"createdDate"] stringValue]];
         
         

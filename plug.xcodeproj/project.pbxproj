@@ -141,20 +141,20 @@
 		A61B9B2E191694DA00031598 /* OtherAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherAnswerTableViewCell.xib; sourceTree = "<group>"; };
 		A61B9B3119176C1900031598 /* NonRotateNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NonRotateNavigationController.h; sourceTree = "<group>"; };
 		A61B9B3219176C1900031598 /* NonRotateNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NonRotateNavigationController.m; sourceTree = "<group>"; };
-		A62168111910D41300639990 /* blinQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blinQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62168111910D41300639990 /* plug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = plug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62168141910D41300639990 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A62168161910D41300639990 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A62168181910D41300639990 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A621681C1910D41300639990 /* blinQ-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "blinQ-Info.plist"; sourceTree = "<group>"; };
+		A621681C1910D41300639990 /* plug-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "plug-Info.plist"; sourceTree = "<group>"; };
 		A621681E1910D41300639990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A62168201910D41300639990 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A62168221910D41300639990 /* blinQ-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "blinQ-Prefix.pch"; sourceTree = "<group>"; };
+		A62168221910D41300639990 /* plug-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "plug-Prefix.pch"; sourceTree = "<group>"; };
 		A62168231910D41300639990 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A62168241910D41300639990 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A62168261910D41300639990 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A621682C1910D41300639990 /* blinQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blinQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A621682C1910D41300639990 /* plugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = plugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A621682D1910D41300639990 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		A62168351910D41300639990 /* blinQTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "blinQTests-Info.plist"; sourceTree = "<group>"; };
+		A62168351910D41300639990 /* plugTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "plugTests-Info.plist"; sourceTree = "<group>"; };
 		A62168371910D41300639990 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A62168391910D41300639990 /* blinQTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blinQTests.m; sourceTree = "<group>"; };
 		A62168501910DC3200639990 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -325,8 +325,8 @@
 		A62168121910D41300639990 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A62168111910D41300639990 /* blinQ.app */,
-				A621682C1910D41300639990 /* blinQTests.xctest */,
+				A62168111910D41300639990 /* plug.app */,
+				A621682C1910D41300639990 /* plugTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,10 +366,10 @@
 		A621681B1910D41300639990 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A621681C1910D41300639990 /* blinQ-Info.plist */,
+				A621681C1910D41300639990 /* plug-Info.plist */,
 				A621681D1910D41300639990 /* InfoPlist.strings */,
 				A62168201910D41300639990 /* main.m */,
-				A62168221910D41300639990 /* blinQ-Prefix.pch */,
+				A62168221910D41300639990 /* plug-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -386,7 +386,7 @@
 		A62168341910D41300639990 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A62168351910D41300639990 /* blinQTests-Info.plist */,
+				A62168351910D41300639990 /* plugTests-Info.plist */,
 				A62168361910D41300639990 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -652,9 +652,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A62168101910D41300639990 /* blinQ */ = {
+		A62168101910D41300639990 /* plug */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A621683D1910D41300639990 /* Build configuration list for PBXNativeTarget "blinQ" */;
+			buildConfigurationList = A621683D1910D41300639990 /* Build configuration list for PBXNativeTarget "plug" */;
 			buildPhases = (
 				A621680D1910D41300639990 /* Sources */,
 				A621680E1910D41300639990 /* Frameworks */,
@@ -664,14 +664,14 @@
 			);
 			dependencies = (
 			);
-			name = blinQ;
+			name = plug;
 			productName = blinQ;
-			productReference = A62168111910D41300639990 /* blinQ.app */;
+			productReference = A62168111910D41300639990 /* plug.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A621682B1910D41300639990 /* blinQTests */ = {
+		A621682B1910D41300639990 /* plugTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A62168401910D41300639990 /* Build configuration list for PBXNativeTarget "blinQTests" */;
+			buildConfigurationList = A62168401910D41300639990 /* Build configuration list for PBXNativeTarget "plugTests" */;
 			buildPhases = (
 				A62168281910D41300639990 /* Sources */,
 				A62168291910D41300639990 /* Frameworks */,
@@ -682,9 +682,9 @@
 			dependencies = (
 				A62168321910D41300639990 /* PBXTargetDependency */,
 			);
-			name = blinQTests;
+			name = plugTests;
 			productName = blinQTests;
-			productReference = A621682C1910D41300639990 /* blinQTests.xctest */;
+			productReference = A621682C1910D41300639990 /* plugTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -696,12 +696,15 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = templum;
 				TargetAttributes = {
+					A62168101910D41300639990 = {
+						DevelopmentTeam = JC23F5K48X;
+					};
 					A621682B1910D41300639990 = {
 						TestTargetID = A62168101910D41300639990;
 					};
 				};
 			};
-			buildConfigurationList = A621680C1910D41300639990 /* Build configuration list for PBXProject "blinQ" */;
+			buildConfigurationList = A621680C1910D41300639990 /* Build configuration list for PBXProject "plug" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -713,8 +716,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A62168101910D41300639990 /* blinQ */,
-				A621682B1910D41300639990 /* blinQTests */,
+				A62168101910D41300639990 /* plug */,
+				A621682B1910D41300639990 /* plugTests */,
 			);
 		};
 /* End PBXProject section */
@@ -845,7 +848,7 @@
 /* Begin PBXTargetDependency section */
 		A62168321910D41300639990 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A62168101910D41300639990 /* blinQ */;
+			target = A62168101910D41300639990 /* plug */;
 			targetProxy = A62168311910D41300639990 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -946,19 +949,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Oanh Tran (82KNXRRXH4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Oanh Tran (82KNXRRXH4)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "blinQ/blinQ-Prefix.pch";
+				GCC_PREFIX_HEADER = "blinQ/plug-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = "blinQ/blinQ-Info.plist";
+				INFOPLIST_FILE = "blinQ/plug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "C5B65BD9-BB6F-4EB0-9E0C-688BF8706694";
-				"PROVISIONING_PROFILE[sdk=*]" = "C5B65BD9-BB6F-4EB0-9E0C-688BF8706694";
+				PRODUCT_NAME = plug;
+				PROVISIONING_PROFILE = "918B1A7C-9E2A-4876-AA6E-4C13397BB7DF";
+				"PROVISIONING_PROFILE[sdk=*]" = "918B1A7C-9E2A-4876-AA6E-4C13397BB7DF";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -969,19 +973,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Oanh Tran (JC23F5K48X)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Oanh Tran (JC23F5K48X)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "blinQ/blinQ-Prefix.pch";
+				GCC_PREFIX_HEADER = "blinQ/plug-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = "blinQ/blinQ-Info.plist";
+				INFOPLIST_FILE = "blinQ/plug-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5C34BB5D-7341-4A8E-8A7D-5F5337EAB806";
-				"PROVISIONING_PROFILE[sdk=*]" = "5C34BB5D-7341-4A8E-8A7D-5F5337EAB806";
+				PRODUCT_NAME = plug;
+				PROVISIONING_PROFILE = "918B1A7C-9E2A-4876-AA6E-4C13397BB7DF";
+				"PROVISIONING_PROFILE[sdk=*]" = "4FF997D7-4837-4A5E-A999-F5A74DB575C9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1001,8 +1006,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "blinQTests/blinQTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "blinQTests/plugTests-Info.plist";
+				PRODUCT_NAME = plugTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1019,8 +1024,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blinQ/blinQ-Prefix.pch";
-				INFOPLIST_FILE = "blinQTests/blinQTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "blinQTests/plugTests-Info.plist";
+				PRODUCT_NAME = plugTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1029,7 +1034,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A621680C1910D41300639990 /* Build configuration list for PBXProject "blinQ" */ = {
+		A621680C1910D41300639990 /* Build configuration list for PBXProject "plug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A621683B1910D41300639990 /* Debug */,
@@ -1038,7 +1043,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A621683D1910D41300639990 /* Build configuration list for PBXNativeTarget "blinQ" */ = {
+		A621683D1910D41300639990 /* Build configuration list for PBXNativeTarget "plug" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A621683E1910D41300639990 /* Debug */,
@@ -1047,7 +1052,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A62168401910D41300639990 /* Build configuration list for PBXNativeTarget "blinQTests" */ = {
+		A62168401910D41300639990 /* Build configuration list for PBXNativeTarget "plugTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A62168411910D41300639990 /* Debug */,

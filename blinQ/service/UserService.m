@@ -170,12 +170,15 @@
     NSURL *url = [NSURL URLWithString:SUBMIT_AVATAR_URL];
     self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
     [theRequest setPostValue:userId forKey:@"userId"];
+
+    
     NSString *extension = [fileName pathExtension];
     if ([extension isEqual:@"png"]) {
         [theRequest setData:data withFileName:fileName andContentType:@"image/png" forKey:@"avatar"];
     } else {
         [theRequest setData:data withFileName:fileName andContentType:@"image/jpeg" forKey:@"avatar"];
     }
+
     
     __weak ASIFormDataRequest *request = theRequest;
     

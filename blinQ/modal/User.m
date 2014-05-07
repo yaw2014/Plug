@@ -28,7 +28,7 @@
         self.avatar = [[Utils getSingleChildFrom:element withElementName:@"avatar"] stringValue];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         self.createdDate = [dateFormatter dateFromString:[[Utils getSingleChildFrom:element withElementName:@"createdDate"] stringValue]];
         
         NSArray *arr = [element elementsForName:@"group"];

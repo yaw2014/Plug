@@ -65,6 +65,9 @@
 - (void) sortQuestionsWithExpireDate {
     NSMutableArray *arr1 = [[NSMutableArray alloc] init];
     NSMutableArray *arr2 = [[NSMutableArray alloc] init];
+    if ([questions count] == 0) {
+        return;
+    }
     for (Question *question in questions) {
         if ([question.expireDate compare:[NSDate date]] == NSOrderedDescending || [question.expireDate compare:[NSDate date]] == NSOrderedSame) {
             [arr1 addObject:question];
@@ -358,9 +361,10 @@
     [theRequest startAsynchronous];
 
 }
-- (void) retrieveAnswersForQuestion: (NSString*) questionId {
+- (void) retrieveAnswersForQuestion: (NSString*) questionId withUserId: (NSString*) userId {
     NSURL *url = [NSURL URLWithString:GET_ANSWER_FOR_QUESTION_URL];
     self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
+    [theRequest setPostValue:userId forKey:@"userId"];
     [theRequest setPostValue:questionId forKey:@"questionId"];
     
     __weak ASIFormDataRequest *request = theRequest;

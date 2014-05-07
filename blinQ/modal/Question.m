@@ -22,7 +22,7 @@
         self.question = [[Utils getSingleChildFrom:element withElementName:@"question"] stringValue];
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         self.expireDate = [dateFormatter dateFromString:[[Utils getSingleChildFrom:element withElementName:@"expireDate"] stringValue]];
         self.createdDate = [dateFormatter dateFromString:[[Utils getSingleChildFrom:element withElementName:@"createdDate"] stringValue]];
         

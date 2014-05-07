@@ -13,6 +13,7 @@
 @implementation QuestionService
 @synthesize delegate, theRequest;
 @synthesize groups;
+@synthesize questions, answers;
 - (void) retrieveGroups {
     NSURL *url = [NSURL URLWithString:GROUPS_RETRIEVE_URL];
     self.theRequest = [[ASIFormDataRequest alloc] initWithURL:url];
@@ -59,6 +60,45 @@
     }];
     
     [theRequest startAsynchronous];
+}
+
+- (void) sortQuestionsWithExpireDate {
+    NSMutableArray *arr1 = [[NSMutableArray alloc] init];
+    NSMutableArray *arr2 = [[NSMutableArray alloc] init];
+    for (Question *question in questions) {
+        if ([question.expireDate compare:[NSDate date]] == NSOrderedDescending || [question.expireDate compare:[NSDate date]] == NSOrderedSame) {
+            [arr1 addObject:question];
+        } else {
+            [arr2 addObject:question];
+        }
+    }
+    
+    //sort each array
+    for (int i = 0; i < [arr1 count] - 1; i++) {
+        for (int j = i+1; j < [arr1 count]; j++) {
+            Question *q1 = [arr1 objectAtIndex:i];
+            Question *q2 = [arr1 objectAtIndex:j];
+            
+            if ([q1.expireDate compare:q2.expireDate] == NSOrderedDescending) {
+                Question *temp = q1;
+                [arr1 replaceObjectAtIndex:i withObject:q2];
+                [arr1 replaceObjectAtIndex:j withObject:temp];
+            }
+        }
+    }
+    
+    for (int i = 0; i < [arr2 count] - 1; i++) {
+        for (int j = i+1; j < [arr2 count]; j++) {
+            Question *q1 = [arr2 objectAtIndex:i];
+            Question *q2 = [arr2 objectAtIndex:j];
+            
+            if ([q1.expireDate compare:q2.expireDate] == NSOrderedDescending) {
+                Question *temp = q1;
+                [arr2 replaceObjectAtIndex:i withObject:q2];
+                [arr2 replaceObjectAtIndex:j withObject:temp];
+            }
+        }
+    }
 }
 
 - (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate {
@@ -138,6 +178,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
                     [delegate didGetMyQuestionsSuccess:self];
                 }
@@ -187,6 +228,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
                     [delegate didGetQuestionsForMeSuccess:self];
                 }

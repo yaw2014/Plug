@@ -99,6 +99,9 @@
             }
         }
     }
+    
+    self.questions = [NSMutableArray arrayWithArray:arr1];
+    [questions addObjectsFromArray:arr2];
 }
 
 - (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate {

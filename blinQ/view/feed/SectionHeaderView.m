@@ -54,9 +54,25 @@
         subjectLbl.text = question.subject;
         questionLbl.text = question.question;
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-        expireDateLbl.text = [dateFormatter stringFromDate:question.expireDate];
+        //format date here
+        if ([[NSDate date] compare:question.expireDate] == NSOrderedAscending) {
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSDateComponents *components = [calendar components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date] toDate:question.expireDate options:0];
+            NSInteger day = [components day];
+            NSInteger hour = [components hour];
+            NSInteger min = [components minute];
+            
+            if (day > 0) {
+                expireDateLbl.text = [NSString stringWithFormat:@"%d days", day];
+            } else if (hour > 0) {
+                expireDateLbl.text = [NSString stringWithFormat:@"%d hours", hour];
+            } else if (min > 0) {
+                expireDateLbl.text = [NSString stringWithFormat:@"%d minutes", min];
+            }
+        } else {
+            expireDateLbl.text = @"Expired";
+        }
+        
         
         CGFloat heightDistance = 10;
         CGRect frame;

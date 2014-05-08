@@ -20,6 +20,7 @@
                 <outlet property="sectionPicker" destination="wqo-EO-7FB" id="cEb-SM-HYH"/>
                 <outlet property="sectionSelectView" destination="Lel-q4-ajw" id="CJw-dt-Rs9"/>
                 <outlet property="stateTxt" destination="rlX-1K-jd6" id="5w3-DA-M6d"/>
+                <outlet property="tempImgView" destination="bve-e6-o10" id="v2d-PN-yaL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="warningLbl" destination="Ebu-yD-7k8" id="SXY-de-FhW"/>
                 <outlet property="yearTxt" destination="JYj-XC-ZvC" id="lYD-rq-W3g"/>
@@ -69,7 +70,6 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="6e5-zK-lMl">
                             <rect key="frame" x="20" y="130" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K2a-oi-txH">
                             <rect key="frame" x="20" y="130" width="90" height="90"/>

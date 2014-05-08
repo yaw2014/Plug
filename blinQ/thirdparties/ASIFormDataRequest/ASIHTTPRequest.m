@@ -212,7 +212,7 @@ static NSOperationQueue *sharedQueue = nil;
 @property (retain, nonatomic) NSInputStream *postBodyReadStream;
 @property (assign, nonatomic) unsigned long long lastBytesRead;
 @property (assign, nonatomic) unsigned long long lastBytesSent;
-@property (atomic, retain) NSRecursiveLock *cancelledLock;
+@property (retain) NSRecursiveLock *cancelledLock;
 @property (retain, nonatomic) NSOutputStream *fileDownloadOutputStream;
 @property (retain, nonatomic) NSOutputStream *inflatedFileDownloadOutputStream;
 @property (assign) int authenticationRetryCount;
@@ -227,7 +227,7 @@ static NSOperationQueue *sharedQueue = nil;
 @property (retain) NSString *responseStatusMessage;
 @property (assign) BOOL inProgress;
 @property (assign) int retryCount;
-@property (atomic, assign) BOOL willRetryRequest;
+@property (assign) BOOL willRetryRequest;
 @property (assign) BOOL connectionCanBeReused;
 @property (retain, nonatomic) NSMutableDictionary *connectionInfo;
 @property (retain, nonatomic) NSInputStream *readStream;
@@ -589,21 +589,18 @@ static NSOperationQueue *sharedQueue = nil;
 	[self setupPostBody];
 	NSInputStream *stream = [[[NSInputStream alloc] initWithFileAtPath:file] autorelease];
 	[stream open];
+	NSUInteger bytesRead;
 	while ([stream hasBytesAvailable]) {
 		
 		unsigned char buffer[1024*256];
-		NSInteger bytesRead = [stream read:buffer maxLength:sizeof(buffer)];
+		bytesRead = [stream read:buffer maxLength:sizeof(buffer)];
 		if (bytesRead == 0) {
-			// 0 indicates that the end of the buffer was reached.
-			break;
-		} else if (bytesRead < 0) {
-			// A negative number means that the operation failed.
 			break;
 		}
 		if ([self shouldStreamPostDataFromDisk]) {
-			[[self postBodyWriteStream] write:buffer maxLength:(NSUInteger)bytesRead];
+			[[self postBodyWriteStream] write:buffer maxLength:bytesRead];
 		} else {
-			[[self postBody] appendData:[NSData dataWithBytes:buffer length:(NSUInteger)bytesRead]];
+			[[self postBody] appendData:[NSData dataWithBytes:buffer length:bytesRead]];
 		}
 	}
 	[stream close];
@@ -1211,6 +1208,7 @@ static NSOperationQueue *sharedQueue = nil;
     if([[[[self url] scheme] lowercaseString] isEqualToString:@"https"]) {       
        
         // Tell CFNetwork not to validate SSL certificates
+        /*
         if (![self validatesSecureCertificate]) {
             // see: http://iphonedevelopment.blogspot.com/2010/05/nsstream-tcp-and-ssl.html
             
@@ -1226,6 +1224,35 @@ static NSOperationQueue *sharedQueue = nil;
                                     (CFTypeRef)sslProperties);
             [sslProperties release];
         } 
+         */
+        if (![self validatesSecureCertificate]) {
+            // see: http://iphonedevelopment.blogspot.com/2010/05/nsstream-tcp-and-ssl.html
+            
+            NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                           [NSNumber numberWithBool:YES], kCFStreamSSLAllowsExpiredCertificates,
+                                           [NSNumber numberWithBool:YES], kCFStreamSSLAllowsAnyRoot,
+                                           [NSNumber numberWithBool:NO],  kCFStreamSSLValidatesCertificateChain,
+                                           kCFNull,kCFStreamSSLPeerName,
+                                           @"kCFStreamSocketSecurityLevelTLSv1_0SSLv3", kCFStreamSSLLevel,
+                                           nil];
+            
+            CFReadStreamSetProperty((CFReadStreamRef)[self readStream],
+                                    kCFStreamPropertySSLSettings,
+                                    (CFTypeRef)sslProperties);
+            [sslProperties release];
+        }else {
+            NSDictionary *sslProperties = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                           [NSNumber numberWithBool:NO], kCFStreamSSLAllowsExpiredCertificates,
+                                           [NSNumber numberWithBool:NO], kCFStreamSSLAllowsAnyRoot,
+                                           [NSNumber numberWithBool:YES],  kCFStreamSSLValidatesCertificateChain,
+                                           @"kCFStreamSocketSecurityLevelTLSv1_0SSLv3", kCFStreamSSLLevel,
+                                           nil];
+            
+            CFReadStreamSetProperty((CFReadStreamRef)[self readStream],
+                                    kCFStreamPropertySSLSettings,
+                                    (CFTypeRef)sslProperties);
+            [sslProperties release];
+        }
         
         // Tell CFNetwork to use a client certificate
         if (clientCertificateIdentity) {
@@ -1346,7 +1373,7 @@ static NSOperationQueue *sharedQueue = nil;
 		if (![self connectionInfo]) {
 			[self setConnectionInfo:[NSMutableDictionary dictionary]];
 			nextConnectionNumberToCreate++;
-			[[self connectionInfo] setObject:[NSNumber numberWithInt:(int)nextConnectionNumberToCreate] forKey:@"id"];
+			[[self connectionInfo] setObject:[NSNumber numberWithInt:nextConnectionNumberToCreate] forKey:@"id"];
 			[[self connectionInfo] setObject:[[self url] host] forKey:@"host"];
 			[[self connectionInfo] setObject:[NSNumber numberWithInt:[[[self url] port] intValue]] forKey:@"port"];
 			[[self connectionInfo] setObject:[[self url] scheme] forKey:@"scheme"];
@@ -1415,7 +1442,7 @@ static NSOperationQueue *sharedQueue = nil;
 	if (![self mainRequest]) {
 		if ([self shouldResetUploadProgress]) {
 			if ([self showAccurateProgress]) {
-				[self incrementUploadSizeBy:(long long)[self postLength]];
+				[self incrementUploadSizeBy:[self postLength]];
 			} else {
 				[self incrementUploadSizeBy:1];	 
 			}
@@ -1762,7 +1789,7 @@ static NSOperationQueue *sharedQueue = nil;
 	// We will remove this from any progress display, as kCFStreamPropertyHTTPRequestBytesWrittenCount does not tell us how much data has actually be written
 	if ([self uploadBufferSize] == 0 && [self totalBytesSent] != [self postLength]) {
 		[self setUploadBufferSize:[self totalBytesSent]];
-		[self incrementUploadSizeBy:-(long long)[self uploadBufferSize]];
+		[self incrementUploadSizeBy:-[self uploadBufferSize]];
 	}
 	
 	unsigned long long value = 0;
@@ -1822,7 +1849,7 @@ static NSOperationQueue *sharedQueue = nil;
 
 -(void)removeUploadProgressSoFar
 {
-	long long progressToRemove = -(long long)[self totalBytesSent];
+	long long progressToRemove = -[self totalBytesSent];
 	[ASIHTTPRequest performSelector:@selector(request:didSendBytes:) onTarget:&queue withObject:self amount:&progressToRemove callerToRetain:self];
 	[ASIHTTPRequest performSelector:@selector(request:didSendBytes:) onTarget:&uploadProgressDelegate withObject:self amount:&progressToRemove callerToRetain:self];
 	[ASIHTTPRequest updateProgressIndicator:&uploadProgressDelegate withProgress:0 ofTotal:[self postLength]];
@@ -1830,7 +1857,7 @@ static NSOperationQueue *sharedQueue = nil;
 	#if NS_BLOCKS_AVAILABLE
     if(bytesSentBlock){
 		unsigned long long totalSize = [self postLength];
-		[self performBlockOnMainThread:^{  if (bytesSentBlock) { bytesSentBlock((unsigned long long)progressToRemove, totalSize); }}];
+		[self performBlockOnMainThread:^{  if (bytesSentBlock) { bytesSentBlock(progressToRemove, totalSize); }}];
 	}
 	#endif
 }
@@ -2246,7 +2273,7 @@ static NSOperationQueue *sharedQueue = nil;
 			} else {
 				[theRequest setContentLength:length];
 				if ([self showAccurateProgress] && [self shouldResetDownloadProgress]) {
-					[theRequest incrementDownloadSizeBy:(long long)[theRequest contentLength]+(long long)[theRequest partialDownloadSize]];
+					[theRequest incrementDownloadSizeBy:[theRequest contentLength]+[theRequest partialDownloadSize]];
 				}
 			}
 
@@ -3307,18 +3334,18 @@ static NSOperationQueue *sharedQueue = nil;
 				[self setDataDecompressor:[ASIDataDecompressor decompressor]];
 			}
 			NSError *err = nil;
-			inflatedData = [[self dataDecompressor] uncompressBytes:buffer length:(NSUInteger)bytesRead error:&err];
+			inflatedData = [[self dataDecompressor] uncompressBytes:buffer length:bytesRead error:&err];
 			if (err) {
 				[self failWithError:err];
 				return;
 			}
 		}
 		
-		[self setTotalBytesRead:[self totalBytesRead]+(NSUInteger)bytesRead];
+		[self setTotalBytesRead:[self totalBytesRead]+bytesRead];
 		[self setLastActivityTime:[NSDate date]];
 
 		// For bandwidth measurement / throttling
-		[ASIHTTPRequest incrementBandwidthUsedInLastSecond:(NSUInteger)bytesRead];
+		[ASIHTTPRequest incrementBandwidthUsedInLastSecond:bytesRead];
 		
 		// If we need to redirect, and have automatic redirect on, and might be resuming a download, let's do nothing with the content
 		if ([self needsRedirect] && [self shouldRedirect] && [self allowResumeForFileDownloads]) {
@@ -3341,7 +3368,7 @@ static NSOperationQueue *sharedQueue = nil;
 			if ([self isResponseCompressed] && ![self shouldWaitToInflateCompressedResponses]) {
 				data = inflatedData;
 			} else {
-				data = [NSData dataWithBytes:buffer length:(NSUInteger)bytesRead];
+				data = [NSData dataWithBytes:buffer length:bytesRead];
 			}
 			[self performSelectorOnMainThread:@selector(passOnReceivedData:) withObject:data waitUntilDone:[NSThread isMainThread]];
 			
@@ -3355,7 +3382,7 @@ static NSOperationQueue *sharedQueue = nil;
 					if ([[self responseHeaders] objectForKey:@"Content-Range"]) {
 						append = YES;
 					} else {
-						[self incrementDownloadSizeBy:-(long long)[self partialDownloadSize]];
+						[self incrementDownloadSizeBy:-[self partialDownloadSize]];
 						[self setPartialDownloadSize:0];
 					}
 				}
@@ -3364,7 +3391,7 @@ static NSOperationQueue *sharedQueue = nil;
 				[[self fileDownloadOutputStream] open];
 
 			}
-			[[self fileDownloadOutputStream] write:buffer maxLength:(NSUInteger)bytesRead];
+			[[self fileDownloadOutputStream] write:buffer maxLength:bytesRead];
 
 			if ([self isResponseCompressed] && ![self shouldWaitToInflateCompressedResponses]) {
 				
@@ -3386,7 +3413,7 @@ static NSOperationQueue *sharedQueue = nil;
 			if ([self isResponseCompressed] && ![self shouldWaitToInflateCompressedResponses]) {
 				[rawResponseData appendData:inflatedData];
 			} else {
-				[rawResponseData appendBytes:buffer length:(NSUInteger)bytesRead];
+				[rawResponseData appendBytes:buffer length:bytesRead];
 			}
 		}
     }
@@ -3592,7 +3619,7 @@ static NSOperationQueue *sharedQueue = nil;
 		} else {
 			[theRequest setRawResponseData:[NSMutableData dataWithData:[[self downloadCache] cachedResponseDataForURL:[self url]]]];
 		}
-		[theRequest setContentLength:(unsigned long long)[[[self responseHeaders] objectForKey:@"Content-Length"] longLongValue]];
+		[theRequest setContentLength:[[[self responseHeaders] objectForKey:@"Content-Length"] longLongValue]];
 		[theRequest setTotalBytesRead:[self contentLength]];
 
 		[theRequest parseStringEncodingFromHeaders];
@@ -3941,9 +3968,8 @@ static NSOperationQueue *sharedQueue = nil;
 		// If your PAC file is larger than 16KB, you're just being cruel.
 		uint8_t buf[16384];
 		NSInteger len = [(NSInputStream *)stream read:buf maxLength:16384];
-		// Append only if something was actually read.
-		if (len > 0) {
-			[[self PACFileData] appendBytes:(const void *)buf length:(NSUInteger)len];
+		if (len) {
+			[[self PACFileData] appendBytes:(const void *)buf length:len];
 		}
 
 	} else if (eventCode == NSStreamEventErrorOccurred || eventCode == NSStreamEventEndEncountered) {
@@ -4572,8 +4598,7 @@ static NSOperationQueue *sharedQueue = nil;
 	for (NSNumber *bytes in bandwidthUsageTracker) {
 		totalBytes += [bytes unsignedLongValue];
 	}
-	if (measurements > 0)
-		averageBandwidthUsedPerSecond = totalBytes/measurements;
+	averageBandwidthUsedPerSecond = totalBytes/measurements;		
 }
 
 + (unsigned long)averageBandwidthUsedPerSecond
@@ -4825,14 +4850,14 @@ static NSOperationQueue *sharedQueue = nil;
 + (NSString*)base64forData:(NSData*)theData {
 	
 	const uint8_t* input = (const uint8_t*)[theData bytes];
-	NSUInteger length = [theData length];
+	NSInteger length = [theData length];
 	
     static char table[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 	
     NSMutableData* data = [NSMutableData dataWithLength:((length + 2) / 3) * 4];
     uint8_t* output = (uint8_t*)data.mutableBytes;
 	
-	NSUInteger i,i2;
+	NSInteger i,i2;
     for (i=0; i < length; i += 3) {
         NSInteger value = 0;
 		for (i2=0; i2<3; i2++) {
@@ -4843,10 +4868,10 @@ static NSOperationQueue *sharedQueue = nil;
         }
 		
         NSInteger theIndex = (i / 3) * 4;
-        output[theIndex + 0] =                    (uint8_t)table[(value >> 18) & 0x3F];
-        output[theIndex + 1] =                    (uint8_t)table[(value >> 12) & 0x3F];
-        output[theIndex + 2] = (i + 1) < length ? (uint8_t)table[(value >> 6)  & 0x3F] : '=';
-        output[theIndex + 3] = (i + 2) < length ? (uint8_t)table[(value >> 0)  & 0x3F] : '=';
+        output[theIndex + 0] =                    table[(value >> 18) & 0x3F];
+        output[theIndex + 1] =                    table[(value >> 12) & 0x3F];
+        output[theIndex + 2] = (i + 1) < length ? table[(value >> 6)  & 0x3F] : '=';
+        output[theIndex + 3] = (i + 2) < length ? table[(value >> 0)  & 0x3F] : '=';
     }
 	
     return [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
@@ -4871,15 +4896,7 @@ static NSOperationQueue *sharedQueue = nil;
   
 	// RFC 2612 says max-age must override any Expires header
 	if (maxAge) {
-		NSDate *date = [NSDate date];
-		if ([date respondsToSelector:@selector(dateByAddingTimeInterval:)]) {
-			return [date dateByAddingTimeInterval:maxAge];
-		} else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-			return [date addTimeInterval:maxAge];
-#pragma clang diagnostic pop
-        }
+		return [[NSDate date] addTimeInterval:maxAge];
 	} else {
 		NSString *expires = [responseHeaders objectForKey:@"Expires"];
 		if (expires) {

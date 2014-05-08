@@ -21,6 +21,7 @@
                 <outlet property="sectionPicker" destination="qBd-ed-Flo" id="A5Q-rs-Up3"/>
                 <outlet property="sectionSelectView" destination="hh3-Mr-yEf" id="xTi-Vp-5v6"/>
                 <outlet property="stateTxt" destination="blX-Ss-Hng" id="LMh-XE-fzE"/>
+                <outlet property="tempImgView" destination="bdT-yR-j8M" id="fGO-G5-ZZU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="warningLbl" destination="aMF-bk-cFr" id="qDz-VC-uS1"/>
                 <outlet property="yearTxt" destination="rUg-jR-wtf" id="0lQ-AN-9co"/>

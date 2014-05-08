@@ -22,6 +22,7 @@
 @synthesize sectionPicker, sectionSelectView, sections;
 @synthesize warningLbl;
 @synthesize nextBtn;
+@synthesize tempImgView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -136,6 +137,7 @@
 }
 
 - (IBAction)avatarBtnTapped:(id)sender {
+    [self.view endEditing:YES];
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"Avatar" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take a photo", @"From library", nil];
     [sheet showInView:self.view];
 }
@@ -250,6 +252,7 @@
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    tempImgView.hidden = YES;
 	avatarImgView.image = (UIImage*) [info objectForKey:UIImagePickerControllerEditedImage];
     [self dismissViewControllerAnimated:YES completion:^{
         

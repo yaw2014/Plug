@@ -46,10 +46,31 @@
     NSString *unWantedInSub = @" `~!@#$%^&*()={}[]:\";’<>,?/1234567890";
     
     //subdomain should not be less that 2 and not greater 6
-    if(!(subDomain.length>=2 && subDomain.length<=6)) return NO;
+    if(!(subDomain.length>=2 && subDomain.length<=10)) return NO;
     
-    if([accountName isEqualToString:@""] || [accountName rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInUName]].location!=NSNotFound || [domainName isEqualToString:@""] || [domainName rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInDomain]].location!=NSNotFound || [subDomain isEqualToString:@""] || [subDomain rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInSub]].location!=NSNotFound)
+    if([accountName isEqualToString:@""] || [accountName rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInUName]].location!=NSNotFound || [domainName isEqualToString:@""] || [domainName rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInDomain]].location!=NSNotFound || [subDomain isEqualToString:@""] || [subDomain rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:unWantedInSub]].location!=NSNotFound) {
         return NO;
+    } else {
+        NSInteger locHbs = [email rangeOfString:@".hbs.edu"].location;
+        NSInteger locMba = [email rangeOfString:@"mba"].location;
+        if (locHbs == NSNotFound || locMba == NSNotFound) {
+            return NO;
+        } else {
+            NSInteger lengthYear = locHbs - locMba - 3;
+            if (lengthYear == 4) {
+                NSString *yearStr = [email substringWithRange:NSMakeRange(locMba + 3, 4)];
+                NSInteger year = [yearStr intValue];
+                if (year > 1900 && year < 2099) {
+                    return YES;
+                } else {
+                    return NO;
+                }
+            } else {
+                return NO;
+            }
+        }
+    }
+
     
     return YES;
 }

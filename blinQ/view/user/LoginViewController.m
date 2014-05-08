@@ -104,8 +104,9 @@
     
     if ([email isEqual:@""] || [password isEqual:@""]) {
         warningLbl.text = EMPTY_LOGIN_FIELD_MSG;
-    } else if (![Utils validEmail:email]){
-        warningLbl.text = EMAIL_INVALID_MSG;
+        //for some accounts which do not have right email format.
+//    } else if (![Utils validEmail:email]){
+//        warningLbl.text = EMAIL_INVALID_MSG;
     } else {
         [userService loginWithEmail:email andPassword:password];
     }

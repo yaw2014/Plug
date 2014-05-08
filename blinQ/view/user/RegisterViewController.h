@@ -13,7 +13,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *sections;
-
+@property (nonatomic, retain) IBOutlet UIImageView *tempImgView;
 @property (nonatomic, retain) IBOutlet UIImageView *avatarImgView;
 @property (nonatomic, retain) IBOutlet UITextField *nameTxt;
 @property (nonatomic, retain) IBOutlet UITextField *emailTxt;

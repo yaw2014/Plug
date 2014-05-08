@@ -143,7 +143,7 @@ extern NSString *const kReachabilityChangedNotification;
 
 }
 
-@property (atomic, copy) NSString *key; // Atomic because network operations are asynchronous.
+@property (copy) NSString *key; // Atomic because network operations are asynchronous.
 
 // Designated Initializer.
 - (Reachability *) initWithReachabilityRef: (SCNetworkReachabilityRef) ref;

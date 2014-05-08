@@ -23,7 +23,7 @@
 @synthesize warningLbl;
 @synthesize nextBtn;
 @synthesize user, userService;
-
+@synthesize tempImgView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -69,6 +69,9 @@
     emailLbl.text = user.email;
     [sectionBtn setTitle:user.section forState:UIControlStateNormal];
     yearTxt.text = user.year;
+    if (![user.avatar isEqual:@""]) {
+        tempImgView.hidden = YES;
+    }
     avatarImgView.imgUrl = user.avatar;
     cityTxt.text = user.city;
     stateTxt.text = user.state;
@@ -265,6 +268,7 @@
 }
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    tempImgView.hidden = YES;
 	avatarImgView.image = (UIImage*) [info objectForKey:UIImagePickerControllerEditedImage];
     [self dismissViewControllerAnimated:YES completion:^{
         NSMutableString *imageName = [[NSMutableString alloc] initWithCapacity:0];

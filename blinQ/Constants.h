@@ -21,6 +21,8 @@
 
 #define REGISTER_USER_URL                       @"http://www.fourballoon.com/blinq/webservices/register_user.php"
 #define SUBMIT_AVATAR_URL                       @"http://www.fourballoon.com/blinq/webservices/submit_avatar.php"
+//#define SUBMIT_AVATAR_URL                       @"http://54.214.241.110/gopro/webservices/submit_avatar.php"
+
 #define LOGIN_URL                               @"http://www.fourballoon.com/blinq/webservices/login.php"
 #define FORGOT_PASSWORD_URL                     @"http://www.fourballoon.com/blinq/webservices/forgot_password.php"
 #define RETRIEVE_USER_INFO_URL                  @"http://www.fourballoon.com/blinq/webservices/get_user_info.php"

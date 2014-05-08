@@ -50,15 +50,28 @@
 #pragma mark - QuestionServiceDelegate
 - (void) didRetrieveGroupsSuccess: (QuestionService*) service {
     self.groups = service.groups;
+    
+    NSMutableArray *addMoreArr = [[NSMutableArray alloc] init];
     Group *g = [[Group alloc] init];
     g.groupName = [NSString stringWithFormat:@"%@ Section %@", user.year, user.section];
-    [groups addObject:g];
-    [selectedGroups addObject:g];
+    [addMoreArr addObject:g];
     g = [[Group alloc] init];
     g.groupName = [NSString stringWithFormat:@"Class of %@", user.year];
-    [groups addObject:g];
-    [selectedGroups addObject:g];
-    
+    [addMoreArr addObject:g];
+    for (Group *temp in addMoreArr) {
+        BOOL exist = NO;
+        for (Group *a in groups) {
+            if ([a.groupName isEqual:temp.groupName]) {
+                exist = YES;
+                [selectedGroups addObject:a];
+                break;
+            }
+        }
+        if (!exist) {
+            [groups addObject:temp];
+            [selectedGroups addObject:temp];
+        }
+    }
     [myTableView reloadData];
 }
 
@@ -142,7 +155,7 @@
             if (g.groupId != nil) {
                 [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupId]];
             } else {
-                [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupName]];
+                [groupIds appendString:[NSString stringWithFormat:@"*%@*,", g.groupName]];
             }
             
         }

@@ -37,7 +37,7 @@
                 </segmentedControl>
                 <view contentMode="scaleToFill" id="nYA-W0-m0c">
                     <rect key="frame" x="0.0" y="56" width="320" height="512"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="LD8-8e-Ert">

@@ -50,6 +50,15 @@
 #pragma mark - QuestionServiceDelegate
 - (void) didRetrieveGroupsSuccess: (QuestionService*) service {
     self.groups = service.groups;
+    Group *g = [[Group alloc] init];
+    g.groupName = [NSString stringWithFormat:@"%@ Section %@", user.year, user.section];
+    [groups addObject:g];
+    [selectedGroups addObject:g];
+    g = [[Group alloc] init];
+    g.groupName = [NSString stringWithFormat:@"Class of %@", user.year];
+    [groups addObject:g];
+    [selectedGroups addObject:g];
+    
     [myTableView reloadData];
 }
 
@@ -93,7 +102,7 @@
             data = UIImageJPEGRepresentation(user.avatarImg, 1);
         }
         if (data != nil) {
-            [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
+            //[userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
 #warning overcome the issue of uploading avatar
             [self goToMainScreen];
         }
@@ -130,7 +139,12 @@
     } else {
         NSMutableString *groupIds = [[NSMutableString alloc] initWithString:@""];
         for (Group *g in selectedGroups) {
-            [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupId]];
+            if (g.groupId != nil) {
+                [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupId]];
+            } else {
+                [groupIds appendString:[NSString stringWithFormat:@"%@,", g.groupName]];
+            }
+            
         }
         NSString *final = [groupIds substringToIndex:[groupIds length] - 1];
         user.groups = selectedGroups;

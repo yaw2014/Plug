@@ -22,6 +22,8 @@
 @synthesize avatarImgView, fromLbl, toLbl, subjectLbl, questionLbl, expireDateLbl;
 @synthesize hiddenBtn;
 @synthesize shouldUpdateHeader;
+@synthesize arrowBtn;
+
 -(id)initWithQuestion:(Question *)ques section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
     
     self = [[[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil] objectAtIndex:0];
@@ -110,6 +112,7 @@
 }
 
 -(void)toggleOpenWithUserAction:(BOOL)userAction {
+    arrowBtn.selected = !arrowBtn.selected;
     hiddenBtn.selected = !hiddenBtn.selected;
     if (hiddenBtn.selected) {
         if ([delegate respondsToSelector:@selector(sectionHeaderView:sectionOpened:)]) {

@@ -48,6 +48,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5c4-Oy-Zil">
+                    <rect key="frame" x="295" y="62" width="25" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="close.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="open.png"/>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QAq-30-eUX">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,6 +70,7 @@
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="arrowBtn" destination="5c4-Oy-Zil" id="62o-GS-dRn"/>
                 <outlet property="avatarImgView" destination="9NE-nV-fvX" id="cxy-an-UfB"/>
                 <outlet property="expireDateLbl" destination="RI8-Ao-Jc9" id="LlU-hR-SL8"/>
                 <outlet property="fromLbl" destination="Z9H-JY-zO0" id="NhT-M0-DtK"/>
@@ -74,5 +83,7 @@
     </objects>
     <resources>
         <image name="avatar.png" width="530" height="530"/>
+        <image name="close.png" width="40" height="40"/>
+        <image name="open.png" width="40" height="40"/>
     </resources>
 </document>

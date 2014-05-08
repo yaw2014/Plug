@@ -30,6 +30,7 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *subjectLbl;
 @property (nonatomic, retain) IBOutlet UILabel *questionLbl;
+@property (nonatomic, retain) IBOutlet UIButton *arrowBtn;
 @property (nonatomic, retain) IBOutlet UIButton *hiddenBtn;
 @property (nonatomic, assign) BOOL shouldUpdateHeader;
 

@@ -93,7 +93,7 @@
     }
     NSString *final = [groupIds substringToIndex:[groupIds length] - 1];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MMM dd, yyyy, HH:mm:ss"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [questionService askAQuestionFromUserId:[UserService signedInUserId] withSubject:question.subject withQuestion:question.question withGroupIds:final withExpireDate:[dateFormatter stringFromDate:question.expireDate]];
 }
 

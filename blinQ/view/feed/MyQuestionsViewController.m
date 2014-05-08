@@ -18,6 +18,8 @@
 @synthesize submitAnswerCell, otherAnswerCell;
 @synthesize currentQuestionIndex;
 @synthesize changeAmount;
+@synthesize timerService, results;
+@synthesize delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,10 +38,19 @@
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
     
+    self.timerService = [[QuestionService alloc] init];
+    timerService.delegate = self;
+    self.results = [[NSMutableArray alloc] init];
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:REQUEST_TIMER target:self selector:@selector(queryNewData) userInfo:nil repeats:YES];
+}
+
+- (void) queryNewData {
+    [timerService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,16 +106,42 @@
 
 #pragma mark - QuestionServiceDelegate
 - (void)didGetMyQuestionsSuccess:(QuestionService *)service {
-    NSMutableArray *array = service.questions;
-    self.sectionInfoArray = [[NSMutableArray alloc] initWithCapacity:[array count]];
-    for (Question *question in array) {
-        SectionInfo *info = [[SectionInfo alloc] init];
-        info.open = NO;
-        info.question = question;
+    if (service == timerService) {
+        [results removeAllObjects];
+        [self.results addObjectsFromArray:service.questions];
         
-        [sectionInfoArray addObject:info];
+        int i = 0;
+        for (Question *q1 in results) {
+            BOOL exist = NO;
+            for (SectionInfo *info in sectionInfoArray) {
+                Question *q2 = info.question;
+                if ([q1.questionId isEqual:q2.questionId]) {
+                    exist = YES;
+                    break;
+                }
+            }
+            if (!exist) {
+                i ++;
+            }
+        }
+        if (i > 0) {
+            if (delegate && [delegate respondsToSelector:@selector(didGetNewMyQuestion:withNumber:)]) {
+                [delegate didGetNewMyQuestion:self withNumber:i];
+            }
+        }
+        
+    } else {
+        NSMutableArray *array = service.questions;
+        self.sectionInfoArray = [[NSMutableArray alloc] initWithCapacity:[array count]];
+        for (Question *question in array) {
+            SectionInfo *info = [[SectionInfo alloc] init];
+            info.open = NO;
+            info.question = question;
+            
+            [sectionInfoArray addObject:info];
+        }
+        [myTableView reloadData];
     }
-    [myTableView reloadData];
 }
 
 - (void)didGetMyQuestionsFail:(QuestionService *)service withMessage:(NSString *)message {

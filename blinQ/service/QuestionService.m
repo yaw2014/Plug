@@ -184,7 +184,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                
                 if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
                     [delegate didGetMyQuestionsSuccess:self];
                 }
@@ -234,7 +234,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                
                 if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
                     [delegate didGetQuestionsForMeSuccess:self];
                 }

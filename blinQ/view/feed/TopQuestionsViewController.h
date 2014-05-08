@@ -20,13 +20,16 @@
 #import "OtherAnswerTableViewCell.h"
 #import "Answer.h"
 @interface TopQuestionsViewController : UIViewController<OtherAnswerTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
-    
+    NSTimer *timer;
 }
 @property (nonatomic, retain) QuestionService *questionService;
 @property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *sectionInfoArray;
 @property (nonatomic, assign) NSInteger openSectionIndex;
+@property (nonatomic, retain) QuestionService *timerService;
+@property (nonatomic, retain) NSMutableArray *results;
+@property (nonatomic, assign) id delegate;
 @property (nonatomic, assign) NSInteger currentQuestionIndex;
 @property (nonatomic, assign) CGFloat changeAmount;
 
@@ -35,3 +38,10 @@
 
 
 @end
+
+@protocol TopQuestionsViewControllerDelegate <NSObject>
+
+- (void) didGetNewTopQuestions: (TopQuestionsViewController*) viewVC withNumber: (NSInteger) num;
+
+@end
+

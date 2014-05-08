@@ -19,17 +19,28 @@
 #import "Answer.h"
 
 @interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
-    
+    NSTimer *timer;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *sectionInfoArray;
 @property (nonatomic, retain) QuestionService *questionService;
+
+@property (nonatomic, retain) QuestionService *timerService;
+@property (nonatomic, retain) NSMutableArray *results;
+
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, assign) NSInteger currentQuestionIndex;
 @property (nonatomic, assign) CGFloat changeAmount;
 
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
+@property (nonatomic, assign) id delegate;
+
+@end
+
+@protocol MyQuestionViewControllerDelegate <NSObject>
+
+- (void) didGetNewMyQuestion: (MyQuestionsViewController*) viewVC withNumber: (NSInteger) num;
 
 @end

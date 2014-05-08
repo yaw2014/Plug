@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyQuestionsViewController.h"
+#import "QuestionsForMeViewController.h"
+#import "TopQuestionsViewController.h"
 
-@interface FeedViewController : UIViewController {
+@interface FeedViewController : UIViewController<MyQuestionViewControllerDelegate, QuestionsForMeViewControllerDelegate, TopQuestionsViewControllerDelegate> {
     
 }
 
@@ -18,6 +21,15 @@
 @property (nonatomic, retain) UINavigationController *navController1;
 @property (nonatomic, retain) UINavigationController *navController2;
 @property (nonatomic, retain) UINavigationController *navController3;
+
+@property (nonatomic, retain) IBOutlet UILabel *myQuesNotiLbl;
+@property (nonatomic, retain) IBOutlet UILabel *quesMeNotiLbl;
+@property (nonatomic, retain) IBOutlet UILabel *topQuesNotiLbl;
+
+@property (nonatomic, retain) IBOutlet UIView *myQuesNotiView;
+@property (nonatomic, retain) IBOutlet UIView *quesMeNotiView;
+@property (nonatomic, retain) IBOutlet UIView *topQuesNotiView;
+
 
 - (IBAction)segmentControlChanged:(id)sender;
 

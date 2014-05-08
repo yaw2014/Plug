@@ -54,7 +54,12 @@
         NSInteger locHbs = [email rangeOfString:@".hbs.edu"].location;
         NSInteger locMba = [email rangeOfString:@"mba"].location;
         if (locHbs == NSNotFound || locMba == NSNotFound) {
-            return NO;
+            if ([email rangeOfString:@"hbs.edu"].location != NSNotFound) {
+                //for professor.
+                return YES;
+            } else {
+                return NO;
+            }
         } else {
             NSInteger lengthYear = locHbs - locMba - 3;
             if (lengthYear == 4) {

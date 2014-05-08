@@ -94,6 +94,8 @@
         }
         if (data != nil) {
             [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
+#warning overcome the issue of uploading avatar
+            [self goToMainScreen];
         }
     } else {
         [self goToMainScreen];

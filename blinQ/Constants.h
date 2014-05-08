@@ -40,6 +40,8 @@
 #define USER_AVATAR_KEY                         @"userAvatarKey"
 #define USER_CREATED_DATE_KEY                   @"userCreatedDateKey"
 
+//value
+#define REQUEST_TIMER                           10.0
 
 //message
 #define EMPTY_REGISTER_FIELD_MSG                @"Please input data"

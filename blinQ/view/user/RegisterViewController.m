@@ -49,6 +49,7 @@
     [sections addObject:@"D"];
     [sections addObject:@"E"];
     [sections addObject:@"F"];
+    [sections addObject:@"J"];
 
     sectionSelectView.frame = CGRectMake(0, self.view.frame.size.height, sectionSelectView.frame.size.width, sectionSelectView.frame.size.height);
     [self.view addSubview:sectionSelectView];

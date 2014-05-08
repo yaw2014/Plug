@@ -57,6 +57,7 @@
 		A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168831910DC3200639990 /* SBJsonUTF8Stream.m */; };
 		A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168851910DC3200639990 /* SBJsonWriter.m */; };
 		A62168A21910DC3200639990 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168881910DC3200639990 /* Utils.m */; };
+		A694B741191B3E0600C562D9 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B740191B3E0600C562D9 /* redcircle.png */; };
 		A697C00919125C1600391A07 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00819125C1600391A07 /* Group.m */; };
 		A697C00C1912709300391A07 /* QuestionService.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C00B1912709300391A07 /* QuestionService.m */; };
 		A697C0161912ABA100391A07 /* UILoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A697C0121912ABA100391A07 /* UILoadingImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -211,6 +212,7 @@
 		A62168871910DC3200639990 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A62168881910DC3200639990 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		A62BC7DF19124F97005E91EC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A694B740191B3E0600C562D9 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
 		A697C00719125C1600391A07 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		A697C00819125C1600391A07 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		A697C00A1912709300391A07 /* QuestionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionService.h; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				A6A545E71918CAAB00A7F847 /* up.png */,
 				A6A545E81918CAAB00A7F847 /* vote-down.png */,
 				A6A545E91918CAAB00A7F847 /* vote-up.png */,
+				A694B740191B3E0600C562D9 /* redcircle.png */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
 				A61B9B2B191694C700031598 /* SubmitAnswerTableViewCell.xib in Resources */,
 				A6D36F571914CCE800CF9B16 /* UserGroupViewController.xib in Resources */,
+				A694B741191B3E0600C562D9 /* redcircle.png in Resources */,
 				A61B9B1E1916272B00031598 /* TopQuestionsViewController.xib in Resources */,
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,

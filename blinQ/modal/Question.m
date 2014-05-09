@@ -8,6 +8,7 @@
 
 #import "Question.h"
 #import "Answer.h"
+#import "Group.h"
 
 @implementation Question
 @synthesize questionId, subject, question, expireDate, createdDate;
@@ -33,6 +34,13 @@
         for (GDataXMLElement *ele in arr) {
             Answer *ans = [[Answer alloc] initWithElement:ele];
             [answers addObject:ans];
+        }
+        
+        arr = [element elementsForName:@"group"];
+        self.groups = [[NSMutableArray alloc] initWithCapacity:[arr count]];
+        for (GDataXMLElement *ele in arr) {
+            Group *g = [[Group alloc] initWithElement:ele];
+            [groups addObject:g];
         }
     }
     return self;

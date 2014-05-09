@@ -92,7 +92,7 @@
     rect = [self.view convertRect:rect fromView:nil];
     
     CGRect frame = myScrollView.frame;
-    myScrollView.contentSize = frame.size;
+    //myScrollView.contentSize = frame.size;
     
     CGPoint point = CGPointMake(frame.origin.x, frame.origin.y + frame.size.height);
     if (point.y > rect.origin.y) {

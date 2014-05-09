@@ -62,15 +62,15 @@
             NSDateComponents *components = [calendar components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date] toDate:question.expireDate options:0];
             NSInteger day = [components day];
             NSInteger hour = [components hour];
-            NSInteger min = [components minute];
             
+            NSMutableString *tmp = [[NSMutableString alloc] init];
             if (day > 0) {
-                expireDateLbl.text = [NSString stringWithFormat:@"%d days", day];
-            } else if (hour > 0) {
-                expireDateLbl.text = [NSString stringWithFormat:@"%d hours", hour];
-            } else if (min > 0) {
-                expireDateLbl.text = [NSString stringWithFormat:@"%d minutes", min];
+                [tmp appendFormat:@"%d days", day];
             }
+            if (hour > 0) {
+                [tmp appendFormat:@" %d hours", hour];
+            }
+            expireDateLbl.text = tmp;
         } else {
             expireDateLbl.text = @"Expired";
         }
@@ -78,9 +78,17 @@
         
         CGFloat heightDistance = 10;
         CGRect frame;
+        frame = fromLbl.frame;
+        frame.size.height = [fromLbl.text sizeWithFont:fromLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
+        fromLbl.frame = frame;
+        
+        frame = toLbl.frame;
+        frame.origin.y = fromLbl.frame.origin.y + fromLbl.frame.size.height + heightDistance;
+        frame.size.height = [toLbl.text sizeWithFont:toLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
+        toLbl.frame = frame;
         
         frame = subjectLbl.frame;
-        //frame.origin.y = heightDistance;
+        frame.origin.y = toLbl.frame.origin.y + toLbl.frame.size.height + heightDistance;
         frame.size.height = [subjectLbl.text sizeWithFont:subjectLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
         subjectLbl.frame = frame;
         

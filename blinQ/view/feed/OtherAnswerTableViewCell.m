@@ -33,10 +33,14 @@
         answer.value = 1;
         upBtn.selected = YES;
         downBtn.enabled = NO;
+        answer.voteUp++;
+        voteUpLbl.text = [NSString stringWithFormat:@"Voted up by %d people", (int)answer.voteUp];
     } else {
         answer.value = 0;
         upBtn.selected = NO;
         downBtn.enabled = YES;
+        answer.voteUp--;
+        voteUpLbl.text = [NSString stringWithFormat:@"Voted up by %d people", (int)answer.voteUp];
     }
     if (delegate && [delegate respondsToSelector:@selector(didVoteForAnswer:withValue:)]) {
         [delegate didVoteForAnswer:answer withValue:answer.value];

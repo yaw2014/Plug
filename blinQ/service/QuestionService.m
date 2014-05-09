@@ -89,7 +89,7 @@
             }
         }
     }
-    
+    /*
     for (int i = 0; i < [arr2 count] - 1; i++) {
         for (int j = i+1; j < [arr2 count]; j++) {
             Question *q1 = [arr2 objectAtIndex:i];
@@ -102,7 +102,7 @@
             }
         }
     }
-    
+    */
     self.questions = [NSMutableArray arrayWithArray:arr1];
     [questions addObjectsFromArray:arr2];
 }
@@ -184,7 +184,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
                     [delegate didGetMyQuestionsSuccess:self];
                 }
@@ -234,7 +234,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
                     [delegate didGetQuestionsForMeSuccess:self];
                 }
@@ -284,6 +284,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsSuccess:)]) {
                     [delegate didGetTopQuestionsSuccess:self];
                 }
@@ -433,6 +434,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
+                [self sortQuestionsWithExpireDate];
                 if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsSuccess:)]) {
                     [delegate didSearchQuestionsSuccess:self];
                 }

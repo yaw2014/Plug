@@ -130,7 +130,10 @@
         dateSortBtn.selected = YES;
         urgencySortBtn.selected = NO;
         openSectionIndex = NSNotFound;
-        
+        if ([sectionInfoArray count] <= 1) {
+            return;
+        }
+
         for (SectionInfo *info in sectionInfoArray) {
             info.headerView = nil;
         }
@@ -156,6 +159,10 @@
         dateSortBtn.selected = NO;
         urgencySortBtn.selected = YES;
         openSectionIndex = NSNotFound;
+        if ([sectionInfoArray count] <= 1) {
+            return;
+        }
+
         for (SectionInfo *info in sectionInfoArray) {
             info.headerView = nil;
         }

@@ -27,7 +27,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *expireDateLbl;
 @property (nonatomic, retain) IBOutlet UILabel *fromLbl;
 @property (nonatomic, retain) IBOutlet UILabel *toLbl;
-
+@property (nonatomic, retain) IBOutlet UILabel *createdDateLbl;
 @property (nonatomic, retain) IBOutlet UILabel *subjectLbl;
 @property (nonatomic, retain) IBOutlet UILabel *questionLbl;
 @property (nonatomic, retain) IBOutlet UIButton *arrowBtn;

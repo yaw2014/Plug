@@ -285,7 +285,7 @@
         cell.nameLbl.text = answer.user.name;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
-        cell.voteUpLbl.text = [NSString stringWithFormat:@"Voted up by %d people", (int)answer.voteUp];
+        cell.voteUpLbl.text = [NSString stringWithFormat:@"Voted by %d people", (int)answer.voteUp];
         if (answer.value == 1) {
             cell.upBtn.selected = YES;
             cell.downBtn.enabled = NO;

@@ -23,7 +23,7 @@
 @synthesize hiddenBtn;
 @synthesize shouldUpdateHeader;
 @synthesize arrowBtn;
-
+@synthesize createdDateLbl;
 -(id)initWithQuestion:(Question *)ques section:(NSInteger)sectionNumber delegate:(id<SectionHeaderViewDelegate>)aDelegate {
     
     self = [[[NSBundle mainBundle] loadNibNamed:@"SectionHeaderView" owner:self options:nil] objectAtIndex:0];
@@ -55,6 +55,9 @@
         
         subjectLbl.text = question.subject;
         questionLbl.text = question.question;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM dd, yyyy"];
+        createdDateLbl.text = [NSString stringWithFormat:@"Posted %@", [formatter stringFromDate:question.createdDate]];
         
         //format date here
         if ([[NSDate date] compare:question.expireDate] == NSOrderedAscending) {
@@ -87,8 +90,13 @@
         frame.size.height = [toLbl.text sizeWithFont:toLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
         toLbl.frame = frame;
         
-        frame = subjectLbl.frame;
+        frame = createdDateLbl.frame;
         frame.origin.y = toLbl.frame.origin.y + toLbl.frame.size.height + heightDistance;
+        frame.size.height = [createdDateLbl.text sizeWithFont:createdDateLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
+        createdDateLbl.frame = frame;
+        
+        frame = subjectLbl.frame;
+        frame.origin.y = createdDateLbl.frame.origin.y + createdDateLbl.frame.size.height + heightDistance;
         frame.size.height = [subjectLbl.text sizeWithFont:subjectLbl.font constrainedToSize:CGSizeMake(frame.size.width, 9999) lineBreakMode:NSLineBreakByCharWrapping].height;
         subjectLbl.frame = frame;
         

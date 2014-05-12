@@ -60,6 +60,7 @@
     [self.view addGestureRecognizer:tapGesture];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:REQUEST_TIMER target:self selector:@selector(queryNewData) userInfo:nil repeats:YES];
+    urgencySortBtn.selected = YES;
 }
 
 - (void) queryNewData {
@@ -129,13 +130,18 @@
         dateSortBtn.selected = YES;
         urgencySortBtn.selected = NO;
         openSectionIndex = NSNotFound;
+        
+        for (SectionInfo *info in sectionInfoArray) {
+            info.headerView = nil;
+        }
+        
         for (int i = 0; i < [sectionInfoArray count] - 1; i++) {
             for (int j = i+1; j < [sectionInfoArray count]; j++) {
                 SectionInfo *info1 = [sectionInfoArray objectAtIndex:i];
                 info1.open = NO;
                 SectionInfo *info2 = [sectionInfoArray objectAtIndex:j];
                 info2.open = NO;
-                if ([info1.question.createdDate compare:info2.question.createdDate] == NSOrderedDescending) {
+                if ([info1.question.createdDate compare:info2.question.createdDate] == NSOrderedAscending) {
                     SectionInfo *temp = info2;
                     [sectionInfoArray replaceObjectAtIndex:j withObject:info1];
                     [sectionInfoArray replaceObjectAtIndex:i withObject:temp];
@@ -150,6 +156,10 @@
         dateSortBtn.selected = NO;
         urgencySortBtn.selected = YES;
         openSectionIndex = NSNotFound;
+        for (SectionInfo *info in sectionInfoArray) {
+            info.headerView = nil;
+        }
+        
         for (int i = 0; i < [sectionInfoArray count] - 1; i++) {
             for (int j = i+1; j < [sectionInfoArray count]; j++) {
                 SectionInfo *info1 = [sectionInfoArray objectAtIndex:i];
@@ -366,7 +376,7 @@
         cell.nameLbl.text = answer.user.name;
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", answer.user.year, answer.user.section];
         cell.answerLbl.text = answer.answer;
-        cell.voteUpLbl.text = [NSString stringWithFormat:@"Voted up by %d people", (int)answer.voteUp];
+        cell.voteUpLbl.text = [NSString stringWithFormat:@"Voted by %d people", (int)answer.voteUp];
         if (answer.value == 1) {
             cell.upBtn.selected = YES;
             cell.downBtn.enabled = NO;

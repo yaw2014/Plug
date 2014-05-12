@@ -62,10 +62,10 @@
     [theRequest startAsynchronous];
 }
 
-- (void) sortQuestionsWithExpireDate {
+- (void) sortQuestionsWithExpireDate:(BOOL) withexpire {
     NSMutableArray *arr1 = [[NSMutableArray alloc] init];
     NSMutableArray *arr2 = [[NSMutableArray alloc] init];
-    if ([questions count] == 0) {
+    if ([questions count] == 0 || [questions count] == 1) {
         return;
     }
     for (Question *question in questions) {
@@ -104,7 +104,9 @@
     }
     */
     self.questions = [NSMutableArray arrayWithArray:arr1];
-    [questions addObjectsFromArray:arr2];
+    if (withexpire) {
+        [questions addObjectsFromArray:arr2];
+    }
 }
 
 - (void) askAQuestionFromUserId: (NSString*) userId withSubject: (NSString*) subject withQuestion: (NSString*) question withGroupIds: (NSString*) groupIds withExpireDate: (NSString*) expireDate {
@@ -184,7 +186,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                [self sortQuestionsWithExpireDate: YES];
                 if (delegate && [delegate respondsToSelector:@selector(didGetMyQuestionsSuccess:)]) {
                     [delegate didGetMyQuestionsSuccess:self];
                 }
@@ -234,7 +236,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                [self sortQuestionsWithExpireDate: NO];
                 if (delegate && [delegate respondsToSelector:@selector(didGetQuestionsForMeSuccess:)]) {
                     [delegate didGetQuestionsForMeSuccess:self];
                 }
@@ -284,7 +286,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                [self sortQuestionsWithExpireDate: NO];
                 if (delegate && [delegate respondsToSelector:@selector(didGetTopQuestionsSuccess:)]) {
                     [delegate didGetTopQuestionsSuccess:self];
                 }
@@ -434,7 +436,7 @@
                     Question *question = [[Question alloc] initWithElement:ele];
                     [self.questions addObject:question];
                 }
-                [self sortQuestionsWithExpireDate];
+                [self sortQuestionsWithExpireDate: YES];
                 if (delegate && [delegate respondsToSelector:@selector(didSearchQuestionsSuccess:)]) {
                     [delegate didSearchQuestionsSuccess:self];
                 }

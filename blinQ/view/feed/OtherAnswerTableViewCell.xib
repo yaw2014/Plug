@@ -57,7 +57,7 @@
                             <action selector="voteUp:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="D2Z-bg-QK4"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vbv-YV-h2F">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vbv-YV-h2F">
                         <rect key="frame" x="280" y="59" width="40" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="down.png">

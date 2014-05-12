@@ -20,6 +20,8 @@
 @synthesize changeAmount;
 @synthesize timerService, results;
 @synthesize delegate;
+@synthesize dateSortBtn, urgencySortBtn;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -102,6 +104,50 @@
     CGRect frame = myTableView.frame;
     frame.size.height += changeAmount;
     myTableView.frame = frame;
+}
+
+#pragma mark - IBAction
+- (IBAction)dateSortBtnTapped:(id)sender {
+    if (!dateSortBtn.selected) {
+        dateSortBtn.selected = YES;
+        urgencySortBtn.selected = NO;
+        openSectionIndex = NSNotFound;
+        for (int i = 0; i < [sectionInfoArray count] - 1; i++) {
+            for (int j = i+1; j < [sectionInfoArray count]; j++) {
+                SectionInfo *info1 = [sectionInfoArray objectAtIndex:i];
+                info1.open = NO;
+                SectionInfo *info2 = [sectionInfoArray objectAtIndex:j];
+                info2.open = NO;
+                if ([info1.question.createdDate compare:info2.question.createdDate] == NSOrderedDescending) {
+                    SectionInfo *temp = info2;
+                    [sectionInfoArray replaceObjectAtIndex:j withObject:info1];
+                    [sectionInfoArray replaceObjectAtIndex:i withObject:temp];
+                }
+            }
+        }
+        [myTableView reloadData];
+    }
+}
+- (IBAction)urgencySortBtnTapped:(id)sender {
+    if (!urgencySortBtn.selected) {
+        dateSortBtn.selected = NO;
+        urgencySortBtn.selected = YES;
+        openSectionIndex = NSNotFound;
+        for (int i = 0; i < [sectionInfoArray count] - 1; i++) {
+            for (int j = i+1; j < [sectionInfoArray count]; j++) {
+                SectionInfo *info1 = [sectionInfoArray objectAtIndex:i];
+                info1.open = NO;
+                SectionInfo *info2 = [sectionInfoArray objectAtIndex:j];
+                info2.open = NO;
+                if ([info1.question.expireDate compare:info2.question.expireDate] == NSOrderedDescending) {
+                    SectionInfo *temp = info2;
+                    [sectionInfoArray replaceObjectAtIndex:j withObject:info1];
+                    [sectionInfoArray replaceObjectAtIndex:i withObject:temp];
+                }
+            }
+        }
+        [myTableView reloadData];
+    }
 }
 
 #pragma mark - QuestionServiceDelegate

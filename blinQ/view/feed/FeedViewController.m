@@ -57,7 +57,7 @@
     [mySegmentControl setSelectedSegmentIndex:2];
     [self segmentControlChanged:nil];
     
-    [mySegmentControl setSelectedSegmentIndex:0];
+    [mySegmentControl setSelectedSegmentIndex:2];
     [self segmentControlChanged:nil];
     
     myQuesNotiView.hidden = YES;

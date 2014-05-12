@@ -39,6 +39,21 @@
     navController3.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     [navController4 setNavigationBarHidden:YES];
     navController4.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    tabBarController.selectedIndex = 1;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAskQuestion:) name:DID_ASK_A_QUESTION_NOTI object:nil];
+    [super viewWillAppear:animated];
+}
+
+- (void) didAskQuestion: (NSNotification*) noti {
+    [tabBarController setSelectedIndex:1];//select feed view
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

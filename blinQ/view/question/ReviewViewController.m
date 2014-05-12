@@ -112,6 +112,8 @@
     QuestionViewController *viewVC = [[QuestionViewController alloc] initWithNibName:@"QuestionViewController" bundle:nil];
     NSArray *arr = [NSArray arrayWithObject:viewVC];
     [self.navigationController setViewControllers:arr animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DID_ASK_A_QUESTION_NOTI object:nil userInfo:nil];
 }
 
 @end

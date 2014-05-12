@@ -59,7 +59,7 @@
         //format date here
         if ([[NSDate date] compare:question.expireDate] == NSOrderedAscending) {
             NSCalendar *calendar = [NSCalendar currentCalendar];
-            NSDateComponents *components = [calendar components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date] toDate:question.expireDate options:0];
+            NSDateComponents *components = [calendar components:NSDayCalendarUnit | NSHourCalendarUnit fromDate:[NSDate date] toDate:question.expireDate options:0];
             NSInteger day = [components day];
             NSInteger hour = [components hour];
             

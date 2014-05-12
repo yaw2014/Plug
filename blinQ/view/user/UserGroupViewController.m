@@ -49,8 +49,24 @@
 
 #pragma mark - QuestionServiceDelegate
 - (void) didRetrieveGroupsSuccess: (QuestionService*) service {
+    //remove other section and class
+    NSMutableArray *removeArr = [NSMutableArray array];
     self.groups = service.groups;
-    
+    for (Group *g in groups) {
+        if ([g.groupName rangeOfString:@"Section"].location != NSNotFound) {
+            if (![g.groupName isEqual:[NSString stringWithFormat:@"%@ Section %@", user.year, user.section]]) {
+                [removeArr addObject:g];
+            }
+        } else if ([g.groupName rangeOfString:@"Class of"].location != NSNotFound) {
+            if (![g.groupName isEqual:[NSString stringWithFormat:@"Class of %@", user.year]]) {
+                [removeArr addObject:g];
+            }
+        }
+    }
+    if ([removeArr count] > 0) {
+        [groups removeObjectsInArray:removeArr];
+    }
+
     NSMutableArray *addMoreArr = [[NSMutableArray alloc] init];
     Group *g = [[Group alloc] init];
     g.groupName = [NSString stringWithFormat:@"%@ Section %@", user.year, user.section];
@@ -72,6 +88,9 @@
             [selectedGroups addObject:temp];
         }
     }
+    
+    
+    
     [myTableView reloadData];
 }
 

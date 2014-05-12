@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "QuestionService.h"
+#import "UserService.h"
 
-@interface QuestionViewController : UIViewController<QuestionServiceDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface QuestionViewController : UIViewController<QuestionServiceDelegate, UITableViewDataSource, UITableViewDelegate, UserServiceDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
+@property (nonatomic, retain) UserService *userService;
 @property (nonatomic, retain) QuestionService *questionService;
 @property (nonatomic, retain) NSMutableArray *groups;
 @property (nonatomic, retain) NSMutableArray *selectedGroups;

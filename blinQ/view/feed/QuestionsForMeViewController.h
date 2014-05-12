@@ -41,6 +41,15 @@
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
 
+
+@property (nonatomic, retain) IBOutlet UIButton *dateSortBtn;
+@property (nonatomic, retain) IBOutlet UIButton *urgencySortBtn;
+
+- (IBAction)dateSortBtnTapped:(id)sender;
+- (IBAction)urgencySortBtnTapped:(id)sender;
+
+
+
 @end
 @protocol QuestionsForMeViewControllerDelegate <NSObject>
 

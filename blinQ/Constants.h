@@ -40,8 +40,11 @@
 #define USER_AVATAR_KEY                         @"userAvatarKey"
 #define USER_CREATED_DATE_KEY                   @"userCreatedDateKey"
 
+//notifications
+#define DID_ASK_A_QUESTION_NOTI                 @"didAskAQuestionNoti"
+
 //value
-#define REQUEST_TIMER                           10.0
+#define REQUEST_TIMER                           120.0
 
 //message
 #define EMPTY_REGISTER_FIELD_MSG                @"Please input data"

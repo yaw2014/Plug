@@ -66,8 +66,13 @@
                         <action selector="toggleOpen:" destination="E6w-3z-Rqo" eventType="touchUpInside" id="scq-0i-xuy"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" id="sHl-6u-Fd2">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="arrowBtn" destination="5c4-Oy-Zil" id="62o-GS-dRn"/>

@@ -18,7 +18,7 @@
 @implementation QuestionViewController
 @synthesize myTableView, questionService, groups, selectedGroups;
 @synthesize warningLbl;
-
+@synthesize userService;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,7 +34,11 @@
     // Do any additional setup after loading the view from its nib.
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
-    [questionService retrieveGroups];
+    //[questionService retrieveGroups];
+    
+    self.userService = [[UserService alloc] init];
+    userService.delegate = self;
+    [userService retrieveUserInfoByUserId:[UserService signedInUserId]];
     
     if (selectedGroups == nil) {
         self.selectedGroups = [[NSMutableArray alloc] init];
@@ -45,6 +49,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UserServiceDelegate
+- (void)didRetrieveUserInfoByUserIdSuccess:(UserService *)service {
+    self.groups = service.user.groups;
+    [myTableView reloadData];
+}
+
+- (void)didRetrieveUserInfoByUserIdFail:(UserService *)service withMessage:(NSString *)message {
+    
 }
 
 #pragma mark - QuestionServiceDelegate

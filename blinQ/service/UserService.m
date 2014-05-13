@@ -178,7 +178,6 @@
     } else {
         [theRequest setData:data withFileName:fileName andContentType:@"image/jpeg" forKey:@"avatar"];
     }
-
     
     __weak ASIFormDataRequest *request = theRequest;
     

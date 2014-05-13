@@ -33,21 +33,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.userService = [[UserService alloc] init];
+    userService.delegate = self;
+    
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated {
     nameLbl.text = [UserService signedInUserName];
     yearLbl.text = [NSString stringWithFormat:@"Year of %@", [UserService signedInYear]];
     sectionLbl.text = [NSString stringWithFormat:@"Section %@", [UserService signedInSection]];
     if (![[UserService signedInAvatar] isEqual:@""]) {
+        NSLog(@"avatar: %@", [UserService signedInAvatar]);
         avatarImgView.imgUrl = [UserService signedInAvatar];
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMM dd, yyyy"];
     memberSinceLbl.text = [NSString stringWithFormat:@"Member since: %@", [formatter stringFromDate:[UserService signedInCreatedDate]]];
-    
-    self.userService = [[UserService alloc] init];
-    userService.delegate = self;
-    
     [userService retrieveUserInfoByUserId:[UserService signedInUserId]];
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning

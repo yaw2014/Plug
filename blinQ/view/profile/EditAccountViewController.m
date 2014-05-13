@@ -328,6 +328,8 @@
 
 #pragma mark - UserServiceDelegate
 - (void)didSubmitAvatarForUserSuccess:(UserService *)service {
+    user.avatar = service.user.avatar;
+    [UserService storeAvatar:service.user.avatar];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:CHANGE_AVATAR_SUCCESS_MSG delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }

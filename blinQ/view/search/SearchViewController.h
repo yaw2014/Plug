@@ -18,7 +18,11 @@
 #import "UILineFooterView.h"
 #import "SubmitAnswerTableViewCell.h"
 #import "OtherAnswerTableViewCell.h"
+#import "SubmitAnAnswerTableViewCell.h"
 #import "Answer.h"
+#import "AnswerViewController.h"
+#import "QuestionProtocol.h"
+
 
 @interface SearchViewController : UIViewController<UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate,UIGestureRecognizerDelegate> {
     
@@ -34,6 +38,7 @@
 
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
+@property (nonatomic, retain) IBOutlet SubmitAnAnswerTableViewCell *submitAnAnswerCell;
 
 
 @end

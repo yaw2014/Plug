@@ -10,8 +10,9 @@
 #import "MyQuestionsViewController.h"
 #import "QuestionsForMeViewController.h"
 #import "TopQuestionsViewController.h"
-
-@interface FeedViewController : UIViewController<MyQuestionViewControllerDelegate, QuestionsForMeViewControllerDelegate, TopQuestionsViewControllerDelegate> {
+#import "QuestionProtocol.h"
+#import "AnswerViewController.h"
+@interface FeedViewController : UIViewController<MyQuestionViewControllerDelegate, QuestionsForMeViewControllerDelegate, TopQuestionsViewControllerDelegate, QuestionProtocol> {
     
 }
 

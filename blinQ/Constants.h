@@ -60,5 +60,5 @@
 #define CHANGE_AVATAR_SUCCESS_MSG               @"Change avatar successfully"
 #define EDIT_USER_SUCCESS_MSG                   @"Update user successfully"
 #define ANSWER_SUBMIT_SUCCESS_MSG               @"Your answer has been submitted."
-
+#define EMPTY_ANSWER_MSG                        @"Please input your answer"
 #endif

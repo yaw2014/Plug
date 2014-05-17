@@ -82,14 +82,20 @@
         [contentView addSubview:navController1.view];
         myQuesNotiView.hidden = YES;
         myQuesNotiLbl.text = @"";
+        MyQuestionsViewController *viewVC = [navController1.viewControllers objectAtIndex:0];
+        [viewVC queryData];
     } else if (index == 1) {
         [contentView addSubview:navController2.view];
         quesMeNotiView.hidden = YES;
         quesMeNotiLbl.text = @"";
+        QuestionsForMeViewController *viewVC = [navController2.viewControllers objectAtIndex:0];
+        [viewVC queryData];
     } else if (index == 2) {
         [contentView addSubview:navController3.view];
         topQuesNotiView.hidden = YES;
         topQuesNotiLbl.text = @"";
+        TopQuestionsViewController *viewVC = [navController3.viewControllers objectAtIndex:0];
+        [viewVC queryData];
     }
 }
 
@@ -124,6 +130,13 @@
         topQuesNotiView.hidden = NO;
         topQuesNotiLbl.text = [NSString stringWithFormat:@"%d", num];
     }
+}
+
+#pragma mark - QuestionProtocol
+- (void) answerToSectionInfo:(SectionInfo *)sectionInfo {
+    AnswerViewController *viewVC = [[AnswerViewController alloc] initWithNibName:@"AnswerViewController" bundle:nil];
+    viewVC.info = sectionInfo;
+    [self.navigationController pushViewController:viewVC animated:YES];
 }
 
 @end

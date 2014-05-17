@@ -134,9 +134,7 @@
             data = UIImageJPEGRepresentation(user.avatarImg, 1);
         }
         if (data != nil) {
-            //[userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
-#warning overcome the issue of uploading avatar
-            [self goToMainScreen];
+            [userService submitAvatarForUser:user.userId withFileName:filename andData:data];;
         }
     } else {
         [self goToMainScreen];

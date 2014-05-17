@@ -18,8 +18,10 @@
 #import "UILineFooterView.h"
 #import "SubmitAnswerTableViewCell.h"
 #import "OtherAnswerTableViewCell.h"
+#import "SubmitAnAnswerTableViewCell.h"
 #import "Answer.h"
-
+#import "AnswerViewController.h"
+#import "QuestionProtocol.h"
 @interface QuestionsForMeViewController : UIViewController<OtherAnswerTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, QuestionServiceDelegate, QuestionServiceDelegate, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, UIGestureRecognizerDelegate, UserServiceDelegate> {
     NSTimer *timer;
 }
@@ -40,14 +42,14 @@
 
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
-
+@property (nonatomic, retain) IBOutlet SubmitAnAnswerTableViewCell *submitAnAnswerCell;
 
 @property (nonatomic, retain) IBOutlet UIButton *dateSortBtn;
 @property (nonatomic, retain) IBOutlet UIButton *urgencySortBtn;
 
 - (IBAction)dateSortBtnTapped:(id)sender;
 - (IBAction)urgencySortBtnTapped:(id)sender;
-
+- (void) queryData;
 
 
 @end

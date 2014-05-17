@@ -16,8 +16,10 @@
 #import "UILineFooterView.h"
 #import "SubmitAnswerTableViewCell.h"
 #import "OtherAnswerTableViewCell.h"
+#import "SubmitAnAnswerTableViewCell.h"
 #import "Answer.h"
-
+#import "AnswerViewController.h"
+#import "QuestionProtocol.h"
 @interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
     NSTimer *timer;
 }
@@ -34,6 +36,7 @@
 @property (nonatomic, assign) CGFloat changeAmount;
 
 @property (nonatomic, retain) IBOutlet SubmitAnswerTableViewCell *submitAnswerCell;
+@property (nonatomic, retain) IBOutlet SubmitAnAnswerTableViewCell *submitAnAnswerCell;
 @property (nonatomic, retain) IBOutlet OtherAnswerTableViewCell *otherAnswerCell;
 @property (nonatomic, assign) id delegate;
 
@@ -42,6 +45,7 @@
 
 - (IBAction)dateSortBtnTapped:(id)sender;
 - (IBAction)urgencySortBtnTapped:(id)sender;
+- (void) queryData;
 
 @end
 

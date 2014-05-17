@@ -15,7 +15,7 @@
 
 @property (assign) BOOL open;
 @property (retain) SectionHeaderView* headerView;
-@property (nonatomic, assign) Question *question;
+@property (nonatomic, retain) Question *question;
 
 @property (nonatomic,retain,readonly) NSMutableArray *rowHeights;
 

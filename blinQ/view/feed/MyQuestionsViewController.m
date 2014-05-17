@@ -21,7 +21,7 @@
 @synthesize timerService, results;
 @synthesize delegate;
 @synthesize dateSortBtn, urgencySortBtn;
-
+@synthesize submitAnAnswerCell;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,6 +50,7 @@
     
     timer = [NSTimer scheduledTimerWithTimeInterval:REQUEST_TIMER target:self selector:@selector(queryNewData) userInfo:nil repeats:YES];
     urgencySortBtn.selected = YES;
+    [self queryData];
 }
 
 - (void) queryNewData {
@@ -68,10 +69,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [questionService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     [super viewWillAppear:animated];
+}
+
+- (void) queryData {
+    [questionService getMyQuestionsWithUserId:[UserService signedInUserId] withIgnoreIds:@""];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -265,7 +270,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 125;
+        return 44;
     } else {
         
         UIFont *font = [UIFont systemFontOfSize:14.0];
@@ -299,17 +304,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        static NSString *CellIdentifier1 = @"SubmitAnswerTableViewCell";
+        static NSString *CellIdentifier1 = @"SubmitAnAnswerTableViewCell";
         
-        SubmitAnswerTableViewCell *cell = (SubmitAnswerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        SubmitAnAnswerTableViewCell *cell = (SubmitAnAnswerTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
         if (cell == nil) {
-            NSString * viewStr = @"SubmitAnswerTableViewCell";
+            NSString * viewStr = @"SubmitAnAnswerTableViewCell";
             UINib * cellNib = [UINib nibWithNibName:viewStr bundle:nil];
             [cellNib instantiateWithOwner:self options:nil];
-            cell = self.submitAnswerCell;
-            self.submitAnswerCell = nil;
+            cell = self.submitAnAnswerCell;
+            self.submitAnAnswerCell = nil;
         }
-        
+        /*
         SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
         cell.delegate = self;
         cell.sectionIndex = indexPath.section;
@@ -317,6 +322,7 @@
         cell.nameLbl.text = [UserService signedInUserName];
         cell.descriptionLbl.text = [NSString stringWithFormat:@"%@, Section %@", [UserService signedInYear], [UserService signedInSection]];
         cell.avatarImgView.imgUrl = [UserService signedInAvatar];
+         */
         return cell;
     } else {
         static NSString *CellIdentifier2 = @"OtherAnswerTableViewCell";
@@ -362,6 +368,13 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    if (indexPath.row == 0) {
+        //open new screen to input answer
+        if (delegate && [delegate respondsToSelector:@selector(answerToSectionInfo:)]) {
+            SectionInfo *info = [sectionInfoArray objectAtIndex:indexPath.section];
+            [delegate answerToSectionInfo:info];
+        }
+    }
 }
 
 #pragma mark Section header delegate
@@ -395,6 +408,16 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([touch.view isKindOfClass:[UIButton class]]){
         return NO;
+    } else {
+        UIView *superView = touch.view.superview;
+        while (![superView isKindOfClass:[UITableViewCell class]]) {
+            if (superView.superview) {
+                superView = superView.superview;
+            }
+        }
+        if ([superView isKindOfClass:[UITableViewCell class]]) {
+            return NO;
+        }
     }
     return YES;
 }

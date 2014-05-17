@@ -60,6 +60,8 @@
 		A62E5021192267B4009E42B5 /* KeyboardStateListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A62E5020192267B4009E42B5 /* KeyboardStateListener.m */; };
 		A68B89141927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */; };
 		A68B89151927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */; };
+		A68B89191927AFF300B85A6D /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68B89171927AFF300B85A6D /* AnswerViewController.m */; };
+		A68B891A1927AFF300B85A6D /* AnswerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A68B89181927AFF300B85A6D /* AnswerViewController.xib */; };
 		A694B741191B3E0600C562D9 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B740191B3E0600C562D9 /* redcircle.png */; };
 		A694B745191B7C9D00C562D9 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B743191B7C9D00C562D9 /* close.png */; };
 		A694B746191B7C9D00C562D9 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B744191B7C9D00C562D9 /* open.png */; };
@@ -222,6 +224,10 @@
 		A68B89111927A9C100B85A6D /* SubmitAnAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitAnAnswerTableViewCell.h; sourceTree = "<group>"; };
 		A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitAnAnswerTableViewCell.m; sourceTree = "<group>"; };
 		A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubmitAnAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		A68B89161927AFF300B85A6D /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		A68B89171927AFF300B85A6D /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		A68B89181927AFF300B85A6D /* AnswerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerViewController.xib; sourceTree = "<group>"; };
+		A68B891B1927B2C200B85A6D /* QuestionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuestionProtocol.h; sourceTree = "<group>"; };
 		A694B740191B3E0600C562D9 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
 		A694B743191B7C9D00C562D9 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		A694B744191B7C9D00C562D9 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
@@ -594,6 +600,7 @@
 				A68B89111927A9C100B85A6D /* SubmitAnAnswerTableViewCell.h */,
 				A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */,
 				A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */,
+				A68B891B1927B2C200B85A6D /* QuestionProtocol.h */,
 				A61B9B101916271300031598 /* MyQuestionsViewController.h */,
 				A61B9B111916271300031598 /* MyQuestionsViewController.m */,
 				A61B9B121916271300031598 /* MyQuestionsViewController.xib */,
@@ -603,6 +610,9 @@
 				A61B9B1A1916272B00031598 /* TopQuestionsViewController.h */,
 				A61B9B1B1916272B00031598 /* TopQuestionsViewController.m */,
 				A61B9B1C1916272B00031598 /* TopQuestionsViewController.xib */,
+				A68B89161927AFF300B85A6D /* AnswerViewController.h */,
+				A68B89171927AFF300B85A6D /* AnswerViewController.m */,
+				A68B89181927AFF300B85A6D /* AnswerViewController.xib */,
 			);
 			path = feed;
 			sourceTree = "<group>";
@@ -757,6 +767,7 @@
 				A621681F1910D41300639990 /* InfoPlist.strings in Resources */,
 				A697C0261913708500391A07 /* MainViewController.xib in Resources */,
 				A6D36F721915400100CF9B16 /* EditUserGroupViewController.xib in Resources */,
+				A68B891A1927AFF300B85A6D /* AnswerViewController.xib in Resources */,
 				A6D36F4B1914CCE800CF9B16 /* FeedViewController.xib in Resources */,
 				A62168271910D41300639990 /* Images.xcassets in Resources */,
 				A697C0411913DC9E00391A07 /* search@2x.png in Resources */,
@@ -844,6 +855,7 @@
 				A621688E1910DC3200639990 /* ASIDownloadCache.m in Sources */,
 				A61B9B181916272100031598 /* QuestionsForMeViewController.m in Sources */,
 				A697C0171912ABA100391A07 /* UILineFooterView.m in Sources */,
+				A68B89191927AFF300B85A6D /* AnswerViewController.m in Sources */,
 				A697C00C1912709300391A07 /* QuestionService.m in Sources */,
 				A6D36F671914D54000CF9B16 /* ReviewViewController.m in Sources */,
 				A61B9B1D1916272B00031598 /* TopQuestionsViewController.m in Sources */,

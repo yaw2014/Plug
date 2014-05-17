@@ -9,11 +9,15 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "MainViewController.h"
+#import "KeyboardStateListener.h"
 
 @implementation AppDelegate
 @synthesize navController;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //init keyboard listener
+    [KeyboardStateListener sharedInstance];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     LoginViewController *viewVC = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];

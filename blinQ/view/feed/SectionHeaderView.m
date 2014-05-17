@@ -13,6 +13,7 @@
 #import "Question.h"
 #import "QuestionService.h"
 #import "UserService.h"
+#import "KeyboardStateListener.h"
 
 @implementation SectionHeaderView
 @synthesize question;
@@ -43,6 +44,7 @@
         
         self.question = ques;
         User *user = question.user;
+        avatarImgView.imgUrl = user.avatar;
         fromLbl.text = [NSString stringWithFormat:@"%@, Section %@, Class of %@", user.name, user.section, user.year];
         
         NSMutableString *temp = [[NSMutableString alloc] initWithString:@"To: "];
@@ -110,6 +112,13 @@
 }
 
 -(IBAction)toggleOpen:(id)sender {
+    //hide keyboard first.
+    if ([[KeyboardStateListener sharedInstance] isVisible]) {
+        UIViewController* viewVC = (UIViewController*) delegate;
+        [viewVC.view endEditing:YES];
+        return;
+    }
+    
     shouldUpdateHeader = YES;
     if (hiddenBtn.selected) {
         [self toggleOpenWithUserAction:YES];

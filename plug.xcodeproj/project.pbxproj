@@ -57,6 +57,9 @@
 		A62168A01910DC3200639990 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168831910DC3200639990 /* SBJsonUTF8Stream.m */; };
 		A62168A11910DC3200639990 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168851910DC3200639990 /* SBJsonWriter.m */; };
 		A62168A21910DC3200639990 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = A62168881910DC3200639990 /* Utils.m */; };
+		A62E5021192267B4009E42B5 /* KeyboardStateListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A62E5020192267B4009E42B5 /* KeyboardStateListener.m */; };
+		A68B89141927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */; };
+		A68B89151927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */; };
 		A694B741191B3E0600C562D9 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B740191B3E0600C562D9 /* redcircle.png */; };
 		A694B745191B7C9D00C562D9 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B743191B7C9D00C562D9 /* close.png */; };
 		A694B746191B7C9D00C562D9 /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = A694B744191B7C9D00C562D9 /* open.png */; };
@@ -214,6 +217,11 @@
 		A62168871910DC3200639990 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A62168881910DC3200639990 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		A62BC7DF19124F97005E91EC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		A62E501F192267B4009E42B5 /* KeyboardStateListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardStateListener.h; sourceTree = "<group>"; };
+		A62E5020192267B4009E42B5 /* KeyboardStateListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardStateListener.m; sourceTree = "<group>"; };
+		A68B89111927A9C100B85A6D /* SubmitAnAnswerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitAnAnswerTableViewCell.h; sourceTree = "<group>"; };
+		A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitAnAnswerTableViewCell.m; sourceTree = "<group>"; };
+		A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubmitAnAnswerTableViewCell.xib; sourceTree = "<group>"; };
 		A694B740191B3E0600C562D9 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
 		A694B743191B7C9D00C562D9 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		A694B744191B7C9D00C562D9 /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
@@ -541,6 +549,8 @@
 				A697C0151912ABA100391A07 /* UILineFooterView.h */,
 				A62168871910DC3200639990 /* Utils.h */,
 				A62168881910DC3200639990 /* Utils.m */,
+				A62E501F192267B4009E42B5 /* KeyboardStateListener.h */,
+				A62E5020192267B4009E42B5 /* KeyboardStateListener.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -581,6 +591,9 @@
 				A61B9B2C191694DA00031598 /* OtherAnswerTableViewCell.h */,
 				A61B9B2D191694DA00031598 /* OtherAnswerTableViewCell.m */,
 				A61B9B2E191694DA00031598 /* OtherAnswerTableViewCell.xib */,
+				A68B89111927A9C100B85A6D /* SubmitAnAnswerTableViewCell.h */,
+				A68B89121927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m */,
+				A68B89131927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib */,
 				A61B9B101916271300031598 /* MyQuestionsViewController.h */,
 				A61B9B111916271300031598 /* MyQuestionsViewController.m */,
 				A61B9B121916271300031598 /* MyQuestionsViewController.xib */,
@@ -755,6 +768,7 @@
 				A697C03F1913DC9E00391A07 /* add@2x.png in Resources */,
 				A6D36F551914CCE800CF9B16 /* RegisterViewController.xib in Resources */,
 				A61B9B191916272100031598 /* QuestionsForMeViewController.xib in Resources */,
+				A68B89151927A9C100B85A6D /* SubmitAnAnswerTableViewCell.xib in Resources */,
 				A6D36F6D19153D7600CF9B16 /* EditAccountViewController.xib in Resources */,
 				A6A545EB1918CAAB00A7F847 /* up.png in Resources */,
 				A6A545EC1918CAAB00A7F847 /* vote-down.png in Resources */,
@@ -808,8 +822,10 @@
 				A621689D1910DC3200639990 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				A62168971910DC3200639990 /* SBJsonParser.m in Sources */,
 				A6D36F561914CCE800CF9B16 /* UserGroupViewController.m in Sources */,
+				A68B89141927A9C100B85A6D /* SubmitAnAnswerTableViewCell.m in Sources */,
 				A621688F1910DC3200639990 /* ASIFormDataRequest.m in Sources */,
 				A61B9B2419162A5A00031598 /* SectionHeaderView.m in Sources */,
+				A62E5021192267B4009E42B5 /* KeyboardStateListener.m in Sources */,
 				A621689E1910DC3200639990 /* SBJsonStreamWriterState.m in Sources */,
 				A62168981910DC3200639990 /* SBJsonStreamParser.m in Sources */,
 				A62168911910DC3200639990 /* ASIInputStream.m in Sources */,

@@ -86,10 +86,14 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [userService retrieveUserInfoByUserId:[UserService signedInUserId]];
+    
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardWillShowNotification object:nil];
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     [super viewWillAppear:animated];
+}
+
+- (void) queryData {
+    [userService retrieveUserInfoByUserId:[UserService signedInUserId]];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

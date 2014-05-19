@@ -48,6 +48,15 @@
     [navController3 setNavigationBarHidden:YES];
     navController3.view.frame = CGRectMake(0, 0, contentView.frame.size.width, contentView.frame.size.height);
     
+    [mySegmentControl setSelectedSegmentIndex:0];
+    [self segmentControlChanged:nil];
+    
+    [mySegmentControl setSelectedSegmentIndex:1];
+    [self segmentControlChanged:nil];
+    
+    [mySegmentControl setSelectedSegmentIndex:2];
+    [self segmentControlChanged:nil];
+    
     [mySegmentControl setSelectedSegmentIndex:2];
     [self segmentControlChanged:nil];
     

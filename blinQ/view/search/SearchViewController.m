@@ -43,6 +43,7 @@
     [self.view addSubview:hud];
     hud.labelText = @"Loading";
 
+    self.sectionInfoArray = [[NSMutableArray alloc] init];
     openSectionIndex = NSNotFound;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
@@ -103,7 +104,7 @@
 - (void)didSearchQuestionsSuccess:(QuestionService *)service {
     [hud hide:YES];
     NSMutableArray *array = service.questions;
-    self.sectionInfoArray = [[NSMutableArray alloc] initWithCapacity:[array count]];
+    [sectionInfoArray removeAllObjects];
     for (Question *question in array) {
         SectionInfo *info = [[SectionInfo alloc] init];
         info.open = NO;

@@ -20,10 +20,11 @@
 #import "Answer.h"
 #import "AnswerViewController.h"
 #import "QuestionProtocol.h"
+#import "MBProgressHUD.h"
 @interface MyQuestionsViewController : UIViewController<QuestionServiceDelegate, UITableViewDelegate, UITableViewDataSource, SectionHeaderViewDelegate, SubmitAnswerTableViewCellDelegate, OtherAnswerTableViewCellDelegate, UIGestureRecognizerDelegate> {
     NSTimer *timer;
 }
-
+@property (nonatomic, retain) MBProgressHUD *hud;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *sectionInfoArray;
 @property (nonatomic, retain) QuestionService *questionService;

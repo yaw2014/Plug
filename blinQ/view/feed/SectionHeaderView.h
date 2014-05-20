@@ -43,6 +43,8 @@
 @protocol SectionHeaderViewDelegate <NSObject>
 
 @optional
+- (void) requestAnswerDidStart: (SectionHeaderView*)sectionHeaderView;
+- (void) requestAnswerDidEnd: (SectionHeaderView*)sectionHeaderView;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
 - (void) didRetrieveAnswersSectionHeaderView:(SectionHeaderView*) headerView;

@@ -22,6 +22,7 @@
 @synthesize delegate;
 @synthesize dateSortBtn, urgencySortBtn;
 @synthesize submitAnAnswerCell;
+@synthesize hud;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,6 +40,10 @@
     
     self.questionService = [[QuestionService alloc] init];
     questionService.delegate = self;
+    
+    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:hud];
+    hud.labelText = @"Loading";
     
     self.timerService = [[QuestionService alloc] init];
     timerService.delegate = self;
@@ -378,6 +383,14 @@
 }
 
 #pragma mark Section header delegate
+- (void)requestAnswerDidStart:(SectionHeaderView *)sectionHeaderView {
+    [hud show:YES];
+}
+
+- (void)requestAnswerDidEnd:(SectionHeaderView *)sectionHeaderView {
+    [hud hide:YES];
+}
+
 - (void)didRetrieveAnswersSectionHeaderView:(SectionHeaderView *)headerView {
     [myTableView reloadData];
 }

@@ -318,6 +318,14 @@
 }
 
 #pragma mark Section header delegate
+- (void)requestAnswerDidStart:(SectionHeaderView *)sectionHeaderView {
+    [hud show:YES];
+}
+
+- (void)requestAnswerDidEnd:(SectionHeaderView *)sectionHeaderView {
+    [hud hide:YES];
+}
+
 - (void)didRetrieveAnswersSectionHeaderView:(SectionHeaderView *)headerView {
     [myTableView reloadData];
 }

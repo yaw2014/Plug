@@ -133,6 +133,9 @@
 }
 
 - (void) retrieveAnswers {
+    if (delegate && [delegate respondsToSelector:@selector(requestAnswerDidStart:)]) {
+        [delegate requestAnswerDidStart:self];
+    }
     [questionService retrieveAnswersForQuestion:question.questionId withUserId:[UserService signedInUserId]];
 }
 
@@ -153,6 +156,10 @@
 
 #pragma mark - QuestionServiceDelegate
 - (void)didRetrieveAnswersForQuestionSuccess:(QuestionService *)service {
+    if (delegate && [delegate respondsToSelector:@selector(requestAnswerDidStart:)]) {
+        [delegate requestAnswerDidEnd:self];
+    }
+
     question.answers = service.answers;
     if (shouldUpdateHeader) {
         [self toggleOpenWithUserAction:YES];

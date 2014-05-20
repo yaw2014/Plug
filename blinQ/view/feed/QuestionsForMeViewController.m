@@ -56,9 +56,9 @@
     
     openSectionIndex = NSNotFound;
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
-    tapGesture.delegate = self;
-    [self.view addGestureRecognizer:tapGesture];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+//    tapGesture.delegate = self;
+//    [self.view addGestureRecognizer:tapGesture];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:REQUEST_TIMER target:self selector:@selector(queryNewData) userInfo:nil repeats:YES];
     urgencySortBtn.selected = YES;

@@ -46,9 +46,9 @@
     self.sectionInfoArray = [[NSMutableArray alloc] init];
     openSectionIndex = NSNotFound;
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
-    tapGesture.delegate = self;
-    [self.view addGestureRecognizer:tapGesture];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+//    tapGesture.delegate = self;
+//    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)didReceiveMemoryWarning
